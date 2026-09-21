@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-bg-canvas: #f8fafc;
+    --color-bg-card: #ffffff;
+    --color-bg-subtle: #f1f5f9;
+    --color-border: #e2e8f0;
+    --color-ink-primary: #0f172a;
+    --color-ink-secondary: #334155;
+    --color-ink-muted: #64748b;
+    --color-brand-600: #dc2626;
+    --color-brand-700: #b91c1c;
+    --color-brand-800: #991b1b;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--color-bg-canvas);
+    color: var(--color-ink-primary);
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+    touch-action: manipulation;
+  }
+
+  body {
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    background-color: var(--color-bg-canvas);
+    color: var(--color-ink-primary);
+    text-rendering: optimizeLegibility;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Prevent iOS Safari auto-zoom on form inputs & remove 300ms tap delay */
+  input, select, textarea, button, a {
+    touch-action: manipulation;
+  }
+
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+  @media (min-width: 640px) {
+    input, select, textarea {
+      font-size: 0.875rem !important;
+    }
+  }
+
+  /* Clean subtle selection */
+  ::selection {
+    background-color: #fee2e2;
+    color: #991b1b;
+  }
+}
+
+/* Custom Scrollbar for Segmented Tabs */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Safe Area Utility for Mobile Dock */
+.safe-area-pb {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}

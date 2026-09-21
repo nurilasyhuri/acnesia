@@ -1,0 +1,187 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumb from '../components/common/Breadcrumb.astro';
+import { BUSINESS_INFO } from '../data/businessInfo';
+import { getBreadcrumbSchema, ensureAbsoluteUrl } from '../utils/seo';
+import { generateGeneralInquiryUrl } from '../utils/whatsapp';
+
+const breadcrumbs = [
+  { name: 'Beranda', url: '/' },
+  { name: 'Area Layanan & Lokasi', url: '/lokasi/' },
+];
+
+const breadcrumbSchema = getBreadcrumbSchema(breadcrumbs);
+const waUrl = generateGeneralInquiryUrl('lokasi-page');
+
+const malangAreas = [
+  {
+    name: 'Kecamatan Kedungkandang',
+    coverage: 'Buring, Sawojajar, Mergosono, Kotalama, Bumiayu, Arjowinangun, Tlogowaru, Wonokoyo.',
+    highlight: 'Area Workshop & Kantor Utama ACNesia — Waktu Respon Tercepat',
+  },
+  {
+    name: 'Kecamatan Klojen (Pusat Bisnis)',
+    coverage: 'Klojen, Oro-oro Dowo, Kauman, Kiduldalem, Sukoharjo, Kasin, Rampal Celaket, Samaan.',
+    highlight: 'Sentra perkantoran perbankan, instansi pemerintah, dan hotel pusat kota',
+  },
+  {
+    name: 'Kecamatan Lowokwaru',
+    coverage: 'Soekarno-Hatta (Suhat), Dinoyo, Tulusrejo, Mojolangu, Jatimulyo, Tunggulwulung, Tasikmadu.',
+    highlight: 'Kawasan kampus, kafe, coworking space, dan ruko komersial modern',
+  },
+  {
+    name: 'Kecamatan Blimbing',
+    coverage: 'Blimbing, Purwantoro, Bunulrejo, Pandanwangi, Purwodadi, Arjosari, Polowijen, Balearjosari.',
+    highlight: 'Kawasan industri, pergudangan, perumahan elit Araya, dan akses tol Malang-Pandaan',
+  },
+  {
+    name: 'Kecamatan Sukun',
+    coverage: 'Sukun, Tanjungrejo, Bandulan, Pisangcandi, Karangbesuki, Mulyorejo, Bakalan Krajan, Gadang.',
+    highlight: 'Fasilitas kesehatan, pabrik, pertokoan, dan kawasan pemukiman padat',
+  },
+  {
+    name: 'Kota Wisata Batu & Sekitarnya',
+    coverage: 'Batu, Bumiaji, Junrejo, Songgokerto, Sisir, Oro-oro Ombo, Sidomulyo.',
+    highlight: 'Layanan spesialis AC hotel, villa, resort, restoran, dan wahana wisata',
+  },
+  {
+    name: 'Kabupaten Malang (Singosari - Kepanjen)',
+    coverage: 'Singosari, Lawang, Karangploso, Pakis, Dau, Wagir, Pakisaji, Kepanjen, Dampit, Turen.',
+    highlight: 'Pabrik industri manufaktur, kantor cabang BUMN, dan pergudangan logistik',
+  },
+];
+---
+
+<BaseLayout
+  title="Area Layanan AC Komersial Malang Raya & Jawa Timur | ACNesia"
+  description="Cakupan wilayah operasional ACNesia di Kota Malang, Kabupaten Malang, Kota Batu, dan proyek B2B Jawa Timur. Layanan survey gratis dan respon cepat teknisi tetap."
+  canonical={ensureAbsoluteUrl('/lokasi/')}
+  jsonLd={breadcrumbSchema}
+  keywords={[
+    'area layanan acnesia',
+    'service ac kedungkandang malang',
+    'service ac sawojajar suhat',
+    'teknisi ac batu malang',
+    'service ac kepanjen singosari',
+    'acnesia malang raya',
+  ]}
+>
+  <!-- Breadcrumbs -->
+  <div class="bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+      <Breadcrumb items={breadcrumbs} />
+    </div>
+  </div>
+
+  <!-- Hero Header -->
+  <section class="bg-gradient-to-b from-white via-slate-50 to-slate-50 border-b border-slate-200 py-12 md:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-red-50 text-red-800 border border-red-200">
+          <span class="w-2 h-2 rounded-full bg-red-700"></span>
+          <span>Wilayah Kerja Operasional</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-950 tracking-tight leading-tight">
+          Cakupan Layanan ACNesia di Malang Raya & Jawa Timur
+        </h1>
+        <p class="text-base sm:text-lg text-slate-600 leading-relaxed">
+          Dengan kantor dan workshop di Kedungkandang, Kota Malang, teknisi kami memiliki mobilitas tinggi untuk menjangkau seluruh area perkantoran, instansi, dan kawasan komersial di Malang Raya secara tepat waktu.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Office Base Card -->
+  <section class="py-10 bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="rounded-3xl bg-slate-900 text-white p-8 sm:p-10 shadow-lg flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="space-y-3 max-w-2xl">
+          <span class="text-xs font-bold text-red-400 uppercase tracking-wider">Kantor & Workshop Utama</span>
+          <h2 class="text-2xl font-bold">{BUSINESS_INFO.address.formatted}</h2>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Menyimpan stok unit ready, perlengkapan instalasi pipa tembaga, pompa vakum, tabung freon resmi (R32, R410A, R134A), dan armada mobilitas teknisi lapangan.
+          </p>
+        </div>
+        <a
+          href={waUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="shrink-0 inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-red-600 hover:bg-red-400 text-slate-950 font-bold text-xs transition-colors"
+        >
+          <span>Jadwalkan Kunjungan / Survey</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Malang Raya Districts Grid -->
+  <section class="py-12 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+      <div class="border-b border-slate-200 pb-4">
+        <h2 class="text-2xl font-bold text-slate-950">Wilayah Pelayanan Intensif di Malang Raya</h2>
+        <p class="text-xs sm:text-sm text-slate-500 mt-1">
+          Daftar kecamatan dan kelurahan dengan jangkauan layanan regular same-day / next-day visit
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {malangAreas.map((area) => (
+          <div class="p-6 rounded-3xl bg-white border border-slate-200 hover:border-slate-300 hover:shadow-md transition-all space-y-3">
+            <div class="flex items-center gap-2 text-red-800 font-bold text-base">
+              <svg class="w-5 h-5 text-red-700 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <span>{area.name}</span>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed font-medium">
+              {area.coverage}
+            </p>
+            <div class="pt-2 border-t border-slate-100">
+              <span class="text-[11px] text-red-900 bg-red-50 px-2.5 py-1 rounded-md inline-block font-semibold">
+                {area.highlight}
+              </span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- East Java Regional B2B Coverage -->
+  <section class="py-16 bg-slate-50 border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="rounded-3xl bg-white border border-slate-200 p-8 sm:p-12 space-y-6">
+        <div class="max-w-3xl space-y-3">
+          <span class="text-xs font-bold text-red-800 uppercase tracking-wider">Cakupan Regional & Proyek</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-950 tracking-tight">
+            Layanan Pengadaan Proyek B2B se-Jawa Timur
+          </h2>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Selain melayani operasional harian di Malang Raya, ACNesia siap bermitra untuk proyek pengadaan unit AC multi-unit, instalasi gedung bertingkat, dan kontrak perawatan cabang korporat di wilayah Surabaya, Sidoarjo, Pasuruan, Mojokerto, Probolinggo, Blitar, dan kota-kota lain di Jawa Timur.
+          </p>
+        </div>
+
+        <div class="pt-2 flex flex-wrap items-center gap-3">
+          <a
+            href={waUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-md transition-colors"
+          >
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+              <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2z"/>
+            </svg>
+            <span>Konsultasi Proyek Luar Kota via WhatsApp</span>
+          </a>
+          <a
+            href="/pengadaan-ac/"
+            class="inline-flex items-center gap-2 px-5 py-3.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold text-xs transition-colors"
+          >
+            <span>Pelajari Skema Pengadaan B2B</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

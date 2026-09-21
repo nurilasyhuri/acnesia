@@ -1,0 +1,231 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/common/Breadcrumb.astro';
+import { getBreadcrumbSchema, ensureAbsoluteUrl } from '../../utils/seo';
+import { generateGeneralInquiryUrl } from '../../utils/whatsapp';
+
+const breadcrumbs = [
+  { name: 'Beranda', url: '/' },
+  { name: 'Pengadaan AC Komersial B2B', url: '/pengadaan-ac/' },
+];
+
+const breadcrumbSchema = getBreadcrumbSchema(breadcrumbs);
+const waProcurementUrl = generateGeneralInquiryUrl('pengadaan-b2b-corporate');
+
+const procurementSteps = [
+  {
+    step: '01',
+    title: 'Penerimaan BoQ & Konsultasi Spesifikasi',
+    description: 'Kirimkan daftar Bill of Quantity (BoQ), Rencana Kerja & Syarat (RKS), atau denah layout ruangan yang membutuhkan sistem pendingin.',
+  },
+  {
+    step: '02',
+    title: 'Survey Lapangan & Audit Termal',
+    description: 'Tim teknisi kami melakukan survey fisik ke lokasi proyek Anda di Malang Raya untuk memvalidasi jalur pipa, elevasi outdoor, dan daya listrik.',
+  },
+  {
+    step: '03',
+    title: 'Penerbitan RAB & Penawaran Resmi',
+    description: 'Kami menerbitkan proposal harga bersaing, rincian material pipa standar ASTM, serta opsi termin pembayaran (TOP) yang disepakati.',
+  },
+  {
+    step: '04',
+    title: 'Penerbitan PO / SPK & Pengiriman Unit',
+    description: 'Setelah PO/SPK diterbitkan, unit baru bersegel pabrik dikirimkan langsung dengan perlindungan kemasan aman.',
+  },
+  {
+    step: '05',
+    title: 'Instalasi Sesuai SOP & Vakum Sistem',
+    description: 'Pemasangan pipa tembaga berisolasi tebal, proses vakum kompresor dengan pompa vakum 2-stage (bukan purging), dan uji tekanan nitrogen.',
+  },
+  {
+    step: '06',
+    title: 'Commissioning Test & Berita Acara (BAP)',
+    description: 'Uji fungsi meliputi pengukuran amper, tekanan freon psi, suhu hembusan evaporator, dan serah terima dokumen legal faktur pajak.',
+  },
+];
+
+const b2bAdvantages = [
+  {
+    title: 'Faktur Pajak & Administrasi Lengkap',
+    description: 'Legalitas perusahaan resmi, siap menerbitkan Faktur Pajak elektronik (e-Faktur), kuitansi bermaterai, dan Berita Acara Serah Terima.',
+    icon: 'document',
+  },
+  {
+    title: 'Harga Distributor Proyek',
+    description: 'Dapatkan penawaran harga pengadaan unit dalam jumlah banyak (bulk order) langsung dengan skema harga B2B kompetitif.',
+    icon: 'tag',
+  },
+  {
+    title: 'Surat Dukungan Agen & Garansi',
+    description: 'Dukungan resmi untuk kebutuhan tender/lelang instansi pemerintah maupun korporat swasta dengan jaminan garansi pabrikan.',
+    icon: 'badge',
+  },
+  {
+    title: 'Termin Pembayaran Fleksibel (TOP)',
+    description: 'Tersedia skema termin pembayaran bertahap (DP, Pengiriman Unit, Selesai Pemasangan) sesuai perjanjian kerja sama institusional.',
+    icon: 'credit',
+  },
+];
+---
+
+<BaseLayout
+  title="Pengadaan AC Kantor, Gedung & Instansi B2B di Malang | ACNesia"
+  description="Layanan pengadaan unit AC komersial multi-unit untuk korporat, instansi pemerintah & gedung di Malang Raya. Faktur Pajak PPN, jaminan keaslian agen, dan instalasi standar engineering."
+  canonical={ensureAbsoluteUrl('/pengadaan-ac/')}
+  jsonLd={breadcrumbSchema}
+  keywords={[
+    'pengadaan ac kantor malang',
+    'tender ac instansi',
+    'pengadaan ac multi unit b2b',
+    'supplier ac daikin malang',
+    'jual ac cassette perusahaan',
+    'acnesia mitra bisnis indonesia',
+  ]}
+>
+  <!-- Breadcrumbs -->
+  <div class="bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+      <Breadcrumb items={breadcrumbs} />
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-b from-white via-slate-50 to-slate-50 border-b border-slate-200 py-12 md:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-red-50 text-red-800 border border-red-200">
+          <span class="w-2 h-2 rounded-full bg-red-700"></span>
+          <span>Solusi Pengadaan Korporat & Institusi B2B</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-950 tracking-tight leading-tight">
+          Pengadaan AC Multi-Unit Terpercaya untuk Kantor & Fasilitas Gedung
+        </h1>
+        <p class="text-base sm:text-lg text-slate-600 leading-relaxed">
+          ACNesia melayani pengadaan sistem pendingin udara terintegrasi untuk kebutuhan renovasi kantor, pembangunan gedung baru, penggantian aset lama, hingga pemenuhan spesifikasi tender instansi di Jawa Timur.
+        </p>
+
+        <div class="pt-2 flex flex-wrap items-center gap-3">
+          <a
+            href={waProcurementUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-red-700 hover:bg-red-800 text-white font-bold text-xs shadow-md transition-colors"
+          >
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+              <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2z"/>
+            </svg>
+            <span>Kirim BoQ / Diskusikan Proyek via WhatsApp</span>
+          </a>
+          <a
+            href="/kontak/"
+            class="inline-flex items-center gap-2 px-5 py-3.5 rounded-full bg-white hover:bg-slate-100 text-slate-700 font-semibold text-xs border border-slate-300 transition-colors"
+          >
+            <span>Formulir Permintaan Penawaran RAB</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key B2B Value Proposition Grid -->
+  <section class="py-12 md:py-20 bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <div class="text-center max-w-2xl mx-auto space-y-3">
+        <span class="text-xs font-bold text-red-800 uppercase tracking-wider">Standar B2B Teruji</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-950 tracking-tight">
+          Mengapa Perusahaan Memilih Pengadaan di ACNesia?
+        </h2>
+        <p class="text-sm text-slate-600">
+          Kombinasi legalitas lengkap, kepatuhan perpajakan, dan keahlian rekayasa teknisi tetap.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {b2bAdvantages.map((adv) => (
+          <div class="p-6 rounded-3xl bg-slate-50 border border-slate-200 hover:border-slate-300 hover:shadow-lg transition-all space-y-3">
+            <div class="w-10 h-10 rounded-2xl bg-red-100 text-red-800 flex items-center justify-center">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
+            <h3 class="font-bold text-slate-900 text-base leading-snug">{adv.title}</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">{adv.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 6-Step Procurement Workflow -->
+  <section class="py-16 md:py-20 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <div class="max-w-2xl space-y-3">
+        <span class="text-xs font-bold text-red-800 uppercase tracking-wider">Tahapan Kerja Sama</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-950 tracking-tight">
+          Alur Pelaksanaan Pengadaan Unit & Proyek
+        </h2>
+        <p class="text-sm text-slate-600">
+          Terstruktur dari perencanaan hingga commissioning test akhir untuk memastikan nol komplain.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {procurementSteps.map((step) => (
+          <div class="p-6 rounded-3xl bg-white border border-slate-200 space-y-3 relative overflow-hidden">
+            <span class="text-2xl font-black text-red-100 absolute top-4 right-4 select-none">
+              {step.step}
+            </span>
+            <div class="w-8 h-8 rounded-xl bg-red-700 text-white flex items-center justify-center text-xs font-bold shadow-xs">
+              {step.step}
+            </div>
+            <h3 class="font-bold text-slate-900 text-base leading-snug">{step.title}</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">{step.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Supported Brands Strip -->
+  <section class="py-12 bg-white border-y border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+      <p class="text-xs font-bold uppercase tracking-widest text-slate-400">
+        Pilihan Brand Principal Terpercaya untuk Proyek Anda
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-8 sm:gap-14 font-extrabold text-slate-500 text-sm sm:text-base">
+        <span class="hover:text-slate-900 transition-colors">DAIKIN</span>
+        <span class="hover:text-slate-900 transition-colors">PANASONIC</span>
+        <span class="hover:text-slate-900 transition-colors">GREE</span>
+        <span class="hover:text-slate-900 transition-colors">MITSUBISHI ELECTRIC</span>
+        <span class="hover:text-slate-900 transition-colors">SHARP</span>
+        <span class="hover:text-slate-900 transition-colors">LG</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="py-16 bg-slate-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+      <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight">
+        Siapkan Anggaran Pengadaan AC Kantor Lebih Efisien
+      </h2>
+      <p class="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
+        Konsultasikan kebutuhan spesifikasi unit dan jadwalkan survey awal gratis bersama tim spesialis B2B ACNesia.
+      </p>
+      <div class="pt-2 flex flex-wrap items-center justify-center gap-4">
+        <a
+          href={waProcurementUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-lg transition-colors"
+        >
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+            <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2z"/>
+          </svg>
+          <span>Chat Account Officer Pengadaan ACNesia</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

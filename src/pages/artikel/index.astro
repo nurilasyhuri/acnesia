@@ -1,0 +1,186 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/common/Breadcrumb.astro';
+import { getCollection } from 'astro:content';
+import { getBreadcrumbSchema, ensureAbsoluteUrl } from '../../utils/seo';
+
+const articles = await getCollection('artikel');
+const sortedArticles = articles.sort(
+  (a, b) => new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime()
+);
+
+const featuredArticle = sortedArticles[0];
+const regularArticles = sortedArticles.slice(1);
+
+const breadcrumbs = [
+  { name: 'Beranda', url: '/' },
+  { name: 'Artikel & Panduan AC', url: '/artikel/' },
+];
+
+const breadcrumbSchema = getBreadcrumbSchema(breadcrumbs);
+
+function formatDate(dateStr: string) {
+  const d = new Date(dateStr);
+  return d.toLocaleDateString('id-ID', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  });
+}
+---
+
+<BaseLayout
+  title="Artikel & Panduan Tata Udara Komersial | ACNesia"
+  description="Kumpulan panduan teknis, tips efisiensi energi listrik, cara menghitung kapasitas PK, dan wawasan pemeliharaan AC kantor dari tim engineer ACNesia."
+  canonical={ensureAbsoluteUrl('/artikel/')}
+  jsonLd={breadcrumbSchema}
+  keywords={[
+    'artikel ac kantor',
+    'panduan menghitung pk ac',
+    'perawatan ac berkala',
+    'ac cassette vs split',
+    'kontrak maintenance hvac',
+    'acnesia malang',
+  ]}
+>
+  <!-- Breadcrumbs -->
+  <div class="bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+      <Breadcrumb items={breadcrumbs} />
+    </div>
+  </div>
+
+  <!-- Hero Header -->
+  <section class="bg-gradient-to-b from-white via-slate-50 to-slate-50 border-b border-slate-200 py-12 md:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-red-50 text-red-800 border border-red-200">
+          <span class="w-2 h-2 rounded-full bg-red-700"></span>
+          <span>Knowledge Hub & Engineering Insights</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-950 tracking-tight leading-tight">
+          Wawasan Teknis & Panduan Cerdas Tata Udara Gedung
+        </h1>
+        <p class="text-base sm:text-lg text-slate-600 leading-relaxed">
+          Ditulis langsung oleh tim praktisi HVAC ACNesia untuk membantu manajer fasilitas, pengelola gedung, dan pemilik usaha mengoptimalkan performa pendingin serta menghemat tagihan listrik.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Article Hero Banner -->
+  {featuredArticle && (
+    <section class="py-10 bg-white border-b border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="rounded-3xl bg-slate-50 border border-slate-200 overflow-hidden hover:border-slate-300 transition-all">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-0 items-center">
+            <a href={`/artikel/${featuredArticle.slug}/`} class="lg:col-span-7 aspect-16/10 lg:aspect-auto h-full overflow-hidden block">
+              <img
+                src={featuredArticle.data.heroImage}
+                alt={featuredArticle.data.title}
+                width="800"
+                height="500"
+                class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                loading="eager"
+              />
+            </a>
+            <div class="lg:col-span-5 p-6 sm:p-10 space-y-4">
+              <div class="flex items-center gap-3 text-xs">
+                <span class="px-2.5 py-0.5 rounded-full font-bold bg-red-100 text-red-900">
+                  {featuredArticle.data.category || 'Panduan Teknis'}
+                </span>
+                <span class="text-slate-400">•</span>
+                <span class="text-slate-500">{formatDate(featuredArticle.data.publishDate)}</span>
+              </div>
+
+              <h2 class="text-xl sm:text-2xl font-bold text-slate-900 hover:text-red-800 transition-colors leading-snug">
+                <a href={`/artikel/${featuredArticle.slug}/`}>
+                  {featuredArticle.data.title}
+                </a>
+              </h2>
+
+              <p class="text-xs sm:text-sm text-slate-600 line-clamp-3 leading-relaxed">
+                {featuredArticle.data.description}
+              </p>
+
+              <div class="pt-2 flex items-center justify-between">
+                <span class="text-xs font-medium text-slate-500">{featuredArticle.data.author}</span>
+                <a
+                  href={`/artikel/${featuredArticle.slug}/`}
+                  class="inline-flex items-center gap-1.5 text-xs font-bold text-red-700 hover:text-red-800"
+                >
+                  <span>Baca Selengkapnya</span>
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Regular Articles Grid -->
+  <section class="py-12 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      <div class="flex items-center justify-between border-b border-slate-200 pb-4">
+        <h2 class="text-xl font-bold text-slate-900">Semua Panduan & Artikel</h2>
+        <span class="text-xs text-slate-500">{sortedArticles.length} Publikasi</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {regularArticles.map((article) => (
+          <article class="group rounded-3xl bg-white border border-slate-200 hover:border-slate-300 hover:shadow-lg transition-all duration-300 overflow-hidden flex flex-col justify-between">
+            <div>
+              <!-- Article Hero Image -->
+              <a href={`/artikel/${article.slug}/`} class="block aspect-16/10 bg-slate-100 overflow-hidden">
+                <img
+                  src={article.data.heroImage}
+                  alt={article.data.title}
+                  width="600"
+                  height="375"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
+              </a>
+
+              <!-- Details -->
+              <div class="p-6 space-y-3">
+                <div class="flex items-center gap-2 text-[11px] text-slate-500">
+                  <span class="font-bold text-red-800">{article.data.category || 'Wawasan AC'}</span>
+                  <span>•</span>
+                  <span>{formatDate(article.data.publishDate)}</span>
+                </div>
+
+                <h3 class="font-bold text-slate-900 group-hover:text-red-800 transition-colors leading-snug line-clamp-2">
+                  <a href={`/artikel/${article.slug}/`}>
+                    {article.data.title}
+                  </a>
+                </h3>
+
+                <p class="text-xs text-slate-600 line-clamp-3 leading-relaxed">
+                  {article.data.description}
+                </p>
+              </div>
+            </div>
+
+            <div class="p-6 pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="text-[11px] text-slate-400 font-medium">{article.data.author}</span>
+              <a
+                href={`/artikel/${article.slug}/`}
+                class="text-xs font-bold text-red-700 group-hover:text-red-800 inline-flex items-center gap-1"
+              >
+                <span>Baca</span>
+                <svg class="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

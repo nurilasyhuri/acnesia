@@ -1,0 +1,243 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/common/Breadcrumb.astro';
+import ProductCard from '../../../components/products/ProductCard.astro';
+import { getCollection } from 'astro:content';
+import { getBreadcrumbSchema, ensureAbsoluteUrl } from '../../../utils/seo';
+import { generateGeneralInquiryUrl } from '../../../utils/whatsapp';
+
+export async function getStaticPaths() {
+  const allProducts = await getCollection('produk');
+
+  const categories = [
+    {
+      id: 'ac-split',
+      name: 'AC Split Wall Mounted',
+      subtitle: 'Efisiensi Tinggi untuk Ruang Kerja, Studio & Kantor Cabang',
+      description:
+        'Koleksi unit AC Split Wall kapasitas 0.5 PK hingga 2.5 PK. Pilihan ideal untuk kantor privat, ruang meeting kecil, klinik, ruko, dan hunian dengan efisiensi energi tinggi dan perawatan mudah.',
+      idealFor: 'Ruang kerja staf, ruang manajer, bilik konsultasi, kamar hotel, dan ruko.',
+      keyAdvantages: [
+        'Instalasi relatif cepat tanpa bongkar plafon',
+        'Tersedia teknologi Inverter hemat listrik hingga 50%',
+        'Pilihan kapasitas fleksibel (0.5 PK s/d 2.5 PK)',
+        'Biaya pengadaan unit & maintenance paling efisien',
+      ],
+    },
+    {
+      id: 'ac-cassette',
+      name: 'AC Cassette 4-Way Ceiling',
+      subtitle: 'Sirkulasi Dingin 360 Derajat Estetik Flushed Plafon',
+      description:
+        'Unit AC Cassette 4-Way kapasitas 2 PK hingga 5 PK. Dirancang tertanam rapi di plafon untuk mendistribusikan udara sejuk secara merata ke seluruh sudut ruangan tanpa hembusan langsung yang mengganggu.',
+      idealFor: 'Ruang meeting besar, open space office, showroom, restoran, dan lobi gedung.',
+      keyAdvantages: [
+        'Hembusan angin 4 arah merata tanpa dead-zone',
+        'Desain rapi menyatu rata dengan plafon gypsum / akustik',
+        'Dilengkapi pompa pembuangan kondensasi otomatis (drain pump)',
+        'Kapasitas pendinginan bertenaga untuk ruangan berokupansi tinggi',
+      ],
+    },
+    {
+      id: 'ac-floor-standing',
+      name: 'AC Floor Standing Komersial',
+      subtitle: 'Pendinginan Cepat Berkapasitas Besar untuk Aula & Hall',
+      description:
+        'Unit AC Floor Standing kapasitas 3 PK hingga 10 PK. Pilihan tepat untuk area luas dengan pergerakan orang aktif yang membutuhkan pendinginan bertenaga tanpa instalasi plafon yang rumit.',
+      idealFor: 'Aula serbaguna, ballroom kantor, event space, ruang training, dan area ibadah.',
+      keyAdvantages: [
+        'Kekuatan blower ekstra besar dengan jangkauan angin jauh',
+        'Penempatan fleksibel di lantai tanpa membebani konstruksi plafon',
+        'Kontrol panel digital langsung pada bodi unit atau remote',
+        'Sangat tangguh untuk beban panas tinggi dan ruang pertemuan',
+      ],
+    },
+    {
+      id: 'ac-commercial',
+      name: 'AC Ceiling Ducted & Commercial Central',
+      subtitle: 'Sistem Pendingin Tersembunyi Estetika Arsitektur Mewah',
+      description:
+        'Sistem AC Ceiling Ducted dan Central Commercial kapasitas 3 PK hingga 20 PK. Seluruh unit indoor tersembunyi di atas plafon dengan distribusi udara melalui diffuser linier arsitektural yang elegan.',
+      idealFor: 'Kantor direksi, ruang konferensi VIP, hotel butik, rumah sakit, dan gedung bertingkat.',
+      keyAdvantages: [
+        'Tampilan interior sangat bersih, hanya diffuser udara yang terlihat',
+        'Tingkat kebisingan (noise level) paling rendah di kelasnya',
+        'Pengaturan zoning udara fleksibel melalui saluran ducting',
+        'Mendukung integrasi sistem Building Automation (BAS)',
+      ],
+    },
+  ];
+
+  return categories.map((cat) => {
+    const categoryProducts = allProducts.filter((p) => p.data.category === cat.id);
+    return {
+      params: { kategori: cat.id },
+      props: { category: cat, products: categoryProducts },
+    };
+  });
+}
+
+interface Props {
+  category: {
+    id: string;
+    name: string;
+    subtitle: string;
+    description: string;
+    idealFor: string;
+    keyAdvantages: string[];
+  };
+  products: Array<any>;
+}
+
+const { category, products } = Astro.props;
+
+const breadcrumbs = [
+  { name: 'Beranda', url: '/' },
+  { name: 'Katalog Produk AC', url: '/produk/' },
+  { name: category.name, url: `/produk/${category.id}/` },
+];
+
+const breadcrumbSchema = getBreadcrumbSchema(breadcrumbs);
+const waConsultUrl = generateGeneralInquiryUrl(`kategori-${category.id}`);
+---
+
+<BaseLayout
+  title={`${category.name} — Jual & Pengadaan AC Komersial | ACNesia Malang`}
+  description={category.description}
+  canonical={ensureAbsoluteUrl(`/produk/${category.id}/`)}
+  jsonLd={breadcrumbSchema}
+  keywords={[
+    category.name.toLowerCase(),
+    `jual ${category.name.toLowerCase()}`,
+    `pengadaan ${category.name.toLowerCase()} malang`,
+    `harga ${category.name.toLowerCase()} kantor`,
+    'ac komersial b2b',
+  ]}
+>
+  <!-- Breadcrumbs -->
+  <div class="bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+      <Breadcrumb items={breadcrumbs} />
+    </div>
+  </div>
+
+  <!-- Category Hero -->
+  <section class="bg-gradient-to-b from-white via-slate-50 to-slate-50 border-b border-slate-200 py-12 md:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-8 space-y-4">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-red-50 text-red-800 border border-red-200">
+            <span class="w-2 h-2 rounded-full bg-red-700"></span>
+            <span>Kategori Unit AC Komersial</span>
+          </div>
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-950 tracking-tight leading-tight">
+            {category.name}
+          </h1>
+          <p class="text-base sm:text-lg text-slate-600 font-medium">
+            {category.subtitle}
+          </p>
+          <p class="text-sm sm:text-base text-slate-600 leading-relaxed max-w-3xl">
+            {category.description}
+          </p>
+
+          <!-- Ideal For Tag -->
+          <div class="pt-2 flex items-start gap-2 text-xs sm:text-sm text-slate-700 bg-white/80 border border-slate-200 p-3.5 rounded-xl max-w-2xl">
+            <svg class="w-5 h-5 text-red-700 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+            </svg>
+            <div>
+              <span class="font-bold text-slate-900">Aplikasi Ruangan Ideal:</span> {category.idealFor}
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-4 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+          <h3 class="font-bold text-slate-900 text-sm tracking-tight border-b border-slate-100 pb-3">
+            Keunggulan Utama Tipe Ini
+          </h3>
+          <ul class="space-y-2.5">
+            {category.keyAdvantages.map((adv) => (
+              <li class="flex items-start gap-2.5 text-xs text-slate-600">
+                <svg class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>{adv}</span>
+              </li>
+            ))}
+          </ul>
+          <a
+            href={waConsultUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block w-full py-2.5 px-4 rounded-xl bg-red-700 hover:bg-red-800 text-white font-semibold text-xs text-center transition-colors shadow-xs"
+          >
+            Konsultasi Kebutuhan PK Tipe Ini
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products in this Category -->
+  <section class="py-12 md:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      <div class="flex items-center justify-between border-b border-slate-200 pb-4">
+        <div>
+          <h2 class="text-xl font-bold text-slate-900">Daftar Pilihan Unit {category.name}</h2>
+          <p class="text-xs text-slate-500 mt-1">Tersedia opsi pengadaan unit saja atau paket instalasi material lengkap</p>
+        </div>
+        <span class="text-xs font-semibold px-3 py-1 bg-slate-100 text-slate-700 rounded-full">
+          {products.length} Unit
+        </span>
+      </div>
+
+      {products.length > 0 ? (
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {products.map((product) => (
+            <ProductCard
+              product={{
+                title: product.data.title,
+                description: product.data.description,
+                category: product.data.category,
+                capacity: product.data.capacity,
+                priceDisplay: product.data.priceDisplay,
+                stockStatus: product.data.stockStatus,
+                thumbnail: product.data.thumbnail,
+                slug: product.slug,
+                brand: product.data.brand,
+              }}
+            />
+          ))}
+        </div>
+      ) : (
+        <div class="py-12 text-center bg-white rounded-2xl border border-slate-200 p-8 space-y-3">
+          <p class="font-bold text-slate-800 text-sm">Unit kategori ini sedang dalam proses pembaruan katalog.</p>
+          <p class="text-xs text-slate-500 max-w-md mx-auto">
+            Silakan hubungi customer support ACNesia untuk spesifikasi merk Daikin, Panasonic, Gree, atau Mitsubishi Electric.
+          </p>
+          <a
+            href={waConsultUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-red-700 text-white text-xs font-semibold hover:bg-red-800"
+          >
+            Hubungi Customer Support
+          </a>
+        </div>
+      )}
+
+      <!-- Back to all categories -->
+      <div class="pt-6 text-center">
+        <a
+          href="/produk/"
+          class="inline-flex items-center gap-2 text-xs font-semibold text-red-700 hover:text-red-800 hover:underline"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+          </svg>
+          <span>Kembali ke Semua Katalog Produk AC</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
