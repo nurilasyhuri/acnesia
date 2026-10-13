@@ -43,6 +43,21 @@ export default function ProductFilter({ initialProducts }: Props) {
     });
   }, [selectedCategory, searchQuery, initialProducts]);
 
+  const handleQuickAddRfq = (product: ProductItem) => {
+    if (typeof window !== 'undefined') {
+      window.dispatchEvent(
+        new CustomEvent('acnesia:add-rfq', {
+          detail: {
+            title: product.title,
+            category: product.category.replace('ac-', 'AC ').toUpperCase(),
+            capacity: product.capacity || '',
+            quantity: 1,
+          },
+        })
+      );
+    }
+  };
+
   return (
     <div class="space-y-8 font-sans">
       {/* Filter Tabs & Search Bar */}
@@ -165,22 +180,35 @@ export default function ProductFilter({ initialProducts }: Props) {
                 </div>
               </div>
 
-              <div class="p-4 sm:p-5 pt-3 border-t border-slate-100 mt-1 flex items-center justify-between gap-2">
-                <div class="flex flex-col min-w-0">
-                  <span class="text-[10px] text-slate-400 uppercase tracking-wider font-medium">Penawaran</span>
-                  <span class="font-bold text-slate-900 text-xs sm:text-sm tracking-tight truncate">
-                    {p.priceDisplay || "Konsultasi Penawaran"}
-                  </span>
+              <div class="p-4 sm:p-5 pt-3 border-t border-slate-100 mt-1 space-y-2.5">
+                <div class="flex items-center justify-between gap-2">
+                  <div class="flex flex-col min-w-0">
+                    <span class="text-[10px] text-slate-400 uppercase tracking-wider font-semibold">Skema Biaya</span>
+                    <span class="font-bold text-slate-900 text-xs sm:text-sm tracking-tight truncate">
+                      {p.priceDisplay || "Konsultasi Penawaran"}
+                    </span>
+                  </div>
+                  <a
+                    href={`/produk/${p.slug}/`}
+                    class="inline-flex items-center justify-center gap-1 py-1.5 px-3 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-semibold transition-all duration-200 shrink-0"
+                  >
+                    <span>Detail</span>
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                  </a>
                 </div>
-                <a
-                  href={`/produk/${p.slug}/`}
-                  class="inline-flex items-center justify-center gap-1 py-1.5 px-3 rounded-lg bg-slate-100 hover:bg-slate-900 text-slate-800 hover:text-white text-xs font-semibold transition-all duration-200 shrink-0"
+
+                <button
+                  type="button"
+                  onClick={() => handleQuickAddRfq(p)}
+                  class="w-full inline-flex items-center justify-center gap-1.5 py-1.5 px-3 rounded-xl bg-red-50 hover:bg-red-700 text-red-800 hover:text-white border border-red-200 hover:border-red-700 text-xs font-bold transition-all duration-200 cursor-pointer select-none"
                 >
-                  <span>Detail</span>
-                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                  <svg class="w-3.5 h-3.5 fill-none stroke-currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
                   </svg>
-                </a>
+                  <span>Tambah ke Penawaran (RFQ)</span>
+                </button>
               </div>
             </div>
           ))}

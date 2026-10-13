@@ -77,6 +77,23 @@ Mohon informasi ketersediaan unit dan pengiriman proposal penawaran resmi (Quota
     setQuantity((prev) => Math.max(1, Math.min(999, prev + delta)));
   };
 
+  const handleAddToRfq = () => {
+    const itemTitle = currentVariant ? `${productTitle} (${currentVariant.name})` : productTitle;
+    const itemCapacity = currentVariant?.name || '';
+    if (typeof window !== 'undefined') {
+      window.dispatchEvent(
+        new CustomEvent('acnesia:add-rfq', {
+          detail: {
+            title: itemTitle,
+            category: categoryName,
+            capacity: itemCapacity,
+            quantity: quantity,
+          },
+        })
+      );
+    }
+  };
+
   return (
     <div class="space-y-6 font-sans">
       {/* Variant Selector */}
@@ -200,18 +217,29 @@ Mohon informasi ketersediaan unit dan pengiriman proposal penawaran resmi (Quota
           </div>
         </div>
 
-        {/* Primary Action Button */}
-        <div class="space-y-3 pt-1">
+        {/* Primary Action Buttons: Add to RFQ & Direct WhatsApp */}
+        <div class="space-y-2.5 pt-1">
+          <button
+            type="button"
+            onClick={handleAddToRfq}
+            class="w-full inline-flex items-center justify-center gap-2.5 py-3.5 px-6 rounded-xl bg-red-700 hover:bg-red-800 active:bg-red-900 text-white font-bold text-sm tracking-normal shadow-md hover:shadow-lg transition-all select-none cursor-pointer"
+          >
+            <svg class="w-4 h-4 fill-none stroke-currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+            </svg>
+            <span>+ Masukkan ke Keranjang Penawaran (RFQ)</span>
+          </button>
+
           <a
             href={waUrl}
             target="_blank"
             rel="noopener noreferrer"
-            class="w-full inline-flex items-center justify-center gap-2.5 py-3.5 px-6 rounded-full bg-red-700 hover:bg-red-800 active:bg-red-900 text-white font-semibold text-sm tracking-normal shadow-xs hover:shadow transition-all select-none"
+            class="w-full inline-flex items-center justify-center gap-2 py-3 px-6 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-100 font-semibold text-xs sm:text-sm tracking-normal border border-slate-700 transition-all select-none"
           >
-            <svg class="w-4 h-4 text-white shrink-0 fill-current" viewBox="0 0 24 24">
+            <svg class="w-4 h-4 text-emerald-400 shrink-0 fill-current" viewBox="0 0 24 24">
               <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2z"/>
             </svg>
-            <span>Minta Penawaran Resmi via WhatsApp</span>
+            <span>Konsultasi Langsung via WhatsApp</span>
           </a>
 
           {/* Trust Strip */}
@@ -250,14 +278,26 @@ Mohon informasi ketersediaan unit dan pengiriman proposal penawaran resmi (Quota
             </span>
           </div>
 
-          <a
-            href={waUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center justify-center gap-1.5 py-2.5 px-4 rounded-full bg-red-700 hover:bg-red-800 text-white font-semibold text-xs tracking-normal transition-all shadow-xs shrink-0 select-none"
-          >
-            <span>Minta Penawaran WA</span>
-          </a>
+          <div class="flex items-center gap-2 shrink-0">
+            <button
+              type="button"
+              onClick={handleAddToRfq}
+              aria-label="Tambah ke keranjang penawaran"
+              class="inline-flex items-center justify-center p-2.5 rounded-full bg-red-50 text-red-700 border border-red-200 text-xs font-bold transition-all shadow-xs cursor-pointer select-none"
+            >
+              <svg class="w-4 h-4 fill-none stroke-currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+              </svg>
+            </button>
+            <a
+              href={waUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center gap-1.5 py-2.5 px-3.5 rounded-full bg-red-700 hover:bg-red-800 text-white font-semibold text-xs tracking-normal transition-all shadow-xs select-none"
+            >
+              <span>Penawaran WA</span>
+            </a>
+          </div>
         </div>
       </div>
     </div>

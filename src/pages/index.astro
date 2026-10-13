@@ -10,525 +10,193 @@ const [products, articles] = await Promise.all([
   getCollection('artikel'),
 ]);
 
-const featuredProducts = products
-  .filter((p) => p.data.featured)
-  .sort((a, b) => a.data.orderPriority - b.data.orderPriority);
+const sortedProducts = products.sort((a, b) => a.data.orderPriority - b.data.orderPriority);
 
 const localBusinessSchema = getLocalBusinessSchema();
 const websiteSchema = getWebsiteSchema();
-const waInquiryUrl = generateGeneralInquiryUrl('homepage-hero');
+const waInquiryUrl = generateGeneralInquiryUrl('homepage-final-cta');
 
 const homeKeywords = [
-  'acnesia mitra bisnis indonesia',
   'pengadaan ac kantor',
   'jual ac perusahaan',
   'kontrak maintenance ac kantor',
-  'preventive maintenance ac',
+  'preventive maintenance ac b2b',
   'sewa ac standing',
-  'service ac malang',
+  'service ac komersial',
   'instalasi ac gedung',
-  'supplier ac komersial',
+  'supplier ac indonesia',
+];
+
+// Clean category collections for editorial showcase
+const collections = [
+  {
+    title: 'AC Split Wall',
+    desc: 'Ruang kerja & kantor privat',
+    capacity: '1/2 PK - 2.5 PK',
+    href: '/produk/ac-split/',
+    image: '/images/products/ac-split-wall-mounted.webp',
+  },
+  {
+    title: 'AC Cassette 4-Way',
+    desc: 'Plafon aula & ruang meeting',
+    capacity: '2 PK - 5 PK',
+    href: '/produk/ac-cassette/',
+    image: '/images/products/ac-cassette-4-way.webp',
+  },
+  {
+    title: 'AC Floor Standing',
+    desc: 'Lobi & aula pertemuan besar',
+    capacity: '3 PK - 5 PK',
+    href: '/produk/ac-floor-standing/',
+    image: '/images/products/ac-floor-standing.webp',
+  },
+  {
+    title: 'AC Ducted Central',
+    desc: 'Integrasi tata udara tersembunyi',
+    capacity: '3 PK - 10 PK',
+    href: '/produk/ac-commercial/',
+    image: '/images/products/ac-ceiling-ducted.webp',
+  },
+  {
+    title: 'Sewa AC Proyek',
+    desc: 'Rental fleksibel harian & bulanan',
+    capacity: 'Ready Kirim',
+    href: '/sewa-ac/',
+    image: '/images/services/sewa-ac-standing.webp',
+  },
 ];
 ---
 
 <BaseLayout
-  title="ACNesia — Mitra Bisnis Indonesia | Jual, Instalasi, Service & Sewa AC"
-  description="Solusi satu pintu pendingin udara bisnis: pengadaan AC baru, instalasi profesional, service berkala, kontrak preventive maintenance, dan sewa AC untuk kantor, instansi, dan gedung di Indonesia."
+  title="Pengadaan Unit AC Kantor, Instalasi & Service B2B - ACNesia"
+  description="Solusi pengadaan AC kantor baru bergaransi resmi, jasa instalasi berstandar vakum, kontrak maintenance berkala, dan sewa unit untuk bisnis di Indonesia."
   keywords={homeKeywords}
   jsonLd={[localBusinessSchema, websiteSchema]}
 >
-  <!-- 1. HERO SECTION (100% Viewport / 100dvh) -->
-  <section class="relative min-h-[90vh] lg:min-h-screen flex items-center justify-center bg-slate-950 overflow-hidden font-sans pt-12 pb-20">
-    <!-- Background Technical Overlay with Subtle Ambient Lighting -->
+  <!-- 1. HERO SECTION (Apple / Modern B2B Editorial - Zero Cards) -->
+  <section class="relative min-h-[90vh] lg:min-h-screen flex items-center justify-center bg-slate-950 text-white font-sans overflow-hidden pt-20 pb-16">
+    <!-- Background Technical HVAC Image -->
     <div class="absolute inset-0 z-0">
       <img
         src="/images/hero/hero-acnesia.webp"
-        alt="Sistem Pendingin Ruangan Komersial ACNesia"
+        alt="Sistem Tata Udara Komersial ACNesia"
         width="1920"
         height="1080"
-        class="w-full h-full object-cover opacity-25"
+        class="w-full h-full object-cover opacity-20"
         loading="eager"
         decoding="async"
       />
       <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-slate-950/90"></div>
-      <div class="absolute -top-40 -left-40 w-96 h-96 bg-red-700/15 rounded-full blur-3xl"></div>
-      <div class="absolute bottom-10 right-10 w-96 h-96 bg-amber-600/10 rounded-full blur-3xl"></div>
     </div>
 
     <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
-      <!-- Eyebrow Badge -->
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-950/80 border border-red-600/30 text-red-300 text-xs font-semibold tracking-wide shadow-sm">
-        <span class="w-2 h-2 rounded-full bg-red-400 animate-pulse"></span>
+      <!-- Minimalist Eyebrow -->
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-slate-900/90 border border-slate-800 text-red-400 text-xs font-semibold tracking-wide">
+        <span class="w-2 h-2 rounded-full bg-red-500"></span>
         <span>ACNesia • Mitra Bisnis Indonesia</span>
       </div>
 
       <!-- Main Headline -->
       <div class="space-y-4">
-        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.15]">
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.12]">
           Semua Kebutuhan AC Bisnis,<br class="hidden sm:inline" />
           <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-amber-200 to-white">
             Satu Mitra.
           </span>
         </h1>
         <p class="text-sm sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed font-normal">
-          Pengadaan, instalasi, service, maintenance berkala, dan sewa AC untuk kantor, instansi, perusahaan, dan kebutuhan komersial di Indonesia.
+          Pengadaan unit baru bergaransi pabrik, instalasi berstandar teknik pendingin presisi, kontrak preventive maintenance terjadwal, dan sewa unit untuk perkantoran dan fasilitas komersial.
         </p>
       </div>
 
-      <!-- Action Buttons -->
+      <!-- Primary Action Buttons (No CTA spam) -->
       <div class="flex flex-col sm:flex-row items-center justify-center gap-3.5 pt-2">
         <a
-          href="/produk/"
-          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 py-3.5 px-7 rounded-xl bg-red-700 hover:bg-red-600 active:bg-red-800 text-white font-bold text-sm tracking-normal shadow-lg transition-all duration-200 select-none"
+          href="#katalog-ac"
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 py-3.5 px-7 rounded-xl bg-red-700 hover:bg-red-800 text-white font-bold text-sm tracking-normal shadow-sm transition-all select-none cursor-pointer"
         >
-          <span>Lihat Produk & Layanan</span>
+          <span>Jelajahi Katalog B2B</span>
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
           </svg>
         </a>
 
-        <a
-          href="/kontak/#rfq"
-          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 py-3.5 px-7 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-700 text-slate-200 font-semibold text-sm tracking-normal transition-all duration-200 select-none"
+        <button
+          type="button"
+          data-open-rfq
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 py-3.5 px-7 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-white font-semibold text-sm tracking-normal shadow-sm transition-all select-none cursor-pointer"
         >
-          <span>Minta Survey & Penawaran</span>
-        </a>
+          <svg class="w-4 h-4 fill-none stroke-currentColor text-red-400" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+          </svg>
+          <span>Buka Keranjang RFQ</span>
+          <span class="rfq-badge-counter hidden px-1.5 py-0.5 rounded-full bg-red-700 text-white font-black text-[10px] leading-none min-w-[18px]">0</span>
+        </button>
       </div>
 
-      <!-- Factual Micro-Proof Badges (No Fake Numbers) -->
-      <div class="pt-8 border-t border-slate-800/80 grid grid-cols-2 sm:grid-cols-5 gap-3 text-center text-xs text-slate-400 max-w-4xl mx-auto">
-        <div class="p-2.5 rounded-xl bg-slate-900/50 border border-slate-800/80">
-          <span class="font-bold text-white block">Pengadaan AC</span>
-          <span class="text-[11px] text-slate-400">Unit Baru Bergaransi</span>
-        </div>
-        <div class="p-2.5 rounded-xl bg-slate-900/50 border border-slate-800/80">
-          <span class="font-bold text-white block">Instalasi Rapi</span>
-          <span class="text-[11px] text-slate-400">Standar Vakum Sistem</span>
-        </div>
-        <div class="p-2.5 rounded-xl bg-slate-900/50 border border-slate-800/80">
-          <span class="font-bold text-white block">Service Rutin</span>
-          <span class="text-[11px] text-slate-400">Cuci Steam & Perbaikan</span>
-        </div>
-        <div class="p-2.5 rounded-xl bg-slate-900/50 border border-slate-800/80">
-          <span class="font-bold text-white block">Maintenance</span>
-          <span class="text-[11px] text-slate-400">Kontrak Terjadwal B2B</span>
-        </div>
-        <div class="p-2.5 rounded-xl bg-slate-900/50 border border-slate-800/80 col-span-2 sm:col-span-1">
-          <span class="font-bold text-white block">Sewa AC</span>
-          <span class="text-[11px] text-slate-400">Standing & Split Proyek</span>
+      <!-- Unboxed Capability Strip (Clean Divided Row, NO CARDS) -->
+      <div class="pt-10 border-t border-slate-800/80 max-w-4xl mx-auto">
+        <div class="grid grid-cols-2 sm:grid-cols-5 divide-y sm:divide-y-0 sm:divide-x divide-slate-800 text-center text-xs">
+          <div class="py-2.5 px-3">
+            <span class="font-bold text-white block">Pengadaan AC</span>
+            <span class="text-[11px] text-slate-400">Unit Baru & Multi-Unit</span>
+          </div>
+          <div class="py-2.5 px-3">
+            <span class="font-bold text-white block">Instalasi Rapi</span>
+            <span class="text-[11px] text-slate-400">Standar Mesin Vakum</span>
+          </div>
+          <div class="py-2.5 px-3">
+            <span class="font-bold text-white block">Service Rutin</span>
+            <span class="text-[11px] text-slate-400">Cuci Steam Bertekanan</span>
+          </div>
+          <div class="py-2.5 px-3">
+            <span class="font-bold text-white block">Maintenance</span>
+            <span class="text-[11px] text-slate-400">Kontrak Terjadwal B2B</span>
+          </div>
+          <div class="py-2.5 px-3 col-span-2 sm:col-span-1">
+            <span class="font-bold text-white block">Legalitas B2B</span>
+            <span class="text-[11px] text-slate-400">Faktur Pajak & BAP</span>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 2. HOMEPAGE SERVICE ARCHITECTURE (5 Pilar Layanan Utama) -->
-  <section class="py-20 bg-white font-sans border-b border-slate-200">
+  <!-- 2. EDITORIAL COLLECTION SHOWCASE (Minimalist, Unboxed Product Categories) -->
+  <section class="py-16 bg-white font-sans">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-2xl mx-auto space-y-3 mb-14">
-        <span class="text-xs font-bold uppercase tracking-wider text-red-800 bg-red-50 px-3 py-1 rounded-full border border-red-100">
-          Layanan Komprehensif
-        </span>
-        <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-          Solusi Seluruh Siklus Kebutuhan AC Anda
-        </h2>
-        <p class="text-sm text-slate-600 leading-relaxed">
-          Dari pengadaan unit pertama, pemasangan teknik presisi, hingga kontrak pemeliharaan jangka panjang.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
-        <!-- Card 1: Jual & Pengadaan -->
-        <a href="/layanan/jual-pengadaan-ac/" class="group p-6 rounded-2xl bg-slate-50 hover:bg-white border border-slate-200 hover:border-red-300 hover:shadow-lg transition-all duration-300 flex flex-col justify-between space-y-6">
-          <div class="space-y-3">
-            <div class="w-10 h-10 rounded-xl bg-red-100 text-red-800 flex items-center justify-center font-bold text-sm">
-              01
-            </div>
-            <h3 class="font-bold text-base text-slate-900 group-hover:text-red-800 transition-colors">
-              Jual & Pengadaan AC
-            </h3>
-            <p class="text-xs text-slate-600 leading-relaxed">
-              Unit AC Split, Cassette, Standing, hingga Ducted untuk kebutuhan 1 unit hingga pengadaan multi-unit perusahaan.
-            </p>
-          </div>
-          <span class="text-xs font-semibold text-red-700 group-hover:text-red-800 flex items-center gap-1">
-            Lihat Pengadaan <span class="group-hover:translate-x-1 transition-transform">→</span>
-          </span>
-        </a>
-
-        <!-- Card 2: Instalasi -->
-        <a href="/layanan/instalasi-ac/" class="group p-6 rounded-2xl bg-slate-50 hover:bg-white border border-slate-200 hover:border-red-300 hover:shadow-lg transition-all duration-300 flex flex-col justify-between space-y-6">
-          <div class="space-y-3">
-            <div class="w-10 h-10 rounded-xl bg-red-100 text-red-800 flex items-center justify-center font-bold text-sm">
-              02
-            </div>
-            <h3 class="font-bold text-base text-slate-900 group-hover:text-red-800 transition-colors">
-              Instalasi AC
-            </h3>
-            <p class="text-xs text-slate-600 leading-relaxed">
-              Pemasangan unit baru, perapian jalur pipa, proses vakum wajib, dan relokasi AC sesuai kondisi layout gedung.
-            </p>
-          </div>
-          <span class="text-xs font-semibold text-red-700 group-hover:text-red-800 flex items-center gap-1">
-            Lihat Instalasi <span class="group-hover:translate-x-1 transition-transform">→</span>
-          </span>
-        </a>
-
-        <!-- Card 3: Service -->
-        <a href="/layanan/service-ac/" class="group p-6 rounded-2xl bg-slate-50 hover:bg-white border border-slate-200 hover:border-red-300 hover:shadow-lg transition-all duration-300 flex flex-col justify-between space-y-6">
-          <div class="space-y-3">
-            <div class="w-10 h-10 rounded-xl bg-red-100 text-red-800 flex items-center justify-center font-bold text-sm">
-              03
-            </div>
-            <h3 class="font-bold text-base text-slate-900 group-hover:text-red-800 transition-colors">
-              Service AC
-            </h3>
-            <p class="text-xs text-slate-600 leading-relaxed">
-              Pemeriksaan menyeluruh, cuci steam evaporator/kondensor, perbaikan kebocoran pipa, dan penggantian sparepart.
-            </p>
-          </div>
-          <span class="text-xs font-semibold text-red-700 group-hover:text-red-800 flex items-center gap-1">
-            Lihat Service <span class="group-hover:translate-x-1 transition-transform">→</span>
-          </span>
-        </a>
-
-        <!-- Card 4: Maintenance -->
-        <a href="/layanan/preventive-maintenance/" class="group p-6 rounded-2xl bg-slate-50 hover:bg-white border border-slate-200 hover:border-red-300 hover:shadow-lg transition-all duration-300 flex flex-col justify-between space-y-6">
-          <div class="space-y-3">
-            <div class="w-10 h-10 rounded-xl bg-red-100 text-red-800 flex items-center justify-center font-bold text-sm">
-              04
-            </div>
-            <h3 class="font-bold text-base text-slate-900 group-hover:text-red-800 transition-colors">
-              Maintenance AC
-            </h3>
-            <p class="text-xs text-slate-600 leading-relaxed">
-              Perawatan berkala terjadwal untuk menjaga efisiensi daya listrik, mendeteksi masalah lebih dini, dan merawat aset.
-            </p>
-          </div>
-          <span class="text-xs font-semibold text-red-700 group-hover:text-red-800 flex items-center gap-1">
-            Lihat Maintenance <span class="group-hover:translate-x-1 transition-transform">→</span>
-          </span>
-        </a>
-
-        <!-- Card 5: Sewa AC -->
-        <a href="/sewa-ac/" class="group p-6 rounded-2xl bg-slate-50 hover:bg-white border border-slate-200 hover:border-red-300 hover:shadow-lg transition-all duration-300 flex flex-col justify-between space-y-6">
-          <div class="space-y-3">
-            <div class="w-10 h-10 rounded-xl bg-red-100 text-red-800 flex items-center justify-center font-bold text-sm">
-              05
-            </div>
-            <h3 class="font-bold text-base text-slate-900 group-hover:text-red-800 transition-colors">
-              Sewa AC
-            </h3>
-            <p class="text-xs text-slate-600 leading-relaxed">
-              Penyewaan AC Standing & Split fleksibel harian, mingguan, atau bulanan untuk kantor sementara, event, dan proyek.
-            </p>
-          </div>
-          <span class="text-xs font-semibold text-red-700 group-hover:text-red-800 flex items-center gap-1">
-            Lihat Rental <span class="group-hover:translate-x-1 transition-transform">→</span>
-          </span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- 3. B2B SOLUTION SECTION -->
-  <section class="py-20 bg-slate-900 text-white font-sans relative overflow-hidden">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        <!-- Left Column -->
-        <div class="lg:col-span-6 space-y-6">
-          <span class="text-xs font-bold uppercase tracking-wider text-red-400 bg-slate-950/80 px-3.5 py-1 rounded-full border border-red-900/80 inline-block">
-            Solusi Skala Bisnis
-          </span>
-          <h2 class="text-2xl sm:text-4xl font-black tracking-tight leading-tight">
-            AC untuk Satu Ruangan, Satu Kantor, hingga Kebutuhan Perusahaan.
+      <div class="flex items-baseline justify-between border-b border-slate-200 pb-4 mb-8">
+        <div>
+          <span class="text-[11px] font-bold uppercase tracking-wider text-red-800">Lini Tata Udara</span>
+          <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight mt-0.5">
+            Kategori Unit Pendingin Ruangan
           </h2>
-          <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
-            Konsultasikan jumlah ruangan, kebutuhan kapasitas PK, unit yang sudah tersedia, atau kebutuhan project Anda. ACNesia membantu proses dari identifikasi kebutuhan teknis hingga quotation resmi.
-          </p>
-
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-            <div class="p-4 rounded-xl bg-slate-800/60 border border-slate-700/80 space-y-1">
-              <span class="font-bold text-white text-sm block">Kantor & Coworking</span>
-              <span class="text-xs text-slate-400 block">Suhu stabil hening, mendukung produktivitas kerja harian.</span>
-            </div>
-            <div class="p-4 rounded-xl bg-slate-800/60 border border-slate-700/80 space-y-1">
-              <span class="font-bold text-white text-sm block">Perusahaan & Cabang</span>
-              <span class="text-xs text-slate-400 block">Standardisasi vendor, satu pintu kontrak, dan faktur pajak.</span>
-            </div>
-            <div class="p-4 rounded-xl bg-slate-800/60 border border-slate-700/80 space-y-1">
-              <span class="font-bold text-white text-sm block">Instansi & Lembaga</span>
-              <span class="text-xs text-slate-400 block">Kepatuhan SPK, transparansi anggaran, & Berita Acara (BAP).</span>
-            </div>
-            <div class="p-4 rounded-xl bg-slate-800/60 border border-slate-700/80 space-y-1">
-              <span class="font-bold text-white text-sm block">Gedung & Komersial</span>
-              <span class="text-xs text-slate-400 block">Integrasi ducting central, cassette 4-way, & AC standing.</span>
-            </div>
-          </div>
-
-          <div class="pt-4">
-            <a
-              href="/kontak/#rfq"
-              class="inline-flex items-center gap-2 py-3 px-6 rounded-xl bg-red-700 hover:bg-red-600 text-white font-bold text-xs sm:text-sm tracking-normal shadow-md transition-colors"
-            >
-              <span>Konsultasi Kebutuhan AC Bisnis</span>
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-            </a>
-          </div>
         </div>
-
-        <!-- Right Column (Visual / Key Metrics) -->
-        <div class="lg:col-span-6">
-          <div class="relative rounded-2xl overflow-hidden border border-slate-800 shadow-2xl bg-slate-950 p-6 sm:p-8 space-y-6">
-            <h3 class="text-base sm:text-lg font-bold text-white border-b border-slate-800 pb-3">
-              Karakter Layanan B2B ACNesia
-            </h3>
-
-            <div class="space-y-4 text-xs sm:text-sm text-slate-300">
-              <div class="flex items-start gap-3">
-                <div class="w-6 h-6 rounded-full bg-red-950/60 text-red-400 flex items-center justify-center shrink-0 mt-0.5">
-                  ✓
-                </div>
-                <div>
-                  <strong class="text-white block">Perhitungan Beban Kalor (BTU/h) Terukur:</strong>
-                  Kapasitas dihitung berbasis volume ruang dan panas elektronik, bukan tebak-tebakan.
-                </div>
-              </div>
-
-              <div class="flex items-start gap-3">
-                <div class="w-6 h-6 rounded-full bg-red-950/60 text-red-400 flex items-center justify-center shrink-0 mt-0.5">
-                  ✓
-                </div>
-                <div>
-                  <strong class="text-white block">SOP Teknik Pendingin Standar:</strong>
-                  Wajib mesin vakum, pipa tembaga tebal, dan uji ampere kelistrikan sebelum serah terima.
-                </div>
-              </div>
-
-              <div class="flex items-start gap-3">
-                <div class="w-6 h-6 rounded-full bg-red-950/60 text-red-400 flex items-center justify-center shrink-0 mt-0.5">
-                  ✓
-                </div>
-                <div>
-                  <strong class="text-white block">Legalitas & Pembukuan Transparan:</strong>
-                  Tersedia kwitansi resmi, Berita Acara Pekerjaan (BAP), dan Faktur Pajak lengkap.
-                </div>
-              </div>
-            </div>
-
-            <div class="p-4 rounded-xl bg-slate-950/40 border border-red-900/50 text-xs text-red-200">
-              Butuh survey lokasi untuk gedung kantor Anda? Hubungi sales engineering kami untuk menjadwalkan kunjungan teknis.
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 4. FEATURED PRODUCTS (Katalog AC Unggulan) -->
-  <section class="py-20 bg-slate-50 font-sans border-b border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
-        <div class="space-y-2">
-          <span class="text-xs font-bold uppercase tracking-wider text-red-800 bg-red-50 px-3 py-1 rounded-full border border-red-100">
-            Katalog Unit AC
-          </span>
-          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-            Pilihan Unit Pendingin Udara Komersial
-          </h2>
-          <p class="text-xs sm:text-sm text-slate-600">
-            Tersedia unit AC Split, Cassette, Floor Standing, hingga Ducted Central bergaransi pabrik.
-          </p>
-        </div>
-
-        <a
-          href="/produk/"
-          class="inline-flex items-center gap-1.5 text-xs font-bold text-red-800 hover:text-red-900 transition-colors"
-        >
-          <span>Lihat Semua Produk</span>
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        <a href="/produk/" class="text-xs font-semibold text-slate-600 hover:text-red-800 transition-colors">
+          Semua Katalog &rarr;
         </a>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {featuredProducts.map((product) => (
-          <ProductCard product={{
-            title: product.data.title,
-            description: product.data.description,
-            category: product.data.category,
-            capacity: product.data.capacity,
-            priceDisplay: product.data.priceDisplay,
-            stockStatus: product.data.stockStatus,
-            thumbnail: product.data.thumbnail,
-            slug: product.slug,
-            brand: product.data.brand,
-          }} />
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- 5. CORPORATE MAINTENANCE SECTION -->
-  <section class="py-20 bg-white font-sans border-b border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="bg-gradient-to-br from-slate-900 via-slate-900 to-slate-950 rounded-3xl p-8 sm:p-12 lg:p-16 text-white relative overflow-hidden shadow-xl">
-        <div class="relative z-10 max-w-3xl space-y-6">
-          <span class="text-xs font-bold uppercase tracking-wider text-red-400 bg-slate-950 px-3.5 py-1 rounded-full border border-red-900">
-            B2B Maintenance Contract
-          </span>
-          <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight leading-tight">
-            Maintenance AC Lebih Terjadwal untuk Bisnis Anda.
-          </h2>
-          <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
-            Untuk perusahaan dengan banyak unit AC, maintenance yang terjadwal membantu pengelolaan unit menjadi lebih sistematis, menekan pemborosan daya listrik gedung, dan mencegah kerusakan mendadak di tengah jam kerja.
-          </p>
-
-          <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-            <a
-              href="/layanan/kontrak-maintenance-ac/"
-              class="inline-flex items-center justify-center gap-2 py-3 px-6 rounded-xl bg-red-700 hover:bg-red-600 text-white font-bold text-xs sm:text-sm tracking-normal shadow-md transition-colors"
-            >
-              <span>Ajukan Kontrak Maintenance</span>
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-            </a>
-
-            <a
-              href="/kontak/#rfq"
-              class="inline-flex items-center justify-center gap-2 py-3 px-6 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-xs sm:text-sm transition-colors border border-slate-700"
-            >
-              <span>Minta Proposal SLA</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 6. HOW IT WORKS (6 Tahap Alur Kerja Profesional) -->
-  <section class="py-20 bg-slate-50 font-sans border-b border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-2xl mx-auto space-y-3 mb-14">
-        <span class="text-xs font-bold uppercase tracking-wider text-red-800 bg-red-50 px-3 py-1 rounded-full border border-red-100">
-          Alur Kerja Transparan
-        </span>
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-          Bagaimana ACNesia Bekerja Bersama Anda
-        </h2>
-        <p class="text-xs sm:text-sm text-slate-600">
-          Tahapan sistematis dari konsultasi awal hingga dukungan purna jual.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Step 1 -->
-        <div class="p-6 rounded-2xl bg-white border border-slate-200 space-y-3">
-          <span class="text-xs font-black text-red-700 tracking-wider">01 — SAMPAIKAN KEBUTUHAN</span>
-          <h3 class="font-bold text-sm text-slate-900">Deskripsikan Kebutuhan AC</h3>
-          <p class="text-xs text-slate-500 leading-relaxed">
-            Customer menjelaskan tipe kebutuhan: pengadaan unit baru, kendala perbaikan, rencana jadwal perawatan rutin, atau sewa event.
-          </p>
-        </div>
-
-        <!-- Step 2 -->
-        <div class="p-6 rounded-2xl bg-white border border-slate-200 space-y-3">
-          <span class="text-xs font-black text-red-700 tracking-wider">02 — KONSULTASI TEKNIS</span>
-          <h3 class="font-bold text-sm text-slate-900">Identifikasi & Rekomendasi</h3>
-          <p class="text-xs text-slate-500 leading-relaxed">
-            Tim sales engineering mengidentifikasi kapasitas PK, tipe unit yang tepat, dan estimasi beban pendinginan ruangan.
-          </p>
-        </div>
-
-        <!-- Step 3 -->
-        <div class="p-6 rounded-2xl bg-white border border-slate-200 space-y-3">
-          <span class="text-xs font-black text-red-700 tracking-wider">03 — SURVEY JIKA DIPERLUKAN</span>
-          <h3 class="font-bold text-sm text-slate-900">Pemeriksaan Lapangan</h3>
-          <p class="text-xs text-slate-500 leading-relaxed">
-            Survey lokasi dilakukan untuk proyek multi-unit, memeriksa jalur instalasi pipa, rute drainase, dan kapasitas daya listrik.
-          </p>
-        </div>
-
-        <!-- Step 4 -->
-        <div class="p-6 rounded-2xl bg-white border border-slate-200 space-y-3">
-          <span class="text-xs font-black text-red-700 tracking-wider">04 — QUOTATION & RAB</span>
-          <h3 class="font-bold text-sm text-slate-900">Penawaran Transparan</h3>
-          <p class="text-xs text-slate-500 leading-relaxed">
-            Penerbitan proposal penawaran resmi mencakup spesifikasi komponen, biaya material bantu, ongkos jasa, dan term of payment.
-          </p>
-        </div>
-
-        <!-- Step 5 -->
-        <div class="p-6 rounded-2xl bg-white border border-slate-200 space-y-3">
-          <span class="text-xs font-black text-red-700 tracking-wider">05 — PELAKSANAAN KERJA</span>
-          <h3 class="font-bold text-sm text-slate-900">Eksekusi Berstandar SOP</h3>
-          <p class="text-xs text-slate-500 leading-relaxed">
-            Teknisi bersertifikat melaksanakan instalasi dengan standar vakum, service bersih, atau pengantaran unit sewa tepat waktu.
-          </p>
-        </div>
-
-        <!-- Step 6 -->
-        <div class="p-6 rounded-2xl bg-white border border-slate-200 space-y-3">
-          <span class="text-xs font-black text-red-700 tracking-wider">06 — AFTER-SALES SUPPORT</span>
-          <h3 class="font-bold text-sm text-slate-900">Garansi & Follow-Up</h3>
-          <p class="text-xs text-slate-500 leading-relaxed">
-            Dukungan purna jual, klaim garansi instalasi pipa, Berita Acara Pekerjaan (BAP), dan monitoring siklus servis berkala.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 7. KNOWLEDGE HUB / ARTIKEL TEKNIS -->
-  <section class="py-20 bg-white font-sans border-b border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
-        <div class="space-y-2">
-          <span class="text-xs font-bold uppercase tracking-wider text-red-800 bg-red-50 px-3 py-1 rounded-full border border-red-100">
-            Knowledge Hub
-          </span>
-          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-            Panduan & Artikel Teknik AC
-          </h2>
-          <p class="text-xs sm:text-sm text-slate-600">
-            Wawasan seputar perhitungan PK, efisiensi energi, dan manajemen perawatan AC kantor.
-          </p>
-        </div>
-
-        <a
-          href="/artikel/"
-          class="inline-flex items-center gap-1.5 text-xs font-bold text-red-800 hover:text-red-900 transition-colors"
-        >
-          <span>Lihat Semua Panduan</span>
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-        </a>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {articles.slice(0, 4).map((a) => (
-          <a href={`/artikel/${a.slug}/`} class="group flex flex-col justify-between rounded-2xl bg-slate-50 hover:bg-white border border-slate-200 hover:border-red-300 hover:shadow-lg transition-all duration-300 overflow-hidden">
-            <div>
-              <div class="aspect-16/10 overflow-hidden bg-slate-200">
-                <img
-                  src={a.data.heroImage}
-                  alt={a.data.title}
-                  width="500"
-                  height="300"
-                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  loading="lazy"
-                />
-              </div>
-              <div class="p-5 space-y-2">
-                <span class="text-[10px] font-bold uppercase tracking-wider text-red-800">
-                  {a.data.category}
-                </span>
-                <h3 class="font-bold text-sm text-slate-900 group-hover:text-red-800 transition-colors line-clamp-2 leading-snug">
-                  {a.data.title}
-                </h3>
-                <p class="text-xs text-slate-500 line-clamp-2 leading-relaxed">
-                  {a.data.description}
-                </p>
-              </div>
+      <!-- Linear Category Strip (Unboxed, Image + Typography) -->
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+        {collections.map((col) => (
+          <a href={col.href} class="group block space-y-3">
+            <div class="aspect-4/3 rounded-xl overflow-hidden bg-slate-100 border border-slate-200/80 group-hover:border-slate-300 transition-colors">
+              <img
+                src={col.image}
+                alt={col.title}
+                width="400"
+                height="300"
+                class="w-full h-full object-cover group-hover:scale-104 transition-transform duration-500 ease-out"
+                loading="lazy"
+              />
             </div>
-            <div class="p-5 pt-0 text-[11px] text-slate-400">
-              {a.data.publishDate}
+            <div class="space-y-0.5">
+              <h3 class="font-bold text-sm text-slate-900 group-hover:text-red-800 transition-colors">
+                {col.title}
+              </h3>
+              <p class="text-xs text-slate-500 line-clamp-1">{col.desc}</p>
+              <span class="text-[11px] font-semibold text-red-700 block">{col.capacity}</span>
             </div>
           </a>
         ))}
@@ -536,37 +204,512 @@ const homeKeywords = [
     </div>
   </section>
 
-  <!-- 8. FINAL CTA SECTION (RFQ Form Link) -->
-  <section class="py-20 bg-slate-950 text-white font-sans relative overflow-hidden">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 relative z-10">
-      <span class="text-xs font-bold uppercase tracking-wider text-red-400 bg-slate-950 px-3.5 py-1 rounded-full border border-red-900">
-        Konsultasi Bebas Biaya Awal
+  <!-- 3. FEATURED PRODUCTS CATALOG (Unboxed Grid with Segmented Tab Filter) -->
+  <section id="katalog-ac" class="py-16 md:py-20 bg-slate-50 font-sans scroll-mt-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-6 border-b border-slate-200 mb-8">
+        <div class="space-y-1">
+          <span class="text-[11px] font-bold uppercase tracking-wider text-red-800">Unit Komersial</span>
+          <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
+            Katalog Produk & Spesifikasi
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-600">
+            Pilih unit untuk langsung ditambahkan ke proposal penawaran (RFQ) resmi perusahaan.
+          </p>
+        </div>
+
+        <!-- Segmented Tab Filter -->
+        <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-1 md:pb-0">
+          <button
+            type="button"
+            data-filter-tab="all"
+            class="home-tab-btn active px-3.5 py-1.5 rounded-lg text-xs font-bold bg-slate-900 text-white cursor-pointer select-none"
+          >
+            Semua
+          </button>
+          <button
+            type="button"
+            data-filter-tab="ac-split"
+            class="home-tab-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-white text-slate-700 border border-slate-200 hover:bg-slate-100 cursor-pointer select-none"
+          >
+            Split Wall
+          </button>
+          <button
+            type="button"
+            data-filter-tab="ac-cassette"
+            class="home-tab-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-white text-slate-700 border border-slate-200 hover:bg-slate-100 cursor-pointer select-none"
+          >
+            Cassette 4-Way
+          </button>
+          <button
+            type="button"
+            data-filter-tab="ac-floor-standing"
+            class="home-tab-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-white text-slate-700 border border-slate-200 hover:bg-slate-100 cursor-pointer select-none"
+          >
+            Floor Standing
+          </button>
+          <button
+            type="button"
+            data-filter-tab="ac-commercial"
+            class="home-tab-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-white text-slate-700 border border-slate-200 hover:bg-slate-100 cursor-pointer select-none"
+          >
+            Ducted Central
+          </button>
+        </div>
+      </div>
+
+      <!-- Product Showcase (Clean, Unboxed Cards) -->
+      <div id="home-products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {sortedProducts.map((product) => (
+          <div data-product-category={product.data.category} class="product-item-wrap">
+            <ProductCard product={{
+              title: product.data.title,
+              description: product.data.description,
+              category: product.data.category,
+              capacity: product.data.capacity,
+              priceDisplay: product.data.priceDisplay,
+              stockStatus: product.data.stockStatus,
+              thumbnail: product.data.thumbnail,
+              slug: product.slug,
+              brand: product.data.brand,
+            }} />
+          </div>
+        ))}
+      </div>
+
+      <!-- Clean Typographic Procurement Note (No Boxed Card) -->
+      <div class="mt-14 pt-8 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-600">
+        <p>
+          Memerlukan sistem skala besar (VRV / VRF, Chiller, Multi-Split)? Tim sales engineering ACNesia siap menyusun Bill of Quantity (BOQ) dan RAB custom.
+        </p>
+        <button
+          type="button"
+          data-open-rfq
+          class="shrink-0 font-bold text-red-800 hover:text-red-900 underline underline-offset-4 cursor-pointer"
+        >
+          Ajukan Spesifikasi Khusus di RFQ &rarr;
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. EDITORIAL SPLIT: LAYANAN TEKNIK & ENGINEERING (Zero Boxed Cards!) -->
+  <section class="py-20 bg-white font-sans">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <!-- Left: Editorial Section Lead -->
+        <div class="lg:col-span-5 space-y-4 lg:sticky lg:top-24">
+          <span class="text-[11px] font-bold uppercase tracking-wider text-red-800">Layanan Teknik Terpadu</span>
+          <h2 class="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight leading-tight">
+            Satu Rekanan untuk Seluruh Siklus Tata Udara
+          </h2>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Tidak perlu membagi tanggung jawab antara toko penjualan, tukang pasang lepas, dan teknisi pembersih. ACNesia mengintegrasikan pengadaan, instalasi presisi, hingga kontrak perawatan dalam satu kontrak kerja sama profesional.
+          </p>
+          <div class="pt-2">
+            <button
+              type="button"
+              data-open-rfq
+              class="inline-flex items-center gap-2 py-2.5 px-5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs tracking-normal shadow-xs transition-colors cursor-pointer select-none"
+            >
+              <span>Ajukan Paket Layanan di RFQ</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Right: Linear Numbered Services List (Divided Rows, Zero Cards) -->
+        <div class="lg:col-span-7 divide-y divide-slate-200">
+          <!-- Row 1: Instalasi -->
+          <div class="py-6 first:pt-0 space-y-3">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <span class="font-mono text-xs font-bold text-red-800">01</span>
+                <h3 class="font-bold text-base text-slate-900">Instalasi Berstandar Pompa Vakum</h3>
+              </div>
+              <button
+                type="button"
+                data-rfq-add
+                data-title="Jasa Instalasi & Vakum Standar Sistem"
+                data-category="Layanan Teknik"
+                data-capacity="Sesuai Unit"
+                class="text-xs font-bold text-red-700 hover:text-red-900 cursor-pointer"
+              >
+                + Tambah RFQ
+              </button>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed pl-7">
+              Pemasangan rapi unit split, cassette 4-way, floor standing, hingga ducted. Menggunakan pipa tembaga standar tebal, mesin vakum mutlak untuk mengevakuasi udara dan uap air, serta pengukuran ampere kelistrikan sebelum serah terima.
+            </p>
+          </div>
+
+          <!-- Row 2: Service & Cuci Steam -->
+          <div class="py-6 space-y-3">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <span class="font-mono text-xs font-bold text-red-800">02</span>
+                <h3 class="font-bold text-base text-slate-900">Service Berkala & Cuci Steam Bertekanan</h3>
+              </div>
+              <button
+                type="button"
+                data-rfq-add
+                data-title="Service & Cuci Steam AC Rutin"
+                data-category="Layanan Service"
+                data-capacity="Multi-Unit"
+                class="text-xs font-bold text-red-700 hover:text-red-900 cursor-pointer"
+              >
+                + Tambah RFQ
+              </button>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed pl-7">
+              Pembersihan intensif coil evaporator, blower, talang drainase, dan kondensor outdoor. Memulihkan kapasitas pendinginan, menghilangkan bau tidak sedap, dan memangkas beban kerja kompresor yang memicu lonjakan tagihan listrik.
+            </p>
+          </div>
+
+          <!-- Row 3: Kontrak Maintenance -->
+          <div class="py-6 space-y-3">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <span class="font-mono text-xs font-bold text-red-800">03</span>
+                <h3 class="font-bold text-base text-slate-900">Kontrak Preventive Maintenance B2B</h3>
+              </div>
+              <button
+                type="button"
+                data-rfq-add
+                data-title="Kontrak Preventive Maintenance B2B Perusahaan"
+                data-category="Pemeliharaan B2B"
+                data-capacity="Kontrak Berkala"
+                class="text-xs font-bold text-red-700 hover:text-red-900 cursor-pointer"
+              >
+                + Tambah RFQ
+              </button>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed pl-7">
+              Perawatan terstruktur terjadwal (bulanan / 2 bulanan / kuartalan) khusus untuk gedung perkantoran, instansi, dan bisnis cabang. Dilengkapi pencatatan logsheet digital per unit, audit tekanan freon, dan prioritas emergency response.
+            </p>
+          </div>
+
+          <!-- Row 4: Sewa AC Proyek -->
+          <div class="py-6 last:pb-0 space-y-3">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <span class="font-mono text-xs font-bold text-red-800">04</span>
+                <h3 class="font-bold text-base text-slate-900">Penyewaan AC Standing & Proyek Komersial</h3>
+              </div>
+              <button
+                type="button"
+                data-rfq-add
+                data-title="Paket Sewa AC Standing Komersial"
+                data-category="Sewa Unit"
+                data-capacity="Harian / Bulanan"
+                class="text-xs font-bold text-red-700 hover:text-red-900 cursor-pointer"
+              >
+                + Tambah RFQ
+              </button>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed pl-7">
+              Penyediaan unit AC Floor Standing kapasitas 3 PK hingga 5 PK untuk event korporasi, ruang rapat sementara, pameran, atau kantor proyek lapangan. Fleksibel sistem sewa harian, mingguan, maupun kontrak bulanan.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. B2B ENGINEERING COMPARISON MATRIX (Clean Table Layout - ZERO CARDS) -->
+  <section class="py-16 md:py-20 bg-slate-900 text-white font-sans">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl space-y-2 mb-10">
+        <span class="text-[11px] font-bold uppercase tracking-wider text-red-400">Standar Mutu Proyek</span>
+        <h2 class="text-2xl sm:text-3xl font-black tracking-tight">
+          Standar Rekayasa ACNesia vs Pengadaan Biasa
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-300">
+          Perbedaan parameter teknis operasional yang menjamin ketahanan unit pendingin ruangan bisnis Anda.
+        </p>
+      </div>
+
+      <!-- Comparison Table (Stripe / Apple Style) -->
+      <div class="overflow-x-auto border-t border-b border-slate-800">
+        <table class="w-full text-left text-xs border-collapse">
+          <thead>
+            <tr class="border-b border-slate-800 text-slate-400 font-semibold">
+              <th class="py-4 pr-6 w-1/4">Parameter Kerja</th>
+              <th class="py-4 px-6 w-3/8 text-slate-400">Teknisi Servis Biasa</th>
+              <th class="py-4 pl-6 w-3/8 text-red-400 font-bold">Standar Rekayasa B2B ACNesia</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-800/80 text-slate-300">
+            <tr>
+              <td class="py-4 pr-6 font-bold text-white">Penentuan Kapasitas PK</td>
+              <td class="py-4 px-6 text-slate-400">Tebakan perkiraan luas ruangan saja</td>
+              <td class="py-4 pl-6 text-slate-100 font-medium">Kalkulasi beban kalor (BTU/h) berbasis volume ruang, okupansi staf, dan perangkat elektronik.</td>
+            </tr>
+            <tr>
+              <td class="py-4 pr-6 font-bold text-white">Prosedur Vakum Pipa</td>
+              <td class="py-4 px-6 text-slate-400">Sering dilewati atau hanya *flushing freon* (buang freon)</td>
+              <td class="py-4 pl-6 text-slate-100 font-medium">Wajib mesin vakum digital hingga &le; 500 micron untuk memastikan nol kelembapan udara.</td>
+            </tr>
+            <tr>
+              <td class="py-4 pr-6 font-bold text-white">Kelengkapan Administrasi</td>
+              <td class="py-4 px-6 text-slate-400">Nota kuitansi manual toko tanpa PPN</td>
+              <td class="py-4 pl-6 text-slate-100 font-medium">Surat Perintah Kerja (SPK), Berita Acara Pekerjaan (BAP), invoice resmi, dan Faktur Pajak PPN.</td>
+            </tr>
+            <tr>
+              <td class="py-4 pr-6 font-bold text-white">Uji Teknis Serah Terima</td>
+              <td class="py-4 px-6 text-slate-400">Hanya cek hembusan angin dingin</td>
+              <td class="py-4 pl-6 text-slate-100 font-medium">Pengukuran delta suhu intake-outlet, uji ampere kelistrikan, dan tes kemiringan drainase air.</td>
+            </tr>
+            <tr>
+              <td class="py-4 pr-6 font-bold text-white">Perawatan Berkala</td>
+              <td class="py-4 px-6 text-slate-400">Menunggu unit rusak atau bocor baru dipanggil</td>
+              <td class="py-4 pl-6 text-slate-100 font-medium">Jadwal preventif terstruktur dengan logsheet performa digital dan SLA prioritas darurat.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. HOW IT WORKS: CONTINUOUS LINEAR WORKFLOW (Zero Detached Cards!) -->
+  <section class="py-20 bg-white font-sans">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-baseline justify-between border-b border-slate-200 pb-4 mb-12">
+        <div>
+          <span class="text-[11px] font-bold uppercase tracking-wider text-red-800">Alur Kerja Sistematis</span>
+          <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight mt-0.5">
+            Tahapan Eksekusi Pengadaan & Pemeliharaan
+          </h2>
+        </div>
+        <span class="text-xs text-slate-400">6 Langkah Terarah</span>
+      </div>
+
+      <!-- Linear Timeline Grid (Bordered flow, not cards) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-10">
+        <!-- Step 1 -->
+        <div class="space-y-2 border-t-2 border-red-700 pt-3">
+          <span class="font-mono text-xs font-bold text-red-700">01 / IDENTIFIKASI</span>
+          <h3 class="font-bold text-sm text-slate-900">Sampaikan Rincian Kebutuhan</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Customer menginformasikan kebutuhan: unit baru, keluhan kerusakan, jadwal servis rutin kantor, atau sewa event lapangan.
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="space-y-2 border-t-2 border-slate-300 pt-3">
+          <span class="font-mono text-xs font-bold text-slate-500">02 / KONSULTASI</span>
+          <h3 class="font-bold text-sm text-slate-900">Rekomendasi Kapasitas & Unit</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Sales engineering menghitung beban BTU/h dan merekomendasikan pilihan tipe unit (split, cassette, standing) yang paling efisien.
+          </p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="space-y-2 border-t-2 border-slate-300 pt-3">
+          <span class="font-mono text-xs font-bold text-slate-500">03 / SURVEY LAPANGAN</span>
+          <h3 class="font-bold text-sm text-slate-900">Pemeriksaan Jalur & Panel Daya</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Untuk proyek multi-unit, tim melakukan survey layout plafon, jalur pipa tembaga, drainase kondensat, dan kapasitas daya listrik.
+          </p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="space-y-2 border-t-2 border-slate-300 pt-3">
+          <span class="font-mono text-xs font-bold text-slate-500">04 / QUOTATION & RAB</span>
+          <h3 class="font-bold text-sm text-slate-900">Penerbitan Penawaran Resmi</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Proposal penawaran resmi diterbitkan mencakup spesifikasi unit, material pembantu standar, ongkos teknisi, dan jadwal pelaksanaan.
+          </p>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="space-y-2 border-t-2 border-slate-300 pt-3">
+          <span class="font-mono text-xs font-bold text-slate-500">05 / EKSEKUSI SOP</span>
+          <h3 class="font-bold text-sm text-slate-900">Pengerjaan Berstandar Mutu</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Teknisi tersertifikasi melaksanakan pemasangan dengan proses vakum wajib, uji ampere, atau pencucian steam menyeluruh.
+          </p>
+        </div>
+
+        <!-- Step 6 -->
+        <div class="space-y-2 border-t-2 border-slate-300 pt-3">
+          <span class="font-mono text-xs font-bold text-slate-500">06 / SERAH TERIMA & BAP</span>
+          <h3 class="font-bold text-sm text-slate-900">Garansi & Berita Acara</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Penyerahan Berita Acara Pekerjaan (BAP), kartu garansi resmi pabrik, faktur pajak, dan pendataan jadwal servis preventif berikutnya.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. KNOWLEDGE HUB / ARTIKEL TEKNIS (Editorial Broadsheet Layout) -->
+  <section class="py-16 bg-slate-50 font-sans">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-baseline justify-between border-b border-slate-200 pb-4 mb-8">
+        <div>
+          <span class="text-[11px] font-bold uppercase tracking-wider text-red-800">Panduan Teknik</span>
+          <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight mt-0.5">
+            Wawasan Tata Udara Komersial
+          </h2>
+        </div>
+        <a href="/artikel/" class="text-xs font-semibold text-slate-600 hover:text-red-800 transition-colors">
+          Lihat Semua Panduan &rarr;
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {articles.slice(0, 4).map((a) => (
+          <a href={`/artikel/${a.slug}/`} class="group block space-y-2.5">
+            <div class="aspect-16/10 rounded-xl overflow-hidden bg-slate-200 border border-slate-200/80">
+              <img
+                src={a.data.heroImage}
+                alt={a.data.title}
+                width="500"
+                height="300"
+                class="w-full h-full object-cover group-hover:scale-104 transition-transform duration-500"
+                loading="lazy"
+              />
+            </div>
+            <div class="space-y-1">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-red-800">
+                {a.data.category}
+              </span>
+              <h3 class="font-bold text-sm text-slate-900 group-hover:text-red-800 transition-colors line-clamp-2 leading-snug">
+                {a.data.title}
+              </h3>
+              <p class="text-xs text-slate-500 line-clamp-2 leading-relaxed">
+                {a.data.description}
+              </p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. B2B PROCUREMENT FAQ (Clean Borderless Accordion - ZERO SEPARATE CARDS) -->
+  <section class="py-20 bg-white font-sans">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="space-y-2 pb-6 border-b border-slate-200 mb-6">
+        <span class="text-[11px] font-bold uppercase tracking-wider text-red-800">Tanya Jawab</span>
+        <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
+          FAQ Pengadaan & Layanan B2B
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-500">
+          Informasi seputar kepatuhan administrasi, kalkulasi beban, dan jangkauan operasional.
+        </p>
+      </div>
+
+      <!-- Hairline Divided Accordion (Apple / Stripe style) -->
+      <div class="divide-y divide-slate-200" id="faq-accordion">
+        <details class="group py-4.5 [&_summary::-webkit-details-marker]:hidden cursor-pointer">
+          <summary class="flex items-center justify-between font-bold text-sm text-slate-900">
+            <span>Apakah ACNesia dapat menerbitkan Faktur Pajak & dokumen BAP resmi?</span>
+            <span class="text-slate-400 group-open:rotate-180 transition-transform text-xs">▼</span>
+          </summary>
+          <p class="mt-2.5 text-xs text-slate-600 leading-relaxed pr-6">
+            Ya. ACNesia melayani transaksi B2B dengan penerbitan Faktur Pajak (PPN), invoice resmi perusahaan, Surat Perintah Kerja (SPK), dan Berita Acara Pekerjaan (BAP) untuk kelengkapan administrasi instansi maupun perseroan.
+          </p>
+        </details>
+
+        <details class="group py-4.5 [&_summary::-webkit-details-marker]:hidden cursor-pointer">
+          <summary class="flex items-center justify-between font-bold text-sm text-slate-900">
+            <span>Bagaimana cara menentukan kapasitas PK AC yang tepat untuk ruang kantor?</span>
+            <span class="text-slate-400 group-open:rotate-180 transition-transform text-xs">▼</span>
+          </summary>
+          <p class="mt-2.5 text-xs text-slate-600 leading-relaxed pr-6">
+            Kapasitas AC dihitung berbasis rumus beban kalor (BTU/h) yang memperhitungkan luas ruangan, tinggi plafon, jumlah orang di ruangan, paparan sinar matahari melalui kaca, serta panas dari komputer atau perangkat server. Tim sales engineering ACNesia siap membantu kalkulasi beban secara gratis.
+          </p>
+        </details>
+
+        <details class="group py-4.5 [&_summary::-webkit-details-marker]:hidden cursor-pointer">
+          <summary class="flex items-center justify-between font-bold text-sm text-slate-900">
+            <span>Apakah melayani survey lokasi sebelum menerbitkan penawaran harga?</span>
+            <span class="text-slate-400 group-open:rotate-180 transition-transform text-xs">▼</span>
+          </summary>
+          <p class="mt-2.5 text-xs text-slate-600 leading-relaxed pr-6">
+            Ya. Untuk kebutuhan proyek pengadaan multi-unit, instalasi gedung, atau kontrak maintenance perusahaan, tim kami dapat menjadwalkan survey lokasi untuk memeriksa rute pemipaan, rongga plafon, drainase air kondensat, dan ketersediaan panel listrik.
+          </p>
+        </details>
+
+        <details class="group py-4.5 [&_summary::-webkit-details-marker]:hidden cursor-pointer">
+          <summary class="flex items-center justify-between font-bold text-sm text-slate-900">
+            <span>Mengapa proses instalasi AC wajib menggunakan mesin vakum?</span>
+            <span class="text-slate-400 group-open:rotate-180 transition-transform text-xs">▼</span>
+          </summary>
+          <p class="mt-2.5 text-xs text-slate-600 leading-relaxed pr-6">
+            Mesin vakum berfungsi menyedot habis udara dan kelembapan air di dalam jalur pipa tembaga sebelum freon dialirkan. Tanpa vakum, uap air dapat bereaksi dengan oli kompresor menjadi asam, memicu penyumbatan es, dan mempercepat kerusakan kompresor AC. Di ACNesia, SOP vakum adalah prosedur wajib.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. FINAL CONVERSION SECTION (Single WhatsApp Contact Button as authorized by preferences) -->
+  <section class="py-20 bg-slate-950 text-white font-sans">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+      <span class="text-[11px] font-bold uppercase tracking-wider text-red-400">
+        Konsultasi & Pengadaan B2B
       </span>
       <h2 class="text-3xl sm:text-5xl font-black tracking-tight">
-        Siap Meningkatkan Efisiensi AC Bisnis Anda?
+        Siap Mengoptimalkan Tata Udara Bisnis Anda?
       </h2>
       <p class="text-sm sm:text-base text-slate-300 max-w-xl mx-auto leading-relaxed">
-        Sampaikan kebutuhan pengadaan unit baru, kendala perbaikan, atau permintaan kontrak maintenance berkala kepada tim kami.
+        Kumpulkan kebutuhan unit dan paket layanan Anda ke keranjang penawaran (RFQ) atau konsultasikan rencana proyek bersama sales engineering ACNesia.
       </p>
 
       <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a
-          href="/kontak/#rfq"
-          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 py-3.5 px-8 rounded-xl bg-red-700 hover:bg-red-600 text-white font-bold text-sm tracking-normal shadow-lg transition-colors"
+        <button
+          type="button"
+          data-open-rfq
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 py-3.5 px-8 rounded-xl bg-red-700 hover:bg-red-800 text-white font-bold text-sm tracking-normal shadow-sm transition-colors cursor-pointer select-none"
         >
-          <span>Ajukan Permintaan Penawaran (RFQ)</span>
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-        </a>
+          <svg class="w-4 h-4 fill-none stroke-currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+          </svg>
+          <span>Buka Keranjang Penawaran (RFQ)</span>
+        </button>
 
         <a
           href={waInquiryUrl}
           target="_blank"
           rel="noopener noreferrer"
-          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 py-3.5 px-8 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-200 font-semibold text-sm transition-colors"
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 py-3.5 px-8 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-200 font-semibold text-sm transition-colors select-none"
         >
-          <span>Chat Sales WhatsApp</span>
+          <svg class="w-4 h-4 text-emerald-400 fill-current" viewBox="0 0 24 24">
+            <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2z"/>
+          </svg>
+          <span>Konsultasi Proyek (WhatsApp)</span>
         </a>
       </div>
     </div>
   </section>
 </BaseLayout>
+
+<script>
+  // Tab filtering logic for Homepage Products Catalog
+  const tabButtons = document.querySelectorAll('.home-tab-btn');
+  const productWrappers = document.querySelectorAll('.product-item-wrap');
+
+  tabButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const category = btn.getAttribute('data-filter-tab');
+      tabButtons.forEach((b) => {
+        b.classList.remove('bg-slate-900', 'text-white');
+        b.classList.add('bg-white', 'text-slate-700', 'border', 'border-slate-200');
+      });
+      btn.classList.remove('bg-white', 'text-slate-700', 'border', 'border-slate-200');
+      btn.classList.add('bg-slate-900', 'text-white');
+
+      productWrappers.forEach((wrap) => {
+        const itemCat = wrap.getAttribute('data-product-category');
+        if (category === 'all' || itemCat === category) {
+          (wrap as HTMLElement).style.display = 'block';
+        } else {
+          (wrap as HTMLElement).style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
