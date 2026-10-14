@@ -1,10 +1,10 @@
 ---
-title: 'Jasa Instalasi & Pemasangan AC Komersial'
-tagline: 'Instalasi Presisi, Rapi, Berstandar Vakum & Kelistrikan Aman'
-description: 'Pemasangan AC baru, instalasi multi-unit perkantoran, relokasi gedung, dan pekerjaan bongkar pasang oleh teknisi bersertifikat.'
-serviceType: 'Jasa Konstruksi & Instalasi HVAC Komersial'
+title: 'Jasa Pasang AC'
+tagline: 'Instalasi Presisi, Bongkar Pasang & Relokasi AC Berstandar Vakum'
+description: 'Jasa pasang AC baru, instalasi multi-unit perkantoran, relokasi gedung, dan pekerjaan bongkar pasang AC oleh teknisi bersertifikat dengan wajib vakum.'
+serviceType: 'Instalasi & Bongkar Pasang'
 heroImage: '/images/services/instalasi-ac-profesional.webp'
-orderPriority: 2
+orderPriority: 4
 featured: true
 targetAudience:
   - 'Perkantoran yang Sedang Fit-Out / Renovasi'

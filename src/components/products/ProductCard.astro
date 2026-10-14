@@ -25,69 +25,69 @@ const categoryLabels: Record<string, string> = {
 const displayCategory = categoryLabels[product.category] || product.category;
 ---
 
-<article class="group relative flex flex-col justify-between font-sans transition-all duration-200">
+<article class="group relative h-full flex flex-col justify-between rounded-2xl bg-white border border-slate-200/90 hover:border-slate-300 p-4 shadow-2xs hover:shadow-md transition-all duration-200 font-sans">
   <div>
-    <!-- Product Thumbnail Image with Minimalist Frame -->
-    <a href={`/produk/${product.slug}/`} class="block aspect-4/3 bg-slate-100 rounded-xl overflow-hidden relative border border-slate-200/80 group-hover:border-slate-300 transition-colors">
+    <!-- Product Thumbnail Image -->
+    <a href={`/produk/${product.slug}/`} class="block aspect-4/3 bg-slate-100 rounded-xl overflow-hidden relative border border-slate-200/70">
       <img
         src={product.thumbnail}
         alt={product.title}
         width="600"
         height="450"
-        class="w-full h-full object-cover group-hover:scale-103 transition-transform duration-500 ease-out"
+        class="w-full h-full object-cover group-hover:scale-104 transition-transform duration-500 ease-out"
         loading="lazy"
         decoding="async"
       />
       <!-- Capacity Tag -->
       {product.capacity && (
-        <span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded text-[10px] font-bold bg-slate-950/85 text-white backdrop-blur-xs">
+        <span class="absolute top-2.5 right-2.5 px-2.5 py-1 rounded bg-white/95 text-slate-900 font-mono text-[10px] font-bold tracking-wider uppercase shadow-2xs">
           {product.capacity}
         </span>
       )}
       <!-- Stock Status Dot -->
-      <span class="absolute bottom-2.5 left-2.5 inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[10px] font-medium bg-white/95 text-slate-800 backdrop-blur-xs shadow-2xs border border-slate-200">
+      <span class="absolute bottom-2.5 left-2.5 inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-white/95 text-slate-800 text-[10px] font-medium backdrop-blur-xs shadow-2xs border border-slate-200/80">
         <span class:list={[
           "w-1.5 h-1.5 rounded-full",
-          product.stockStatus === "ready" ? "bg-emerald-500" : product.stockStatus === "po" ? "bg-amber-500" : "bg-red-600"
+          product.stockStatus === "ready" ? "bg-emerald-500" : product.stockStatus === "po" ? "bg-amber-500" : "bg-sky-600"
         ]}></span>
         <span>{product.stockStatus === "ready" ? "Ready Unit" : product.stockStatus === "po" ? "Pre-Order" : "Konsultasi"}</span>
       </span>
     </a>
 
     <!-- Product Typography Details -->
-    <div class="pt-3.5 space-y-1.5">
-      <div class="flex items-center justify-between text-[11px] text-slate-500">
-        <span class="font-bold text-red-800 uppercase tracking-wider text-[10px]">
+    <div class="pt-4 space-y-1.5">
+      <div class="flex items-center justify-between gap-2 text-[10px] font-mono">
+        <span class="font-bold text-sky-800 uppercase tracking-wider shrink-0">
           {displayCategory}
         </span>
-        {product.brand && <span class="font-medium truncate">{product.brand}</span>}
+        {product.brand && <span class="text-slate-400 truncate text-right">{product.brand}</span>}
       </div>
 
-      <h3 class="font-bold text-slate-900 text-sm leading-snug group-hover:text-red-800 transition-colors">
+      <h3 class="font-bold text-slate-900 text-sm leading-snug line-clamp-2 min-h-[2.5rem] group-hover:text-sky-800 transition-colors">
         <a href={`/produk/${product.slug}/`} class="focus:outline-none">
           {product.title}
         </a>
       </h3>
 
-      <p class="text-xs text-slate-500 line-clamp-2 leading-relaxed">
+      <p class="text-xs text-slate-500 line-clamp-2 leading-relaxed min-h-[2.25rem]">
         {product.description}
       </p>
     </div>
   </div>
 
-  <!-- Bottom Pricing & Action (Clean Hairline Row) -->
-  <div class="pt-3 mt-3 border-t border-slate-200/80 space-y-2">
+  <!-- Bottom Pricing & Action -->
+  <div class="pt-3.5 mt-4 border-t border-slate-100 space-y-2.5">
     <div class="flex items-baseline justify-between gap-2">
-      <span class="text-[10px] uppercase font-semibold text-slate-400">Skema Biaya</span>
-      <span class="font-bold text-slate-950 text-xs sm:text-sm tracking-tight">
-        {product.priceDisplay || "Konsultasi Penawaran"}
+      <span class="text-[10px] font-mono uppercase font-semibold text-slate-400 shrink-0">Skema</span>
+      <span class="font-bold text-slate-900 text-xs truncate">
+        {product.priceDisplay || "Konsultasi & RAB"}
       </span>
     </div>
 
-    <div class="grid grid-cols-2 gap-2 pt-0.5">
+    <div class="grid grid-cols-2 gap-2">
       <a
         href={`/produk/${product.slug}/`}
-        class="inline-flex items-center justify-center py-1.5 px-2.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-semibold transition-colors"
+        class="inline-flex items-center justify-center py-2 px-3 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-semibold transition-colors"
       >
         Detail
       </a>
@@ -97,7 +97,7 @@ const displayCategory = categoryLabels[product.category] || product.category;
         data-title={product.title}
         data-category={displayCategory}
         data-capacity={product.capacity || ''}
-        class="inline-flex items-center justify-center gap-1 py-1.5 px-2.5 rounded-lg bg-red-700 hover:bg-red-800 text-white text-xs font-bold transition-colors cursor-pointer select-none"
+        class="inline-flex items-center justify-center gap-1 py-2 px-3 rounded-lg bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold transition-colors cursor-pointer select-none"
       >
         <span>+ RFQ</span>
       </button>

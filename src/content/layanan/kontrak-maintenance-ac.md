@@ -4,8 +4,8 @@ tagline: 'Perjanjian Kerja Sama Servis Berkala Terjadwal dengan SLA Jelas'
 description: 'Layanan kontrak perawatan AC B2B untuk kantor, perusahaan, instansi, dan gedung: jadwal rutin, SLA penanganan insiden darurat, dan pelaporan berkala.'
 serviceType: 'Kontrak Perawatan AC Komersial (SLA Contract)'
 heroImage: '/images/services/kontrak-maintenance-perusahaan.webp'
-orderPriority: 5
-featured: true
+orderPriority: 6
+featured: false
 targetAudience:
   - 'Perusahaan Multinasional & Kantor Korporat'
   - 'Instansi Pemerintah, BUMN, & Fasilitas Publik'

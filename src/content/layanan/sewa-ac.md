@@ -1,10 +1,10 @@
 ---
-title: 'Sewa AC Standing & Split Kantor / Proyek'
-tagline: 'Rental Pendingin Ruangan Fleksibel Harian, Mingguan & Bulanan'
-description: 'Layanan sewa AC portable, floor standing, dan split untuk kantor sementara, ruang pertemuan darurat, proyek konstruksi, dan kebutuhan komersial.'
-serviceType: 'Jasa Rental AC Komersial & Event'
+title: 'Sewa AC'
+tagline: 'Rental Pendingin Ruangan Standing & Split Harian, Mingguan & Bulanan'
+description: 'Layanan sewa AC portable, floor standing, dan split untuk kantor sementara, ruang pertemuan darurat, proyek konstruksi, event, dan kebutuhan komersial.'
+serviceType: 'Rental AC Harian & Bulanan'
 heroImage: '/images/services/sewa-ac-standing.webp'
-orderPriority: 6
+orderPriority: 2
 featured: true
 targetAudience:
   - 'Kantor yang Mengalami Kerusakan AC Sentral Sambil Menunggu Pengadaan'

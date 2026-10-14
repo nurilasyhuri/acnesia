@@ -1,37 +1,38 @@
 ---
-title: 'Pengadaan & Jual AC Kantor Perusahaan'
-tagline: 'Solusi Satu Pintu Pengadaan Unit AC Baru untuk Bisnis & Proyek'
-description: 'Layanan pengadaan unit AC split, cassette, standing, dan commercial resmi bergaransi untuk kantor, instansi, gedung, dan perusahaan di Indonesia.'
-serviceType: 'Pengadaan Unit AC Baru Komersial & B2B'
+title: 'Jual AC Baru dan Bekas'
+tagline: 'Pengadaan Unit AC Baru Bergaransi Resmi, Jual Beli & Tukar Tambah AC Second'
+description: 'Layanan jual beli AC baru dan bekas (second berkualitas) satuan maupun borongan untuk kantor, instansi, gedung, dan perusahaan. Terima tukar tambah & borongan lelang AC bekas.'
+serviceType: 'Unit Baru & Jual Beli AC Second'
 heroImage: '/images/services/pengadaan-ac-kantor.webp'
 orderPriority: 1
 featured: true
 targetAudience:
-  - 'Kantor Baru & Renovasi Ruang Kerja'
-  - 'Perusahaan Multi-Cabang'
-  - 'Instansi Pemerintah & Pendidikan'
-  - 'Pengembang Gedung & Kontraktor Interior'
+  - 'Kantor Baru, Renovasi Ruang Kerja, & Peremajaan Unit AC'
+  - 'Perusahaan Multi-Cabang & Instansi Pemerintah'
+  - 'Gedung, Hotel, & Kantor yang Melelang Bongkaran AC Bekas'
+  - 'Bisnis & Ruko yang Membutuhkan Unit AC Baru maupun Second Bergaransi'
 scopeOfWork:
-  - 'Konsultasi Perhitungan Beban Panas (Heat Load Calculation BTU/h)'
-  - 'Rekomendasi Tipe & Kapasitas Unit Sesuai Layout Ruangan'
-  - 'Penyusunan Rencana Anggaran Biaya (RAB) Transparan'
-  - 'Penyediaan Unit Original Garansi Resmi Pabrikan'
-  - 'Pengiriman Logistik Aman Sampai ke Lokasi Proyek'
+  - 'Penyediaan Unit AC Baru Original Bergaransi Resmi Pabrik (Split, Cassette, Standing)'
+  - 'Penjualan Unit AC Bekas (Second Rekondisi) Siap Pakai yang Lulus Uji Tekanan & Ampere'
+  - 'Terima Beli & Borongan Lelang AC Bekas Kantor Segala Kondisi (Normal maupun Mati)'
+  - 'Program Tukar Tambah (Trade-In) Unit AC Lama ke Unit AC Baru'
+  - 'Konsultasi Kapasitas PK (BTU/h), Penyusunan RAB Resmi, & Pengiriman ke Lokasi'
 benefits:
-  - 'Harga B2B Kompetitif untuk Volume Pengadaan Multi-Unit'
-  - 'Dokumentasi Faktur Pajak & Administrasi Perusahaan Lengkap'
-  - 'Jaminan Unit Asli 100% dengan Kartu Garansi Resmi'
-  - 'Dapat Diintegrasikan Sekaligus dengan Jasa Pemasangan & Maintenance'
+  - 'Solusi Satu Pintu: Tersedia Pilihan Unit Baru Pabrik maupun Unit Second Hemat Biaya'
+  - 'Harga Beli Borongan AC Bekas Kompetitif Termasuk Jasa Bongkar & Angkut'
+  - 'Unit AC Second Telah Melalui Cuci Overhaul, Cek Kebocoran, & Bergaransi'
+  - 'Dokumentasi Faktur Pajak, Kwitansi Resmi, & Berita Acara Serah Terima Lengkap'
 ---
 
-Pengadaan pendingin udara untuk ruang kerja bukan sekadar membeli unit di toko elektronik biasa; dibutuhkan kalkulasi teknis yang presisi agar kapasitas pendinginan seimbang dengan volume ruangan, jumlah staf yang bekerja, bukaan kaca, dan pancaran panas dari komputer. Kapasitas yang terlalu kecil akan membuat kompresor bekerja *overload* dan cepat rusak, sementara kapasitas terlalu besar akan memboroskan daya listrik perusahaan.
+Kebutuhan pengadaan pendingin ruangan setiap bisnis berbeda-beda: sebagian membutuhkan unit AC baru bergaransi resmi pabrik untuk standar jangka panjang, sementara sebagian lagi membutuhkan unit AC second berkualitas untuk efisiensi anggaran awal (*CapEx*) atau ingin melepas aset AC lama yang sudah tidak terpakai.
 
-ACNesia hadir sebagai mitra pengadaan AC satu pintu terpercaya untuk kantor, instansi pemerintah, BUMN, dan perusahaan swasta di seluruh Indonesia.
+ACNesia hadir sebagai mitra satu pintu untuk **Jual AC Baru dan Bekas**—melayani pengadaan unit baru, penjualan unit second rekondisi bergaransi, hingga penerimaan borongan dan tukar tambah (*trade-in*) AC bekas kantor di seluruh Malang Raya dan Jawa Timur.
 
-### Tahapan Alur Pengadaan AC di ACNesia:
+### 1. Pengadaan Unit AC Baru Bergaransi Resmi
+Kami menyediakan lini lengkap AC Split Wall, Cassette 4-Way, Floor Standing, hingga Ceiling Ducted dengan kalkulasi beban panas (BTU/h) yang akurat, harga B2B kompetitif, serta kelengkapan Faktur Pajak dan kartu garansi resmi produsen.
 
-1. **Konsultasi Kebutuhan & Denah Ruang:** Anda menyampaikan denah arsitektur, foto ruangan, atau estimasi jumlah unit yang dibutuhkan.
-2. **Kalkulasi Teknis & Rekomendasi Unit:** Tim engineer kami menghitung kebutuhan BTU per ruangan dan menyarankan kombinasi jenis AC (Split, Cassette, atau Standing) yang paling efisien.
-3. **Survey Lapangan (Jika Dibutuhkan):** Memeriksa jalur pipa, kapasitas trafo/daya listrik PLN, serta lokasi penempatan outdoor unit.
-4. **Penerbitan Proposal & Quotation (RAB Resmi):** Penawaran harga transparan mencakup spesifikasi unit, material bantu, ongkos kirim, dan opsi jasa pasang.
-5. **Pengiriman & Serah Terima Unit:** Pengantaran tepat waktu dengan kelengkapan kartu garansi resmi dari produsen.
+### 2. Penjualan Unit AC Bekas (Second Berkualitas)
+Setiap unit AC bekas yang dijual oleh ACNesia telah melewati tahapan inspeksi kompresor, tes tekanan pipa bebas bocor, cuci steam overhaul menyeluruh, dan pengukuran ampere normal—dilengkapi garansi fungsi untuk ketenangan operasional Anda.
+
+### 3. Terima Borongan & Tukar Tambah AC Bekas Segala Kondisi
+Punya puluhan unit AC kantor lama hasil renovasi atau lelang gedung? Tim kami siap melakukan valuasi transparan, membeli satuan maupun borongan dalam segala kondisi (normal maupun mati total), atau memotongkan langsung nilainya ke tagihan pembelian unit AC baru (*trade-in*).

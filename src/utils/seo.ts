@@ -76,6 +76,7 @@ export function getLocalBusinessSchema() {
             { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Preventive Maintenance Berkala' } },
             { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Kontrak Maintenance AC Perusahaan & Instansi' } },
             { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Sewa AC Standing & Split untuk Event / Proyek' } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Jual Beli & Tukar Tambah AC Bekas Kantor / Borongan' } },
           ],
         },
       ],

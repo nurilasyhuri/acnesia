@@ -1,8 +1,8 @@
 ---
-title: 'Service & Perbaikan AC Profesional'
-tagline: 'Troubleshooting Akurat, Cuci Steam Bersih & Penanganan Kerusakan'
-description: 'Layanan service AC panggilan untuk kantor dan bisnis: cuci steam evaporator, atasi AC bocor, tidak dingin, kompresor bising, hingga penggantian komponen mesin.'
-serviceType: 'Jasa Perbaikan & Perawatan AC'
+title: 'Jasa Service AC'
+tagline: 'Troubleshooting Akurat, Perbaikan Kerusakan & Penanganan AC Tidak Dingin'
+description: 'Layanan jasa service AC panggilan untuk kantor dan bisnis: atasi AC bocor air, tidak dingin, tambah/isi freon, kompresor bising, hingga penggantian sparepart mesin.'
+serviceType: 'Perbaikan & Troubleshooting'
 heroImage: '/images/services/service-ac-kantor.webp'
 orderPriority: 3
 featured: true

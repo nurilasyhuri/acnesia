@@ -1,10 +1,10 @@
 ---
-title: 'Preventive Maintenance AC Bisnis'
-tagline: 'Mencegah Kerusakan Dini, Jaga Efisiensi Listrik & Udara Sehat'
-description: 'Layanan pemeliharaan berkala terjadwal untuk menjaga performa optimal unit AC, meminimalisir risiko downtime kantor, dan menekan lonjakan tagihan listrik.'
-serviceType: 'Program Pemeliharaan Preventif HVAC'
+title: 'Jasa Cuci AC'
+tagline: 'Cuci Steam Bertekanan, Deep Cleaning & Perawatan Berkala Terjadwal'
+description: 'Layanan jasa cuci AC steam profesional dan perawatan rutin berkala untuk menjaga udara tetap dingin higienis, mencegah bocor lendir, dan menghemat listrik kantor.'
+serviceType: 'Cuci Steam & Maintenance'
 heroImage: '/images/services/preventive-maintenance-ac.webp'
-orderPriority: 4
+orderPriority: 5
 featured: true
 targetAudience:
   - 'Perusahaan dengan Populasi 5 - 50+ Unit AC'

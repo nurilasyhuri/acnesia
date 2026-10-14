@@ -6,7 +6,9 @@ import { getBreadcrumbSchema, ensureAbsoluteUrl } from '../../utils/seo';
 import { generateGeneralInquiryUrl } from '../../utils/whatsapp';
 
 const services = await getCollection('layanan');
-const sortedServices = services.sort((a, b) => a.data.orderPriority - b.data.orderPriority);
+const sortedServices = services
+  .filter((s) => s.data.featured)
+  .sort((a, b) => a.data.orderPriority - b.data.orderPriority);
 
 const breadcrumbs = [
   { name: 'Beranda', url: '/' },
@@ -18,13 +20,15 @@ const waConsultUrl = generateGeneralInquiryUrl('layanan-hub-hero');
 ---
 
 <BaseLayout
-  title="Layanan AC Komersial, Kantor & Industri — Service, Pasang, Kontrak | ACNesia"
-  description="Layanan tata udara komersial terintegrasi di Malang Raya: Jual unit baru, instalasi bergaransi, service troubleshooting, preventive maintenance, kontrak B2B, dan sewa AC."
+  title="Layanan AC Komersial, Kantor & Industri — Service, Pasang, Jual Beli | ACNesia"
+  description="Layanan tata udara komersial terintegrasi di Malang Raya: Jual unit baru, jual beli & tukar tambah AC bekas, instalasi bergaransi, service, preventive maintenance, kontrak B2B, dan sewa AC."
   canonical={ensureAbsoluteUrl('/layanan/')}
   jsonLd={breadcrumbSchema}
   keywords={[
     'layanan ac malang',
     'service ac kantor malang',
+    'jual beli ac bekas malang',
+    'tukar tambah ac bekas kantor',
     'kontrak maintenance ac perusahaan',
     'instalasi ac cassette gedung',
     'sewa ac standing malang',
@@ -51,13 +55,13 @@ const waConsultUrl = generateGeneralInquiryUrl('layanan-hub-hero');
           Solusi Menyeluruh untuk Sistem Pendingin Udara Fasilitas Anda
         </h1>
         <p class="text-base sm:text-lg text-slate-600 leading-relaxed">
-          Dari pengadaan unit baru, instalasi pipa rapi, perawatan berkala terprogram, hingga kontrak jangka panjang dengan SLA terukur. ACNesia siap menjadi mitra teknis andalan General Affair dan manajer fasilitas perusahaan Anda.
+          Dari pengadaan unit baru, jual beli & tukar tambah AC bekas, instalasi pipa rapi, perawatan berkala terprogram, hingga kontrak jangka panjang dengan SLA terukur. ACNesia siap menjadi mitra teknis andalan General Affair dan manajer fasilitas perusahaan Anda.
         </p>
 
         <!-- Metrics Strip -->
         <div class="pt-2 grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
           <div class="bg-white p-3 rounded-xl border border-slate-200 shadow-2xs">
-            <span class="block text-red-700 font-bold text-sm">6 Layanan Utama</span>
+            <span class="block text-red-700 font-bold text-sm">{sortedServices.length} Layanan Utama</span>
             <span class="text-slate-500">End-to-End HVAC Solution</span>
           </div>
           <div class="bg-white p-3 rounded-xl border border-slate-200 shadow-2xs">

@@ -5,33 +5,28 @@ import { generateGeneralInquiryUrl } from '../../utils/whatsapp';
 const waFooterUrl = generateGeneralInquiryUrl('footer');
 ---
 
-<footer class="bg-slate-950 text-slate-300 pt-16 pb-12 border-t border-slate-800 font-sans">
+<footer class="bg-white text-slate-600 pt-16 pb-12 border-t border-slate-200/80 font-sans">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-slate-800/80">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-slate-200/70">
       <!-- Col 1-4: Brand & Mission -->
       <div class="lg:col-span-4 space-y-4">
-        <a href="/" class="inline-flex items-center gap-2.5 group">
-          <span class="w-8 h-8 rounded-lg bg-red-700 flex items-center justify-center text-white font-black text-base shadow-sm">
-            AC
+        <a href="/" class="inline-flex flex-col select-none">
+          <span class="text-xl font-normal tracking-[0.26em] text-slate-950 uppercase leading-none">
+            AC<span class="text-slate-400 mx-0.5">·</span>NESIA
           </span>
-          <div class="flex flex-col">
-            <span class="text-xl font-black tracking-tight text-white uppercase leading-none">
-              ACNesia
-            </span>
-            <span class="text-[10px] text-red-400 font-semibold tracking-wider uppercase mt-1">
-              Mitra Bisnis Indonesia
-            </span>
-          </div>
+          <span class="text-[9px] text-slate-500 font-medium tracking-[0.24em] uppercase mt-1.5">
+            Mitra Bisnis Indonesia
+          </span>
         </a>
 
-        <p class="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-sm">
-          Solusi satu pintu pengadaan, instalasi, service, preventive maintenance, dan sewa pendingin ruangan untuk kantor, instansi, gedung, dan perusahaan di Indonesia.
+        <p class="text-xs sm:text-sm text-slate-500 leading-relaxed max-w-sm">
+          Solusi satu pintu Jual AC Baru dan Bekas, Sewa AC, Jasa Service AC, Jasa Pasang AC, dan Jasa Cuci AC untuk kantor, instansi, gedung, dan bisnis di Indonesia.
         </p>
 
         <!-- Address & Contact Info -->
-        <div class="space-y-2 text-xs text-slate-400 pt-2">
+        <div class="space-y-2 text-xs text-slate-500 pt-1">
           <div class="flex items-start gap-2.5">
-            <svg class="w-4 h-4 text-red-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-4 h-4 text-teal-700 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
             </svg>
@@ -39,7 +34,7 @@ const waFooterUrl = generateGeneralInquiryUrl('footer');
           </div>
 
           <div class="flex items-center gap-2.5">
-            <svg class="w-4 h-4 text-red-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-4 h-4 text-teal-700 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <circle cx="12" cy="12" r="10" stroke-width="2"/>
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6l4 2"/>
             </svg>
@@ -47,68 +42,54 @@ const waFooterUrl = generateGeneralInquiryUrl('footer');
           </div>
 
           <div class="flex items-center gap-2.5">
-            <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="currentColor" viewBox="0 0 24 24">
+            <svg class="w-4 h-4 text-emerald-600 shrink-0" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2z"/>
             </svg>
-            <a href={waFooterUrl} target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">
+            <a href={waFooterUrl} target="_blank" rel="noopener noreferrer" class="hover:text-slate-900 font-medium transition-colors">
               WhatsApp: 0851-8300-2070 (Konsultasi CS)
             </a>
           </div>
         </div>
       </div>
 
-      <!-- Col 5-6: Produk AC -->
-      <div class="lg:col-span-2 space-y-3">
-        <h4 class="text-xs font-bold uppercase tracking-wider text-white">Produk AC</h4>
-        <ul class="space-y-2 text-xs text-slate-400">
-          <li><a href="/produk/" class="hover:text-red-400 transition-colors">Semua Produk</a></li>
-          <li><a href="/produk/ac-split/" class="hover:text-red-400 transition-colors">AC Split Wall</a></li>
-          <li><a href="/produk/ac-cassette/" class="hover:text-red-400 transition-colors">AC Cassette 4-Way</a></li>
-          <li><a href="/produk/ac-floor-standing/" class="hover:text-red-400 transition-colors">AC Floor Standing</a></li>
-          <li><a href="/produk/ac-commercial/" class="hover:text-red-400 transition-colors">AC Ducted & Central</a></li>
-          <li><a href="/pengadaan-ac/" class="hover:text-red-400 transition-colors">Pengadaan Multi-Unit</a></li>
+      <!-- Col 5-6: Layanan Utama -->
+      <div class="lg:col-span-3 space-y-3">
+        <h4 class="text-xs font-mono font-bold uppercase tracking-[0.14em] text-slate-900">5 Layanan Utama</h4>
+        <ul class="space-y-2 text-xs text-slate-600">
+          <li><a href="/layanan/jual-pengadaan-ac/" class="hover:text-teal-700 transition-colors">Jual AC Baru dan Bekas</a></li>
+          <li><a href="/layanan/sewa-ac/" class="hover:text-teal-700 transition-colors">Sewa AC</a></li>
+          <li><a href="/layanan/service-ac/" class="hover:text-teal-700 transition-colors">Jasa Service AC</a></li>
+          <li><a href="/layanan/instalasi-ac/" class="hover:text-teal-700 transition-colors">Jasa Pasang AC</a></li>
+          <li><a href="/layanan/preventive-maintenance/" class="hover:text-teal-700 transition-colors">Jasa Cuci AC</a></li>
         </ul>
       </div>
 
-      <!-- Col 7-8: Layanan -->
-      <div class="lg:col-span-2 space-y-3">
-        <h4 class="text-xs font-bold uppercase tracking-wider text-white">Layanan Teknik</h4>
-        <ul class="space-y-2 text-xs text-slate-400">
-          <li><a href="/layanan/jual-pengadaan-ac/" class="hover:text-red-400 transition-colors">Pengadaan AC</a></li>
-          <li><a href="/layanan/instalasi-ac/" class="hover:text-red-400 transition-colors">Instalasi AC Rapi</a></li>
-          <li><a href="/layanan/service-ac/" class="hover:text-red-400 transition-colors">Service & Troubleshooting</a></li>
-          <li><a href="/layanan/preventive-maintenance/" class="hover:text-red-400 transition-colors">Preventive Maintenance</a></li>
-          <li><a href="/layanan/kontrak-maintenance-ac/" class="hover:text-red-400 transition-colors">Kontrak Perusahaan</a></li>
-          <li><a href="/sewa-ac/" class="hover:text-red-400 transition-colors">Sewa AC Proyek & Event</a></li>
+      <!-- Col 8-9: Produk AC -->
+      <div class="lg:col-span-3 space-y-3">
+        <h4 class="text-xs font-mono font-bold uppercase tracking-[0.14em] text-slate-900">Kategori Unit AC</h4>
+        <ul class="space-y-2 text-xs text-slate-600">
+          <li><a href="/produk/" class="hover:text-teal-700 transition-colors">Semua Katalog Unit</a></li>
+          <li><a href="/produk/ac-split/" class="hover:text-teal-700 transition-colors">AC Split Wall</a></li>
+          <li><a href="/produk/ac-cassette/" class="hover:text-teal-700 transition-colors">AC Cassette 4-Way</a></li>
+          <li><a href="/produk/ac-floor-standing/" class="hover:text-teal-700 transition-colors">AC Floor Standing</a></li>
+          <li><a href="/produk/ac-commercial/" class="hover:text-teal-700 transition-colors">AC Ducted & Central</a></li>
         </ul>
       </div>
 
-      <!-- Col 9-10: Solusi Bisnis -->
+      <!-- Col 10-12: Navigasi -->
       <div class="lg:col-span-2 space-y-3">
-        <h4 class="text-xs font-bold uppercase tracking-wider text-white">Solusi Sektor</h4>
-        <ul class="space-y-2 text-xs text-slate-400">
-          <li><a href="/solusi/ac-kantor/" class="hover:text-red-400 transition-colors">AC untuk Kantor</a></li>
-          <li><a href="/solusi/ac-perusahaan/" class="hover:text-red-400 transition-colors">AC untuk Perusahaan</a></li>
-          <li><a href="/solusi/ac-instansi/" class="hover:text-red-400 transition-colors">AC untuk Instansi</a></li>
-          <li><a href="/solusi/ac-gedung/" class="hover:text-red-400 transition-colors">AC untuk Gedung</a></li>
-          <li><a href="/kontak/#rfq" class="hover:text-red-400 transition-colors">Permintaan RFQ Resmi</a></li>
-        </ul>
-      </div>
-
-      <!-- Col 11-12: Informasi & Legal -->
-      <div class="lg:col-span-2 space-y-3">
-        <h4 class="text-xs font-bold uppercase tracking-wider text-white">Perusahaan</h4>
-        <ul class="space-y-2 text-xs text-slate-400">
-          <li><a href="/tentang-kami/" class="hover:text-red-400 transition-colors">Profil ACNesia</a></li>
-          <li><a href="/artikel/" class="hover:text-red-400 transition-colors">Panduan & Artikel HVAC</a></li>
-          <li><a href="/lokasi/" class="hover:text-red-400 transition-colors">Workshop Malang</a></li>
-          <li><a href="/kontak/" class="hover:text-red-400 transition-colors">Hubungi Sales B2B</a></li>
+        <h4 class="text-xs font-mono font-bold uppercase tracking-[0.14em] text-slate-900">Menu</h4>
+        <ul class="space-y-2 text-xs text-slate-600">
+          <li><a href="/" class="hover:text-teal-700 transition-colors">Beranda</a></li>
+          <li><a href="/layanan/" class="hover:text-teal-700 transition-colors">Layanan</a></li>
+          <li><a href="/tentang-kami/" class="hover:text-teal-700 transition-colors">Tentang</a></li>
+          <li><a href="/kontak/" class="hover:text-teal-700 transition-colors">Kontak</a></li>
         </ul>
       </div>
     </div>
 
     <!-- Bottom Bar -->
-    <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+    <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
       <p>&copy; {new Date().getFullYear()} ACNesia — Mitra Bisnis Indonesia. Seluruh hak cipta dilindungi undang-undang.</p>
       <div class="flex items-center gap-4 text-[11px]">
         <span>Standar Teknik HVAC</span>
