@@ -14,26 +14,30 @@ const sortedProducts: ProductItem[] = products
     title: p.data.title,
     description: p.data.description,
     category: p.data.category,
+    condition: p.data.condition,
     capacity: p.data.capacity,
+    price: p.data.price,
     priceDisplay: p.data.priceDisplay,
+    compareAtPriceDisplay: p.data.compareAtPriceDisplay,
     stockStatus: p.data.stockStatus,
     thumbnail: p.data.thumbnail,
     slug: p.slug,
     brand: p.data.brand,
+    variants: p.data.variants,
   }));
 
 const breadcrumbs = [
   { name: 'Beranda', url: '/' },
-  { name: 'Katalog Produk AC', url: '/produk/' },
+  { name: 'Katalog Unit & Paket Jasa', url: '/produk/' },
 ];
 
 const breadcrumbSchema = getBreadcrumbSchema(breadcrumbs);
-const waConsultUrl = generateGeneralInquiryUrl('katalog-produk-hero');
+const waConsultUrl = generateGeneralInquiryUrl('katalog-produk-cta');
 ---
 
 <BaseLayout
-  title="Katalog AC Komersial & Kantor — AC Split, Cassette, Floor Standing | ACNesia"
-  description="Daftar unit pendingin ruangan komersial resmi untuk kantor, gedung, instansi & usaha di Malang Raya. Pilihan AC Split, Cassette, Floor Standing & Ducted bergaransi resmi."
+  title="Katalog & Harga AC Split, Cassette, Standing & Central - Sentra AC"
+  description="Daftar harga dan katalog unit AC Split, AC Cassette 4-Way, Floor Standing, serta Ducted Central baru bergaransi resmi untuk kantor & gedung di Malang Raya."
   canonical={ensureAbsoluteUrl('/produk/')}
   jsonLd={breadcrumbSchema}
   keywords={[
@@ -43,107 +47,57 @@ const waConsultUrl = generateGeneralInquiryUrl('katalog-produk-hero');
     'ac floor standing komersial',
     'harga ac standing b2b',
     'pengadaan ac gedung',
-    'acnesia malang',
+    'sentra ac malang',
   ]}
 >
-  <!-- Breadcrumb Header -->
-  <div class="bg-white border-b border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+  <div class="bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
       <Breadcrumb items={breadcrumbs} />
     </div>
   </div>
 
-  <!-- Hero Header Section -->
-  <section class="bg-gradient-to-b from-white via-slate-50 to-slate-50 border-b border-slate-200 py-12 md:py-16">
+  <!-- Collection Header -->
+  <section class="bg-white py-8 sm:py-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-3xl space-y-4">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-red-50 text-red-800 border border-red-200">
-          <span class="w-2 h-2 rounded-full bg-red-700"></span>
-          <span>Katalog Resmi Pengadaan AC Komersial</span>
-        </div>
-        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-950 tracking-tight leading-tight">
-          Pilihan Unit AC Berkualitas untuk Kenyamanan Kerja & Bisnis
+      <div class="max-w-3xl space-y-2.5">
+        <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-950 tracking-tight leading-tight">
+          Katalog Harga AC Baru, Rekondisi Bergaransi &amp; Paket Jasa
         </h1>
-        <p class="text-base sm:text-lg text-slate-600 leading-relaxed">
-          ACNesia menyediakan lini produk pendingin udara lengkap dari tipe split hemat ruang, kaset 4 arah untuk kantor modern, hingga unit floor standing kapasitas besar. Semua bergaransi pabrik resmi dengan opsi instalasi teknisi tersertifikasi.
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+          Pilih kategori unit atau paket layanan di bawah ini untuk melihat spesifikasi teknis lengkap dan menyusun Surat Penawaran Harga (SPH).
         </p>
-
-        <!-- Value Badges -->
-        <div class="pt-4 grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs text-slate-700">
-          <div class="flex items-center gap-2 p-2.5 rounded-xl bg-white border border-slate-200 shadow-2xs">
-            <svg class="w-4 h-4 text-red-700 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-            <span class="font-medium">Unit 100% Baru</span>
-          </div>
-          <div class="flex items-center gap-2 p-2.5 rounded-xl bg-white border border-slate-200 shadow-2xs">
-            <svg class="w-4 h-4 text-red-700 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-            <span class="font-medium">Faktur Pajak B2B</span>
-          </div>
-          <div class="flex items-center gap-2 p-2.5 rounded-xl bg-white border border-slate-200 shadow-2xs">
-            <svg class="w-4 h-4 text-red-700 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-            <span class="font-medium">Garansi Resmi</span>
-          </div>
-          <div class="flex items-center gap-2 p-2.5 rounded-xl bg-white border border-slate-200 shadow-2xs">
-            <svg class="w-4 h-4 text-red-700 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-            <span class="font-medium">Free Konsultasi PK</span>
-          </div>
-        </div>
       </div>
     </div>
   </section>
 
-  <!-- Interactive Filter & Catalog Grid Island -->
-  <section class="py-12 md:py-16">
+  <!-- Interactive Storefront Collection Grid Island -->
+  <section class="py-8 sm:py-12 bg-slate-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <ProductFilter client:load initialProducts={sortedProducts} />
     </div>
   </section>
 
   <!-- B2B Procurement Callout Banner -->
-  <section class="py-12 bg-white border-t border-slate-200">
+  <section class="py-12 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="rounded-3xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950 p-8 sm:p-12 text-white relative overflow-hidden shadow-xl">
-        <div class="absolute -right-20 -bottom-20 w-80 h-80 rounded-full bg-red-500/10 blur-3xl pointer-events-none"></div>
-
-        <div class="relative z-10 max-w-2xl space-y-4">
-          <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-red-500/20 text-red-200 border border-red-400/30">
-            Pengadaan Multi-Unit & Proyek
-          </span>
-          <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">
-            Membutuhkan Penawaran Khusus Proyek atau Tender Instansi?
+      <div class="rounded-xl bg-slate-50 border border-slate-200 p-6 sm:p-8 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+        <div class="max-w-2xl space-y-2">
+          <h2 class="text-xl sm:text-2xl font-bold text-slate-950 tracking-tight">
+            Pengajuan SPH Resmi, RAB Proyek &amp; Borongan AC Bekas
           </h2>
-          <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
-            Tim ACNesia siap menyusun Rencana Anggaran Biaya (RAB), spesifikasi teknis (Bill of Quantity), survey layout pemipaan, serta pengadaan multi-unit dengan skema termin pembayaran B2B resmi.
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Ajukan daftar kebutuhan unit melalui form SPH di bagian atas halaman atau jadwalkan survei lokasi bersama tim estimator kami.
           </p>
-          <div class="pt-4 flex flex-wrap items-center gap-4">
-            <a
-              href={waConsultUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-red-600 hover:bg-red-400 text-slate-950 font-bold text-sm shadow-md transition-colors"
-            >
-              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2z"/>
-              </svg>
-              <span>Hubungi Tim Sales Proyek ACNesia</span>
-            </a>
-            <a
-              href="/pengadaan-ac/"
-              class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-sm border border-white/20 transition-colors"
-            >
-              <span>Pelajari Skema Pengadaan B2B</span>
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-              </svg>
-            </a>
-          </div>
+        </div>
+        <div class="shrink-0">
+          <a
+            href={waConsultUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center px-5 py-3 rounded-lg bg-white hover:bg-slate-100 text-slate-800 font-semibold text-xs sm:text-sm border border-slate-300 transition-colors"
+          >
+            Konsultasi via WhatsApp
+          </a>
         </div>
       </div>
     </div>

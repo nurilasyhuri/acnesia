@@ -1,7 +1,7 @@
 ---
-title: 'Jual AC Baru dan Bekas'
-tagline: 'Pengadaan Unit AC Baru Bergaransi Resmi, Jual Beli & Tukar Tambah AC Second'
-description: 'Layanan jual beli AC baru dan bekas (second berkualitas) satuan maupun borongan untuk kantor, instansi, gedung, dan perusahaan. Terima tukar tambah & borongan lelang AC bekas.'
+title: 'Jual Beli AC Baru & Bekas Kantor Bergaransi'
+tagline: 'Supplier Pengadaan AC Baru Resmi, Jual Beli & Tukar Tambah AC Second Kantor'
+description: 'Layanan jual beli AC baru dan bekas berkualitas satuan maupun borongan untuk kantor, instansi, serta gedung di Malang Raya lengkap dengan Faktur Pajak.'
 serviceType: 'Unit Baru & Jual Beli AC Second'
 heroImage: '/images/services/pengadaan-ac-kantor.webp'
 orderPriority: 1
@@ -26,13 +26,13 @@ benefits:
 
 Kebutuhan pengadaan pendingin ruangan setiap bisnis berbeda-beda: sebagian membutuhkan unit AC baru bergaransi resmi pabrik untuk standar jangka panjang, sementara sebagian lagi membutuhkan unit AC second berkualitas untuk efisiensi anggaran awal (*CapEx*) atau ingin melepas aset AC lama yang sudah tidak terpakai.
 
-ACNesia hadir sebagai mitra satu pintu untuk **Jual AC Baru dan Bekas**—melayani pengadaan unit baru, penjualan unit second rekondisi bergaransi, hingga penerimaan borongan dan tukar tambah (*trade-in*) AC bekas kantor di seluruh Malang Raya dan Jawa Timur.
+Sentra AC hadir sebagai mitra satu pintu untuk **Jual AC Baru dan Bekas**—melayani pengadaan unit baru, penjualan unit second rekondisi bergaransi, hingga penerimaan borongan dan tukar tambah (*trade-in*) AC bekas kantor di seluruh Malang Raya dan Jawa Timur.
 
 ### 1. Pengadaan Unit AC Baru Bergaransi Resmi
 Kami menyediakan lini lengkap AC Split Wall, Cassette 4-Way, Floor Standing, hingga Ceiling Ducted dengan kalkulasi beban panas (BTU/h) yang akurat, harga B2B kompetitif, serta kelengkapan Faktur Pajak dan kartu garansi resmi produsen.
 
 ### 2. Penjualan Unit AC Bekas (Second Berkualitas)
-Setiap unit AC bekas yang dijual oleh ACNesia telah melewati tahapan inspeksi kompresor, tes tekanan pipa bebas bocor, cuci steam overhaul menyeluruh, dan pengukuran ampere normal—dilengkapi garansi fungsi untuk ketenangan operasional Anda.
+Setiap unit AC bekas yang dijual oleh Sentra AC telah melewati tahapan inspeksi kompresor, tes tekanan pipa bebas bocor, cuci steam overhaul menyeluruh, dan pengukuran ampere normal—dilengkapi garansi fungsi untuk ketenangan operasional Anda.
 
 ### 3. Terima Borongan & Tukar Tambah AC Bekas Segala Kondisi
 Punya puluhan unit AC kantor lama hasil renovasi atau lelang gedung? Tim kami siap melakukan valuasi transparan, membeli satuan maupun borongan dalam segala kondisi (normal maupun mati total), atau memotongkan langsung nilainya ke tagihan pembelian unit AC baru (*trade-in*).

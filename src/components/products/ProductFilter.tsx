@@ -1,15 +1,27 @@
 import { useState, useMemo } from 'preact/hooks';
 
+export interface ProductVariantItem {
+  name: string;
+  price: number;
+  priceDisplay: string;
+  sku?: string;
+  unit?: string;
+}
+
 export interface ProductItem {
   title: string;
   description: string;
   category: string;
+  condition?: string;
   capacity?: string;
+  price?: number;
   priceDisplay?: string;
+  compareAtPriceDisplay?: string;
   stockStatus: string;
   thumbnail: string;
   slug: string;
   brand?: string;
+  variants?: ProductVariantItem[];
 }
 
 interface Props {
@@ -17,53 +29,73 @@ interface Props {
 }
 
 const CATEGORY_TABS = [
-  { id: 'all', label: 'Semua Produk AC' },
-  { id: 'ac-split', label: 'AC Split Wall' },
-  { id: 'ac-cassette', label: 'AC Cassette 4-Way' },
-  { id: 'ac-floor-standing', label: 'AC Floor Standing' },
-  { id: 'ac-commercial', label: 'AC Ducted Central' },
+  { id: 'all', label: 'Semua Unit & Paket' },
+  { id: 'ac-split', label: 'AC Split' },
+  { id: 'ac-cassette', label: 'AC Cassette' },
+  { id: 'ac-floor-standing', label: 'AC Standing' },
+  { id: 'ac-commercial', label: 'AC Central' },
+  { id: 'paket-jasa', label: 'Paket Jasa & Sewa' },
 ];
+
+const formatCategoryLabel = (cat: string) => {
+  switch (cat) {
+    case 'ac-split':
+      return 'AC Split Wall';
+    case 'ac-cassette':
+      return 'AC Cassette 4-Way';
+    case 'ac-floor-standing':
+      return 'AC Floor Standing';
+    case 'ac-commercial':
+      return 'AC Ceiling & Duct';
+    case 'paket-jasa':
+      return 'Paket Jasa & Sewa';
+    default:
+      return cat.replace('ac-', 'AC ');
+  }
+};
 
 export default function ProductFilter({ initialProducts }: Props) {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
+  const [sortBy, setSortBy] = useState<'featured' | 'price-asc' | 'price-desc'>('featured');
 
   const filteredProducts = useMemo(() => {
-    return initialProducts.filter((product) => {
+    const q = searchQuery.trim().toLowerCase();
+
+    const list = initialProducts.filter((product) => {
       const matchCategory =
         selectedCategory === 'all' || product.category === selectedCategory;
-      const matchQuery =
-        searchQuery.trim() === '' ||
-        product.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        product.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        (product.capacity && product.capacity.toLowerCase().includes(searchQuery.toLowerCase())) ||
-        (product.brand && product.brand.toLowerCase().includes(searchQuery.toLowerCase()));
 
-      return matchCategory && matchQuery;
-    });
-  }, [selectedCategory, searchQuery, initialProducts]);
+      if (!matchCategory) return false;
+      if (!q) return true;
 
-  const handleQuickAddRfq = (product: ProductItem) => {
-    if (typeof window !== 'undefined') {
-      window.dispatchEvent(
-        new CustomEvent('acnesia:add-rfq', {
-          detail: {
-            title: product.title,
-            category: product.category.replace('ac-', 'AC ').toUpperCase(),
-            capacity: product.capacity || '',
-            quantity: 1,
-          },
-        })
+      const variantText = (product.variants || [])
+        .map((v) => v.name.toLowerCase())
+        .join(' ');
+
+      return (
+        product.title.toLowerCase().includes(q) ||
+        product.description.toLowerCase().includes(q) ||
+        (product.capacity && product.capacity.toLowerCase().includes(q)) ||
+        (product.condition && product.condition.toLowerCase().includes(q)) ||
+        (product.brand && product.brand.toLowerCase().includes(q)) ||
+        variantText.includes(q)
       );
+    });
+
+    if (sortBy === 'price-asc') {
+      return [...list].sort((a, b) => (a.price || 0) - (b.price || 0));
     }
-  };
+    if (sortBy === 'price-desc') {
+      return [...list].sort((b, b2) => (b2.price || 0) - (b.price || 0));
+    }
+    return list;
+  }, [selectedCategory, searchQuery, sortBy, initialProducts]);
 
   return (
-    <div class="space-y-8 font-sans">
-      {/* Filter Tabs & Search Bar */}
-      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-slate-200">
-        {/* Segmented Category Filter */}
-        <div class="flex items-center gap-1.5 overflow-x-auto pb-2 md:pb-0 no-scrollbar">
+    <div class="space-y-6 font-sans">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3">
+        <div class="flex flex-wrap items-center gap-1.5">
           {CATEGORY_TABS.map((tab) => {
             const isActive = selectedCategory === tab.id;
             return (
@@ -71,10 +103,10 @@ export default function ProductFilter({ initialProducts }: Props) {
                 type="button"
                 key={tab.id}
                 onClick={() => setSelectedCategory(tab.id)}
-                class={`px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all duration-200 cursor-pointer select-none ${
+                class={`px-3.5 py-2 rounded-full text-xs font-semibold whitespace-nowrap transition-colors cursor-pointer select-none ${
                   isActive
-                    ? 'bg-slate-900 text-white shadow-xs'
-                    : 'bg-white text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-slate-200'
+                    ? 'bg-[#020617] text-white'
+                    : 'bg-white text-slate-700 hover:text-slate-950 hover:bg-slate-100 border border-slate-200'
                 }`}
               >
                 {tab.label}
@@ -83,149 +115,107 @@ export default function ProductFilter({ initialProducts }: Props) {
           })}
         </div>
 
-        {/* Search Input (Enforce 16px to prevent iOS auto-zoom) */}
-        <div class="relative min-w-[260px]">
-          <svg
-            class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-          </svg>
-          <input
-            type="text"
-            value={searchQuery}
-            onInput={(e) => setSearchQuery((e.target as HTMLInputElement).value)}
-            placeholder="Cari kapasitas (1 PK, 2 PK), tipe..."
-            class="w-full pl-9.5 pr-4 py-2 bg-white border border-slate-200 rounded-xl text-base sm:text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-red-700 focus:ring-1 focus:ring-red-700 transition-all"
-          />
-          {searchQuery && (
-            <button
-              type="button"
-              onClick={() => setSearchQuery('')}
-              class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 text-xs"
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5">
+          <div class="relative min-w-[220px]">
+            <svg
+              aria-hidden="true"
+              class="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
             >
-              ✕
-            </button>
-          )}
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+            <input
+              type="text"
+              value={searchQuery}
+              onInput={(e) => setSearchQuery((e.target as HTMLInputElement).value)}
+              placeholder="Cari PK, merk, atau paket..."
+              aria-label="Filter produk AC"
+              class="w-full pl-9 pr-4 py-2 bg-white border border-slate-300 rounded-lg text-base sm:text-xs text-slate-900 placeholder-slate-400 focus:border-[#c2410c] transition-colors"
+            />
+          </div>
+
+          <div class="flex items-center gap-2">
+            <label for="store-sort-select" class="text-xs font-semibold text-slate-600 shrink-0">
+              Urutkan:
+            </label>
+            <select
+              id="store-sort-select"
+              value={sortBy}
+              onChange={(e) =>
+                setSortBy((e.target as HTMLSelectElement).value as 'featured' | 'price-asc' | 'price-desc')
+              }
+              class="px-3 py-2 bg-white border border-slate-300 rounded-lg text-xs font-semibold text-slate-800 focus:border-[#c2410c] cursor-pointer"
+            >
+              <option value="featured">Urutan Standar</option>
+              <option value="price-asc">Harga: Terendah - Tertinggi</option>
+              <option value="price-desc">Harga: Tertinggi - Terendah</option>
+            </select>
+          </div>
         </div>
       </div>
 
-      {/* Product Counter */}
-      <div class="flex items-center justify-between text-xs text-slate-500">
-        <span>Menampilkan <strong>{filteredProducts.length}</strong> unit pendingin udara</span>
-        {selectedCategory !== 'all' && (
-          <button
-            type="button"
-            onClick={() => setSelectedCategory('all')}
-            class="text-red-700 hover:underline font-medium"
-          >
-            Reset filter
-          </button>
-        )}
-      </div>
-
-      {/* Products Grid */}
       {filteredProducts.length > 0 ? (
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {filteredProducts.map((p) => (
-            <div
-              key={p.slug}
-              class="group relative flex flex-col justify-between rounded-2xl bg-white border border-slate-200 hover:border-slate-300 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 overflow-hidden"
-            >
-              <div>
-                <a href={`/produk/${p.slug}/`} class="block aspect-4/3 bg-slate-50 overflow-hidden relative border-b border-slate-100">
-                  <img
-                    src={p.thumbnail}
-                    alt={p.title}
-                    width="600"
-                    height="450"
-                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <div class="absolute top-3 left-3 z-10">
-                    <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-white/95 backdrop-blur-xs text-slate-800 border border-slate-200 shadow-2xs">
-                      <span class={`w-1.5 h-1.5 rounded-full ${
-                        p.stockStatus === 'ready' ? 'bg-emerald-500' : p.stockStatus === 'po' ? 'bg-amber-500' : 'bg-red-600'
-                      }`}></span>
-                      <span>{p.stockStatus === 'ready' ? 'Ready Unit' : p.stockStatus === 'po' ? 'Pre-Order' : 'Konsultasi'}</span>
-                    </span>
+          {filteredProducts.map((p) => {
+            const firstVariant = p.variants && p.variants.length > 0 ? p.variants[0] : null;
+            const displayPrice = firstVariant
+              ? firstVariant.priceDisplay
+              : p.priceDisplay || 'Sesuai Penawaran SPH';
+            const displayUnit = firstVariant?.unit || 'unit';
+
+            return (
+              <a
+                key={p.slug}
+                href={`/produk/${p.slug}/`}
+                class="group flex flex-col justify-between rounded-xl bg-white border border-slate-200 hover:border-slate-300 transition-colors overflow-hidden"
+              >
+                <div>
+                  <div class="aspect-4/3 bg-slate-100 overflow-hidden">
+                    <img
+                      src={p.thumbnail}
+                      alt={`Unit ${p.title} - Sentra AC`}
+                      width="600"
+                      height="450"
+                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
+                      decoding="async"
+                    />
                   </div>
-                  {p.capacity && (
-                    <div class="absolute top-3 right-3 z-10">
-                      <span class="px-2 py-0.5 rounded-md text-[10px] font-bold bg-slate-900/85 text-white backdrop-blur-xs">
-                        {p.capacity}
-                      </span>
+
+                  <div class="p-4 space-y-1.5">
+                    <div class="flex items-center justify-between gap-2 text-[11px] text-slate-500">
+                      <span class="font-semibold text-[#c2410c]">{formatCategoryLabel(p.category)}</span>
+                      {p.capacity && <span>{p.capacity}</span>}
                     </div>
-                  )}
-                </a>
 
-                <div class="p-4 sm:p-5 space-y-2">
-                  <div class="flex items-center justify-between gap-2 text-[11px]">
-                    <span class="font-bold uppercase tracking-wider text-red-800 text-[10px]">
-                      {p.category.replace('ac-', 'AC ').toUpperCase()}
-                    </span>
-                    {p.brand && (
-                      <span class="text-slate-400 font-medium truncate">{p.brand}</span>
-                    )}
-                  </div>
-                  <h3 class="font-bold text-slate-900 text-sm leading-snug group-hover:text-red-800 transition-colors min-h-[2.5rem]">
-                    <a href={`/produk/${p.slug}/`}>{p.title}</a>
-                  </h3>
-                  <p class="text-xs text-slate-500 line-clamp-2 leading-relaxed">
-                    {p.description}
-                  </p>
-                </div>
-              </div>
+                    <h3 class="font-bold text-slate-950 text-sm leading-snug group-hover:text-[#c2410c] transition-colors line-clamp-2">
+                      {p.title}
+                    </h3>
 
-              <div class="p-4 sm:p-5 pt-3 border-t border-slate-100 mt-1 space-y-2.5">
-                <div class="flex items-center justify-between gap-2">
-                  <div class="flex flex-col min-w-0">
-                    <span class="text-[10px] text-slate-400 uppercase tracking-wider font-semibold">Skema Biaya</span>
-                    <span class="font-bold text-slate-900 text-xs sm:text-sm tracking-tight truncate">
-                      {p.priceDisplay || "Konsultasi Penawaran"}
-                    </span>
+                    <p class="text-xs text-slate-500 line-clamp-2 leading-relaxed">
+                      {p.description}
+                    </p>
                   </div>
-                  <a
-                    href={`/produk/${p.slug}/`}
-                    class="inline-flex items-center justify-center gap-1 py-1.5 px-3 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-semibold transition-all duration-200 shrink-0"
-                  >
-                    <span>Detail</span>
-                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                    </svg>
-                  </a>
                 </div>
 
-                <button
-                  type="button"
-                  onClick={() => handleQuickAddRfq(p)}
-                  class="w-full inline-flex items-center justify-center gap-1.5 py-1.5 px-3 rounded-xl bg-red-50 hover:bg-red-700 text-red-800 hover:text-white border border-red-200 hover:border-red-700 text-xs font-bold transition-all duration-200 cursor-pointer select-none"
-                >
-                  <svg class="w-3.5 h-3.5 fill-none stroke-currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
-                  </svg>
-                  <span>Tambah ke Penawaran (RFQ)</span>
-                </button>
-              </div>
-            </div>
-          ))}
+                <div class="px-4 pb-4 pt-2 flex items-baseline justify-between gap-2">
+                  <span class="text-sm font-bold text-slate-950">
+                    {displayPrice}
+                  </span>
+                  <span class="text-[11px] text-slate-500">/ {displayUnit}</span>
+                </div>
+              </a>
+            );
+          })}
         </div>
       ) : (
-        <div class="py-16 text-center bg-white rounded-2xl border border-slate-200 p-8 space-y-3">
-          <p class="font-bold text-slate-800 text-sm sm:text-base">Tidak ditemukan unit AC yang cocok</p>
-          <p class="text-xs text-slate-500 max-w-md mx-auto">
-            Kebutuhan kapasitas khusus atau pengadaan merk lain dapat dikonsultasikan langsung bersama tim sales ACNesia.
+        <div class="py-12 px-4 text-center rounded-xl bg-white border border-slate-200 space-y-2">
+          <div class="text-slate-900 font-bold text-base">Unit atau layanan tidak ditemukan</div>
+          <p class="text-xs text-slate-600 max-w-md mx-auto">
+            Silakan ubah kata kunci pencarian atau pilih kategori lain di atas.
           </p>
-          <button
-            type="button"
-            onClick={() => { setSelectedCategory('all'); setSearchQuery(''); }}
-            class="mt-2 inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-red-700 text-white text-xs font-semibold hover:bg-red-800 transition-colors"
-          >
-            Tampilkan Semua Unit AC
-          </button>
         </div>
       )}
     </div>

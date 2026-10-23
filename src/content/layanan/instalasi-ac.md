@@ -1,7 +1,7 @@
 ---
-title: 'Jasa Pasang AC'
-tagline: 'Instalasi Presisi, Bongkar Pasang & Relokasi AC Berstandar Vakum'
-description: 'Jasa pasang AC baru, instalasi multi-unit perkantoran, relokasi gedung, dan pekerjaan bongkar pasang AC oleh teknisi bersertifikat dengan wajib vakum.'
+title: 'Jasa Pasang & Bongkar Pasang AC Kantor & Gedung'
+tagline: 'Instalasi Pipa Tembaga, Relokasi & Bongkar Pasang AC Standar Vakum Digital'
+description: 'Jasa pasang dan bongkar pasang AC kantor, gedung, serta ruko di Malang Raya. Instalasi pipa tembaga standar ASTM, wajib vakum digital, dan bergaransi.'
 serviceType: 'Instalasi & Bongkar Pasang'
 heroImage: '/images/services/instalasi-ac-profesional.webp'
 orderPriority: 4
@@ -25,9 +25,9 @@ benefits:
   - 'Laporan Commissioning Resmi Pasca Instalasi Selesai'
 ---
 
-Pemasangan AC yang tidak sesuai standar teknik merupakan penyebab utama 80% kasus kompresor cepat aus, konsumsi listrik boros, dan kebocoran air kondensasi yang merusak plafon gypsum kantor. Di ACNesia, kami memperlakukan setiap titik instalasi dengan disiplin ketat standar teknik pendingin profesional.
+Pemasangan AC yang tidak sesuai standar teknik merupakan penyebab utama 80% kasus kompresor cepat aus, konsumsi listrik boros, dan kebocoran air kondensasi yang merusak plafon gypsum kantor. Di Sentra AC, kami memperlakukan setiap titik instalasi dengan disiplin ketat standar teknik pendingin profesional.
 
-### Standar Kerja Instalasi ACNesia:
+### Standar Kerja Instalasi Sentra AC:
 
 - **Wajib Vakum Sistem (Vacuuming Process):** Kami tidak pernah melakukan proses *purging* freon. Sistem pipa wajib divakum menggunakan pompa vakum hingga mencapai tekanan di bawah 500 mikron untuk memastikan udara lembap dan uap air benar-benar bersih dari sirkulasi pipa refrigeran.
 - **Pipa Tembaga Berstandar Ketebalan Resmi:** Menggunakan pipa tembaga tebal (minimal 0.61 - 0.76 mm) sesuai standar tekanan tinggi gas refrigeran R32 dan R410A untuk mencegah retak mikro pada lekukan.

@@ -2,8 +2,6 @@
 import SeoHead from '../components/common/SeoHead.astro';
 import Header from '../components/common/Header.astro';
 import Footer from '../components/common/Footer.astro';
-import MobileStickyBar from '../components/common/MobileStickyBar.astro';
-import FloatingWhatsApp from '../components/common/FloatingWhatsApp.astro';
 import RfqDrawer from '../components/rfq/RfqDrawer.astro';
 import '../styles/global.css';
 
@@ -16,7 +14,6 @@ export interface Props {
   keywords?: string | string[];
   author?: string;
   jsonLd?: Record<string, any> | Array<Record<string, any>>;
-  hideMobileStickyBar?: boolean;
   noindex?: boolean;
 }
 
@@ -29,7 +26,6 @@ const {
   keywords,
   author,
   jsonLd,
-  hideMobileStickyBar = false,
   noindex = false,
 } = Astro.props;
 
@@ -51,14 +47,12 @@ const isHomePage = Astro.url.pathname === '/' || Astro.url.pathname === '';
       noindex={noindex}
     />
   </head>
-  <body class="bg-slate-50 text-slate-900 antialiased selection:bg-sky-100 selection:text-slate-950 font-sans">
+  <body class="bg-white text-slate-950 antialiased font-sans">
     <Header isHomePage={isHomePage} />
-    <main class="flex-1 pb-20 md:pb-0">
+    <main class="flex-1">
       <slot />
     </main>
     <Footer />
-    <FloatingWhatsApp />
-    {!hideMobileStickyBar && <MobileStickyBar />}
     <RfqDrawer />
   </body>
 </html>

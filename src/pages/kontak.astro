@@ -3,7 +3,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumb from '../components/common/Breadcrumb.astro';
 import { BUSINESS_INFO } from '../data/businessInfo';
 import { getBreadcrumbSchema, getLocalBusinessSchema, ensureAbsoluteUrl } from '../utils/seo';
-import { generateGeneralInquiryUrl } from '../utils/whatsapp';
 
 const breadcrumbs = [
   { name: 'Beranda', url: '/' },
@@ -17,193 +16,130 @@ const combinedJsonLd = {
   '@context': 'https://schema.org',
   '@graph': [breadcrumbSchema, localBusinessSchema],
 };
-
-const waDefaultUrl = generateGeneralInquiryUrl('kontak-page');
 ---
 
 <BaseLayout
-  title="Hubungi ACNesia — Hotline & Konsultasi AC Kantor di Malang"
-  description="Hubungi tim ACNesia untuk pengadaan unit AC, permintaan penawaran RAB, jadwal survey lokasi, kontrak maintenance B2B, atau sewa AC event di Malang Raya."
+  title="Kontak & Nomor WA Service, Sewa & Jual Beli AC Malang - Sentra AC"
+  description="Hubungi WhatsApp 0851-8300-2070 Sentra AC untuk jual beli AC baru/bekas, sewa AC standing, jasa service AC panggilan, pasang AC, & survey gratis di Malang."
   canonical={ensureAbsoluteUrl('/kontak/')}
   jsonLd={combinedJsonLd}
   keywords={[
-    'kontak acnesia',
+    'kontak sentra ac',
     'nomor wa teknisi ac malang',
-    'customer service acnesia',
-    'alamat acnesia kedungkandang',
-    'kantor acnesia buring malang',
+    'customer service sentra ac',
+    'alamat sentra ac kedungkandang',
+    'kantor sentra ac buring malang',
     'rfq ac kantor malang',
   ]}
 >
-  <!-- Breadcrumbs -->
-  <div class="bg-white border-b border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+  <div class="bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
       <Breadcrumb items={breadcrumbs} />
     </div>
   </div>
 
   <!-- Hero Header -->
-  <section class="bg-gradient-to-b from-white via-slate-50 to-slate-50 border-b border-slate-200 py-12 md:py-16">
+  <section class="bg-white py-10 md:py-14">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-3xl space-y-4">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-red-50 text-red-800 border border-red-200">
-          <span class="w-2 h-2 rounded-full bg-red-700"></span>
-          <span>Hotline Layanan Pelanggan & Konsultasi B2B</span>
-        </div>
-        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-950 tracking-tight leading-tight">
-          Konsultasikan Kebutuhan Sistem AC Anda Bersama Tim ACNesia
+      <div class="max-w-3xl space-y-3">
+        <h1 class="text-2xl sm:text-4xl lg:text-[42px] font-bold text-slate-950 tracking-tight leading-tight">
+          Hubungi Tim Engineering &amp; Pengadaan B2B Sentra AC
         </h1>
-        <p class="text-base sm:text-lg text-slate-600 leading-relaxed">
-          Tim engineering dan customer care kami siap membantu perhitungan kapasitas PK ruangan, pengajuan proposal RAB resmi, jadwal survey on-site, atau penanganan darurat di wilayah Malang Raya.
+        <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
+          Tim engineering dan customer care kami siap membantu perhitungan kapasitas PK ruangan, pengajuan proposal SPH resmi, jadwal survei on-site, atau penanganan darurat di wilayah Malang Raya, Surabaya, dan Sidoarjo.
         </p>
       </div>
     </div>
   </section>
 
   <!-- Contact Matrix & Interactive RFQ Section -->
-  <section class="py-12 md:py-20">
+  <section class="py-12 md:py-16 bg-slate-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-        
-        <!-- Left: Quick Contact Details & Cards -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
         <div class="lg:col-span-5 space-y-6">
-          <div class="rounded-3xl bg-white border border-slate-200 p-6 sm:p-8 shadow-sm space-y-6">
-            <h2 class="text-xl font-bold text-slate-900 border-b border-slate-100 pb-3">
+          <div class="rounded-xl bg-white border border-slate-200 p-6 sm:p-8 space-y-5">
+            <h2 class="text-lg sm:text-xl font-bold text-slate-950">
               Informasi Kontak Resmi
             </h2>
 
-            <!-- WhatsApp Direct -->
-            <div class="flex items-start gap-4">
-              <div class="w-10 h-10 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
-                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                  <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2z"/>
-                </svg>
+            <div class="space-y-4 text-xs">
+              <div class="space-y-0.5">
+                <span class="font-semibold text-slate-500">Telepon &amp; WhatsApp B2B</span>
+                <p class="font-bold text-slate-950 text-sm sm:text-base">
+                  0851-8300-2070
+                </p>
+                <p class="text-slate-600">Layanan penawaran resmi, penjadwalan teknisi, dan konsultasi proyek</p>
               </div>
-              <div class="space-y-1">
-                <span class="text-[11px] uppercase font-bold text-slate-400 tracking-wider">WhatsApp Hotline / Call</span>
-                <div>
-                  <a
-                    href={waDefaultUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="font-bold text-slate-900 hover:text-emerald-600 transition-colors text-base"
-                  >
-                    0851-8300-2070
-                  </a>
-                </div>
-                <p class="text-xs text-slate-500">Respon cepat via WhatsApp chat untuk penawaran & konsultasi</p>
-              </div>
-            </div>
 
-            <!-- Email -->
-            <div class="flex items-start gap-4">
-              <div class="w-10 h-10 rounded-2xl bg-red-50 text-red-800 flex items-center justify-center shrink-0">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-              </div>
-              <div class="space-y-1">
-                <span class="text-[11px] uppercase font-bold text-slate-400 tracking-wider">Email Korespondensi & BoQ</span>
+              <div class="space-y-0.5 pt-3 border-t border-slate-100">
+                <span class="font-semibold text-slate-500">Email Korespondensi &amp; BoQ</span>
                 <div>
                   <a
                     href={`mailto:${BUSINESS_INFO.email}`}
-                    class="font-bold text-slate-900 hover:text-red-800 transition-colors text-base"
+                    class="font-bold text-slate-950 hover:text-[#c2410c] transition-colors text-sm sm:text-base"
                   >
                     {BUSINESS_INFO.email}
                   </a>
                 </div>
-                <p class="text-xs text-slate-500">Kirimkan lampiran berkas BoQ, denah PDF, atau dokumen RKS</p>
+                <p class="text-slate-600">Kirimkan lampiran berkas BoQ, denah PDF, atau dokumen RKS</p>
               </div>
-            </div>
 
-            <!-- Operating Hours -->
-            <div class="flex items-start gap-4">
-              <div class="w-10 h-10 rounded-2xl bg-amber-50 text-amber-700 flex items-center justify-center shrink-0">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
+              <div class="space-y-0.5 pt-3 border-t border-slate-100">
+                <span class="font-semibold text-slate-500">Jam Operasional Kantor</span>
+                <div class="font-bold text-slate-950 text-sm">{BUSINESS_INFO.hours.days}</div>
+                <p class="text-slate-600">{BUSINESS_INFO.hours.time} (Pelaksanaan servis kontrak di luar jam kerja dapat diatur)</p>
               </div>
-              <div class="space-y-1">
-                <span class="text-[11px] uppercase font-bold text-slate-400 tracking-wider">Jam Operasional Kantor</span>
-                <div class="font-bold text-slate-900 text-sm">{BUSINESS_INFO.hours.days}</div>
-                <p class="text-xs text-slate-500">{BUSINESS_INFO.hours.time} (Pelaksanaan servis kontrak di luar jam kerja dapat diatur)</p>
-              </div>
-            </div>
 
-            <!-- Office Address -->
-            <div class="flex items-start gap-4 pt-2 border-t border-slate-100">
-              <div class="w-10 h-10 rounded-2xl bg-slate-100 text-slate-700 flex items-center justify-center shrink-0">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-              </div>
-              <div class="space-y-1">
-                <span class="text-[11px] uppercase font-bold text-slate-400 tracking-wider">Workshop & Kantor Operasional</span>
-                <p class="font-medium text-slate-800 text-xs leading-relaxed">
+              <div class="space-y-1 pt-3 border-t border-slate-100">
+                <span class="font-semibold text-slate-500">Workshop &amp; Kantor Operasional</span>
+                <p class="font-medium text-slate-800 leading-relaxed">
                   {BUSINESS_INFO.address.formatted}
                 </p>
-                <div class="pt-1">
-                  <a
-                    href="/lokasi/"
-                    class="text-xs font-semibold text-red-700 hover:text-red-800 hover:underline inline-flex items-center gap-1"
-                  >
-                    <span>Cakupan Layanan Wilayah Malang Raya</span>
-                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                    </svg>
-                  </a>
-                </div>
               </div>
             </div>
-
           </div>
 
-          <!-- Quick Notice Card -->
-          <div class="rounded-3xl bg-slate-900 text-white p-6 space-y-3">
-            <h3 class="font-bold text-sm text-red-300">Layanan Survey On-Site Gratis</h3>
+          <div class="rounded-xl bg-[#020617] text-white p-6 space-y-2">
+            <h3 class="font-bold text-sm text-white">Layanan Survei On-Site</h3>
             <p class="text-xs text-slate-300 leading-relaxed">
-              Untuk kebutuhan pengadaan kantor di atas 5 unit atau kontrak pemeliharaan gedung, tim engineer kami dapat melakukan kunjungan survey fisik tanpa dipungut biaya transportasi di wilayah Kota & Kabupaten Malang.
+              Untuk kebutuhan pengadaan kantor multi-unit atau kontrak pemeliharaan gedung, tim engineer kami melakukan kunjungan survei fisik di wilayah Malang Raya, Surabaya, dan Sidoarjo.
             </p>
           </div>
         </div>
 
         <!-- Right: Interactive RFQ Form Builder -->
         <div class="lg:col-span-7">
-          <div class="rounded-3xl bg-white border border-slate-200 p-6 sm:p-10 shadow-sm space-y-6">
-            <div class="space-y-1 border-b border-slate-100 pb-4">
-              <span class="text-xs font-bold text-red-800 uppercase tracking-wider">Formulir Permintaan Penawaran (RFQ)</span>
-              <h2 class="text-2xl font-extrabold text-slate-900 tracking-tight">Kirim Detail Kebutuhan AC</h2>
-              <p class="text-xs text-slate-500">
-                Isi rincian di bawah ini, lalu klik tombol untuk langsung terhubung ke konsultan ACNesia via WhatsApp dengan draf pesan otomatis.
+          <div class="rounded-xl bg-white border border-slate-200 p-6 sm:p-8 space-y-6">
+            <div class="space-y-1">
+              <h2 class="text-xl sm:text-2xl font-bold text-slate-950 tracking-tight">Kirim Detail Kebutuhan AC</h2>
+              <p class="text-xs text-slate-600">
+                Isi rincian di bawah ini untuk meneruskan draf permintaan penawaran terstruktur kepada tim B2B Sentra AC.
               </p>
             </div>
 
             <form id="rfqForm" class="space-y-4">
-              <!-- Jenis Permintaan -->
               <div class="space-y-1.5">
-                <label for="rfqCategory" class="block text-xs font-bold text-slate-800">
+                <label for="rfqCategory" class="block text-xs font-semibold text-slate-800">
                   Kategori Layanan yang Dibutuhkan *
                 </label>
                 <select
                   id="rfqCategory"
                   required
-                  class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-base sm:text-xs text-slate-900 focus:outline-none focus:border-red-700 focus:ring-1 focus:ring-red-700"
+                  class="w-full px-3.5 py-2.5 bg-white border border-slate-300 rounded-lg text-base sm:text-xs text-slate-900 focus:border-[#c2410c]"
                 >
                   <option value="Pengadaan Unit AC Baru">Pengadaan Unit AC Baru (Split, Cassette, Standing)</option>
                   <option value="Kontrak Maintenance AC Perusahaan">Kontrak Perawatan Berkala B2B (Maintenance Contract)</option>
-                  <option value="Instalasi & Pasang AC Baru">Jasa Instalasi & Pemipaan AC Rapi</option>
-                  <option value="Service & Perbaikan Darurat">Service / Perbaikan Kerusakan & Tambah Freon</option>
-                  <option value="Sewa AC Standing Event">Sewa AC Standing 5 PK / 10 PK untuk Event</option>
-                  <option value="Jual Beli / Tukar Tambah AC Bekas">Jual Beli / Borongan & Tukar Tambah AC Bekas</option>
-                  <option value="Survey & Hitung Beban PK">Permintaan Survey Lokasi & Audit Beban PK</option>
+                  <option value="Instalasi & Pasang AC Baru">Jasa Instalasi &amp; Pemipaan AC Rapi</option>
+                  <option value="Service & Perbaikan Darurat">Service / Perbaikan Kerusakan &amp; Tambah Freon</option>
+                  <option value="Sewa AC Standing Event">Sewa AC Standing &amp; Genset Silent untuk Event/Proyek</option>
+                  <option value="Jual Beli / Tukar Tambah AC Bekas">Jual Beli / Borongan &amp; Tukar Tambah AC Bekas</option>
+                  <option value="Survey & Hitung Beban PK">Permintaan Survei Lokasi &amp; Audit Beban PK</option>
                 </select>
               </div>
 
-              <!-- Nama & Perusahaan -->
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div class="space-y-1.5">
-                  <label for="rfqName" class="block text-xs font-bold text-slate-800">
+                  <label for="rfqName" class="block text-xs font-semibold text-slate-800">
                     Nama Kontak / PIC *
                   </label>
                   <input
@@ -211,26 +147,25 @@ const waDefaultUrl = generateGeneralInquiryUrl('kontak-page');
                     id="rfqName"
                     required
                     placeholder="Contoh: Bpk. Hendra"
-                    class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-base sm:text-xs text-slate-900 focus:outline-none focus:border-red-700 focus:ring-1 focus:ring-red-700"
+                    class="w-full px-3.5 py-2.5 bg-white border border-slate-300 rounded-lg text-base sm:text-xs text-slate-900 focus:border-[#c2410c]"
                   />
                 </div>
                 <div class="space-y-1.5">
-                  <label for="rfqCompany" class="block text-xs font-bold text-slate-800">
+                  <label for="rfqCompany" class="block text-xs font-semibold text-slate-800">
                     Nama Perusahaan / Instansi
                   </label>
                   <input
                     type="text"
                     id="rfqCompany"
                     placeholder="Contoh: PT Sumber Makmur Sentosa"
-                    class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-base sm:text-xs text-slate-900 focus:outline-none focus:border-red-700 focus:ring-1 focus:ring-red-700"
+                    class="w-full px-3.5 py-2.5 bg-white border border-slate-300 rounded-lg text-base sm:text-xs text-slate-900 focus:border-[#c2410c]"
                   />
                 </div>
               </div>
 
-              <!-- Lokasi & Estimasi Unit -->
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div class="space-y-1.5">
-                  <label for="rfqLocation" class="block text-xs font-bold text-slate-800">
+                  <label for="rfqLocation" class="block text-xs font-semibold text-slate-800">
                     Lokasi Gedung / Kota *
                   </label>
                   <input
@@ -238,45 +173,40 @@ const waDefaultUrl = generateGeneralInquiryUrl('kontak-page');
                     id="rfqLocation"
                     required
                     placeholder="Contoh: Jl. Soekarno Hatta, Kota Malang"
-                    class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-base sm:text-xs text-slate-900 focus:outline-none focus:border-red-700 focus:ring-1 focus:ring-red-700"
+                    class="w-full px-3.5 py-2.5 bg-white border border-slate-300 rounded-lg text-base sm:text-xs text-slate-900 focus:border-[#c2410c]"
                   />
                 </div>
                 <div class="space-y-1.5">
-                  <label for="rfqQty" class="block text-xs font-bold text-slate-800">
-                    Perkiraan Jumlah Unit (Optional)
+                  <label for="rfqQty" class="block text-xs font-semibold text-slate-800">
+                    Perkiraan Jumlah Unit (Opsional)
                   </label>
                   <input
                     type="text"
                     id="rfqQty"
                     placeholder="Contoh: 8 unit Cassette 3 PK"
-                    class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-base sm:text-xs text-slate-900 focus:outline-none focus:border-red-700 focus:ring-1 focus:ring-red-700"
+                    class="w-full px-3.5 py-2.5 bg-white border border-slate-300 rounded-lg text-base sm:text-xs text-slate-900 focus:border-[#c2410c]"
                   />
                 </div>
               </div>
 
-              <!-- Pesan Tambahan -->
               <div class="space-y-1.5">
-                <label for="rfqMessage" class="block text-xs font-bold text-slate-800">
+                <label for="rfqMessage" class="block text-xs font-semibold text-slate-800">
                   Rincian Kebutuhan / Catatan Khusus
                 </label>
                 <textarea
                   id="rfqMessage"
                   rows="3"
-                  placeholder="Ceritakan permasalahan AC saat ini, jadwal survey yang diinginkan, atau spesifikasi khusus..."
-                  class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-base sm:text-xs text-slate-900 focus:outline-none focus:border-red-700 focus:ring-1 focus:ring-red-700"
+                  placeholder="Ceritakan kebutuhan AC saat ini, jadwal survei yang diinginkan, atau spesifikasi khusus..."
+                  class="w-full px-3.5 py-2.5 bg-white border border-slate-300 rounded-lg text-base sm:text-xs text-slate-900 focus:border-[#c2410c]"
                 ></textarea>
               </div>
 
-              <!-- Submit to WhatsApp Button -->
               <div class="pt-2">
                 <button
                   type="submit"
-                  class="w-full inline-flex items-center justify-center gap-2.5 py-3.5 px-6 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm shadow-md hover:shadow transition-all cursor-pointer"
+                  class="w-full inline-flex items-center justify-center py-3 px-6 rounded-lg bg-[#c2410c] hover:bg-[#9a3412] text-white font-semibold text-sm transition-colors cursor-pointer"
                 >
-                  <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                    <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2z"/>
-                  </svg>
-                  <span>Kirimkan Permintaan Penawaran via WhatsApp</span>
+                  Kirim Permintaan SPH via WhatsApp
                 </button>
               </div>
             </form>
@@ -295,7 +225,7 @@ const waDefaultUrl = generateGeneralInquiryUrl('kontak-page');
                   const qty = document.getElementById('rfqQty').value.trim();
                   const message = document.getElementById('rfqMessage').value.trim();
 
-                  let waText = `Halo Tim ACNesia (Mitra Bisnis Indonesia),\n\nSaya ingin meminta penawaran dan konsultasi:\n- Kategori Layanan: ${category}\n- Nama PIC: ${name}`;
+                  let waText = `Halo Tim B2B Sentra AC,\n\nSaya ingin mengajukan permintaan penawaran (SPH):\n- Kategori Layanan: ${category}\n- Nama PIC: ${name}`;
                   if (company) waText += `\n- Perusahaan / Instansi: ${company}`;
                   if (location) waText += `\n- Lokasi / Alamat: ${location}`;
                   if (qty) waText += `\n- Estimasi Unit: ${qty}`;
@@ -309,7 +239,6 @@ const waDefaultUrl = generateGeneralInquiryUrl('kontak-page');
             </script>
           </div>
         </div>
-
       </div>
     </div>
   </section>

@@ -1,7 +1,7 @@
 ---
-title: 'Jasa Service AC'
-tagline: 'Troubleshooting Akurat, Perbaikan Kerusakan & Penanganan AC Tidak Dingin'
-description: 'Layanan jasa service AC panggilan untuk kantor dan bisnis: atasi AC bocor air, tidak dingin, tambah/isi freon, kompresor bising, hingga penggantian sparepart mesin.'
+title: 'Jasa Service AC Panggilan & Isi Freon Kantor'
+tagline: 'Perbaikan AC Bocor Air, AC Tidak Dingin, Tambah Freon & Ganti Sparepart'
+description: 'Jasa service AC panggilan di Malang Raya untuk kantor dan bisnis: perbaikan AC bocor air, AC tidak dingin, isi freon R32/R410A, hingga ganti kapasitor.'
 serviceType: 'Perbaikan & Troubleshooting'
 heroImage: '/images/services/service-ac-kantor.webp'
 orderPriority: 3
@@ -27,11 +27,11 @@ benefits:
 
 Ketika pendingin ruangan di kantor mendadak bermasalah—seperti meneteskan air ke meja dokumen, mengeluarkan bau apak, atau hanya meniupkan angin hangat—kenyamanan dan fokus operasional kerja karyawan akan langsung terganggu.
 
-ACNesia menyediakan layanan service dan troubleshooting AC yang sistematis, cepat tanggap, dan transparan.
+Sentra AC menyediakan layanan service dan troubleshooting AC yang sistematis, cepat tanggap, dan transparan.
 
 ### Kejujuran Diagnosis & Transparansi Kerja
 
-Prinsip dasar ACNesia adalah **tidak pernah mengarang diagnosis sebelum melakukan inspeksi langsung**. Banyak penyedia jasa servis yang langsung mengklaim "freon habis" tanpa dasar teknis. Di ACNesia:
+Prinsip dasar Sentra AC adalah **tidak pernah mengarang diagnosis sebelum melakukan inspeksi langsung**. Banyak penyedia jasa servis yang langsung mengklaim "freon habis" tanpa dasar teknis. Di Sentra AC:
 - Freon berada dalam sistem tertutup; jika tekanan berkurang, pasti ada titik kebocoran fisik yang harus ditemukan dan diperbaiki terlebih dahulu sebelum pengisian ulang.
 - Kami menunjukkan langsung data tekanan manifold gauge dan pengukuran ampere kompresor kepada perwakilan kantor Anda.
 - Setiap penggantian sparepart (seperti kapasitor, overload protector, atau sensor thermistor) selalu dikonfirmasikan biayanya terlebih dahulu sebelum tindakan dilakukan.

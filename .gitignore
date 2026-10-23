@@ -29,3 +29,7 @@ pnpm-debug.log*
 # Vercel
 .vercel
 .env*
+
+# Local captures & design artifacts
+screenshots/
+design/

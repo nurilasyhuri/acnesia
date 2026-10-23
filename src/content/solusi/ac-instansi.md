@@ -1,7 +1,7 @@
 ---
-title: 'Solusi AC Instansi Pemerintah, Pendidikan & BUMN'
+title: 'Pengadaan & Kontrak Service AC Instansi Pemerintah BUMN'
 target: 'Instansi & Lembaga Publik'
-description: 'Pengadaan dan perawatan pendingin udara berlandaskan administrasi transparan, SPK resmi, kepatuhan teknis, dan efisiensi anggaran belanja negara/lembaga.'
+description: 'Mitra resmi pengadaan, pemasangan, dan kontrak service AC untuk instansi pemerintah, kampus, rumah sakit, serta BUMN di Malang Raya berfaktur pajak PPN.'
 heroImage: '/images/services/ac-instansi-solusi.webp'
 featured: true
 painPoints:
@@ -20,4 +20,4 @@ recommendedTypes:
 
 Instansi pemerintahan, balai pelatihan, rumah sakit daerah, dan institusi pendidikan membutuhkan mitra pendingin udara yang tidak hanya handal secara teknik pendingin, namun juga memahami kepatuhan birokrasi pengadaan barang dan jasa.
 
-ACNesia siap melayani proses pengadaan maupun pemeliharaan berkala dengan kepatuhan administrasi penuh, transparansi komponen biaya, dan komitmen penyelesaian pekerjaan tepat waktu.
+Sentra AC siap melayani proses pengadaan maupun pemeliharaan berkala dengan kepatuhan administrasi penuh, transparansi komponen biaya, dan komitmen penyelesaian pekerjaan tepat waktu.

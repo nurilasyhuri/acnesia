@@ -1,8 +1,8 @@
 ---
-title: 'Cara Menghitung Kebutuhan PK AC Berdasarkan Ukuran Ruangan Kantor'
-description: 'Panduan teknis menghitung kapasitas PK dan BTU/h pendingin ruangan agar AC tidak cepat rusak dan tagihan listrik kantor tetap efisien.'
+title: 'Cara Menghitung Kebutuhan PK & BTU AC Ruangan Kantor'
+description: 'Rumus praktis cara menghitung kapasitas PK dan BTU/h AC berdasarkan luas ruangan kantor agar pendinginan optimal, kompresor awet, & hemat tagihan listrik.'
 publishDate: '2026-09-15'
-author: 'Tim HVAC Engineer ACNesia'
+author: 'Tim HVAC Engineer Sentra AC'
 category: 'Panduan Memilih AC'
 tags:
   - 'perhitungan pk ac'
@@ -15,7 +15,7 @@ featured: true
 
 Memilih kapasitas pendingin udara (AC) untuk ruangan kerja tidak boleh dilakukan hanya berdasarkan perkiraan kasar. Jika kapasitas PK (*Paardekracht* / daya kuda) terlalu kecil, kompresor AC akan terus-menerus berputar pada beban maksimal tanpa pernah beristirahat, menyebabkan pemborosan listrik dan kerusakan komponen kompresor dalam hitungan bulan. Sebaliknya, jika kapasitas terlalu besar, kelembapan ruangan menjadi tidak seimbang dan biaya pembelian awal (*investasi awal*) menjadi terlalu tinggi.
 
-Berikut adalah rumus standar teknik pendingin (*HVAC calculation*) yang digunakan oleh para engineer ACNesia dalam menentukan kapasitas AC yang tepat.
+Berikut adalah rumus standar teknik pendingin (*HVAC calculation*) yang digunakan oleh para engineer Sentra AC dalam menentukan kapasitas AC yang tepat.
 
 ### Rumus Dasar Perhitungan Kebutuhan BTU/h
 
@@ -60,6 +60,6 @@ Dari perhitungan di atas, memasang AC 1.5 PK (12.000 BTU/h) jelas tidak akan cuk
 
 ---
 
-### Konsultasikan Denah Ruang Kantor Anda Bersama ACNesia
+### Konsultasikan Denah Ruang Kantor Anda Bersama Sentra AC
 
-Jika gedung kantor Anda memiliki ketinggian plafon khusus (*void ceiling*), dinding kaca barat yang terik, atau kebutuhan zonasi khusus, tim engineering ACNesia siap membantu melakukan survey lokasi dan perhitungan beban kalor komprehensif tanpa biaya komitmen awal.
+Jika gedung kantor Anda memiliki ketinggian plafon khusus (*void ceiling*), dinding kaca barat yang terik, atau kebutuhan zonasi khusus, tim engineering Sentra AC siap membantu melakukan survey lokasi dan perhitungan beban kalor komprehensif tanpa biaya komitmen awal.

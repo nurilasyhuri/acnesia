@@ -1,6 +1,6 @@
 import { BUSINESS_INFO } from '../data/businessInfo';
 
-export const CANONICAL_BASE = 'https://acnesia.com';
+export const CANONICAL_BASE = 'https://sentraac.com';
 
 export function ensureAbsoluteUrl(url: string): string {
   if (url.startsWith('http://') || url.startsWith('https://')) {
@@ -17,14 +17,19 @@ export function getLocalBusinessSchema() {
     '@id': `${CANONICAL_BASE}/#business`,
     name: BUSINESS_INFO.name,
     alternateName: [
-      'ACNesia Mitra Bisnis Indonesia',
-      'ACNesia Pengadaan & Service AC Komersial',
-      'Spesialis AC Kantor & Gedung ACNesia Malang',
+      'Sentra AC Jual Beli, Sewa, Service & Pasang AC Malang',
+      'Sentra AC Spesialis AC Baru & Bekas Kantor Gedung',
+      'Jasa Service, Cuci & Sewa AC Standing Sentra AC',
     ],
     url: `${CANONICAL_BASE}/`,
-    logo: `${CANONICAL_BASE}/favicon.svg`,
+    logo: {
+      '@type': 'ImageObject',
+      url: `${CANONICAL_BASE}/images/og/default-og.jpg`,
+      width: 1200,
+      height: 630,
+    },
     image: [
-      `${CANONICAL_BASE}/images/hero/hero-acnesia.webp`,
+      `${CANONICAL_BASE}/images/hero/hero-sentra ac.webp`,
       `${CANONICAL_BASE}/images/og/default-og.jpg`,
     ],
     description: BUSINESS_INFO.description,
@@ -55,28 +60,28 @@ export function getLocalBusinessSchema() {
     })),
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
-      name: 'Katalog Layanan & Solusi AC Komersial ACNesia',
+      name: 'Layanan Jual Beli, Sewa, Service, Pasang & Cuci AC Sentra AC',
       itemListElement: [
         {
           '@type': 'OfferCatalog',
-          name: 'Pengadaan Unit AC Baru',
+          name: 'Jual Beli Unit AC Baru & Bekas',
           itemListElement: [
-            { '@type': 'Offer', itemOffered: { '@type': 'Product', name: 'AC Split Wall Mounted Komersial' } },
-            { '@type': 'Offer', itemOffered: { '@type': 'Product', name: 'AC Cassette 4-Way Kantor' } },
-            { '@type': 'Offer', itemOffered: { '@type': 'Product', name: 'AC Floor Standing Multi-Ruang' } },
-            { '@type': 'Offer', itemOffered: { '@type': 'Product', name: 'AC Ceiling & Ducted Commercial' } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Product', name: 'AC Split Wall Mounted 0.5 PK - 2.5 PK Baru & Bekas' } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Product', name: 'AC Cassette 4-Way Plafon 2 PK - 5 PK' } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Product', name: 'AC Floor Standing 3 PK - 5 PK Komersial' } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Product', name: 'AC Ceiling Ducted Central Gedung & Kantor' } },
           ],
         },
         {
           '@type': 'OfferCatalog',
-          name: 'Layanan Teknik & Pemeliharaan AC',
+          name: 'Jasa Service, Pasang, Cuci & Sewa AC',
           itemListElement: [
-            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Instalasi AC Baru & Relokasi Multi-Unit' } },
-            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Service & Troubleshooting Kerusakan AC' } },
-            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Preventive Maintenance Berkala' } },
-            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Kontrak Maintenance AC Perusahaan & Instansi' } },
-            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Sewa AC Standing & Split untuk Event / Proyek' } },
-            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Jual Beli & Tukar Tambah AC Bekas Kantor / Borongan' } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Jual Beli & Tukar Tambah AC Baru dan Bekas Borongan' } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Sewa AC Standing 3 PK - 10 PK & AC Split Harian Bulanan' } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Jasa Service AC Panggilan, Perbaikan Bocor & Isi Freon' } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Jasa Pasang & Bongkar Pasang AC Standar Vakum' } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Jasa Cuci AC Steam & Preventive Maintenance Berkala' } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Kontrak Maintenance AC Kantor, Gedung & Perusahaan' } },
           ],
         },
       ],
@@ -91,20 +96,12 @@ export function getWebsiteSchema() {
     '@id': `${CANONICAL_BASE}/#website`,
     url: `${CANONICAL_BASE}/`,
     name: BUSINESS_INFO.name,
-    alternateName: 'ACNesia — Mitra Bisnis Indonesia',
+    alternateName: 'Sentra AC - Jual Beli, Sewa, Service, Pasang & Cuci AC',
     description: BUSINESS_INFO.description,
     publisher: {
       '@id': `${CANONICAL_BASE}/#business`,
     },
     inLanguage: 'id-ID',
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: {
-        '@type': 'EntryPoint',
-        urlTemplate: `${CANONICAL_BASE}/produk/?q={search_term_string}`,
-      },
-      'query-input': 'required name=search_term_string',
-    },
   };
 }
 
@@ -297,12 +294,21 @@ export function getArticleSchema(article: {
     datePublished: article.publishDate,
     dateModified: article.updatedDate || article.publishDate,
     author: {
-      '@type': 'Organization',
-      name: article.author || BUSINESS_INFO.name,
-      url: `${CANONICAL_BASE}/`,
+      '@type': 'Person',
+      name: article.author || 'Tim Teknisi & Engineer Sentra AC',
+      url: `${CANONICAL_BASE}/tentang-kami/`,
     },
     publisher: {
+      '@type': 'Organization',
       '@id': `${CANONICAL_BASE}/#business`,
+      name: BUSINESS_INFO.name,
+      url: `${CANONICAL_BASE}/`,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${CANONICAL_BASE}/images/og/default-og.jpg`,
+        width: 1200,
+        height: 630,
+      },
     },
     mainEntityOfPage: {
       '@type': 'WebPage',

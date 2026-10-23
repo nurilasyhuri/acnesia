@@ -1,7 +1,7 @@
 ---
-title: 'Kontrak Maintenance AC Perusahaan & Instansi'
-tagline: 'Perjanjian Kerja Sama Servis Berkala Terjadwal dengan SLA Jelas'
-description: 'Layanan kontrak perawatan AC B2B untuk kantor, perusahaan, instansi, dan gedung: jadwal rutin, SLA penanganan insiden darurat, dan pelaporan berkala.'
+title: 'Jasa Kontrak Maintenance & Perawatan AC Kantor'
+tagline: 'Kontrak Servis & Cuci AC Berkala Terjadwal dengan Jaminan SLA Darurat B2B'
+description: 'Layanan kontrak maintenance AC tahunan untuk kantor, perusahaan, instansi, dan gedung di Malang Raya dengan jadwal cuci rutin, SLA darurat, & laporan BAP.'
 serviceType: 'Kontrak Perawatan AC Komersial (SLA Contract)'
 heroImage: '/images/services/kontrak-maintenance-perusahaan.webp'
 orderPriority: 6
@@ -27,11 +27,11 @@ benefits:
 
 Bagi perusahaan yang memiliki 10, 30, hingga ratusan unit pendingin ruangan, mengelola perawatan AC secara parsial atau insidental (*on-demand*) sangat merepotkan tim General Affair (GA) dan sering kali berujung pada tagihan biaya servis yang membengkak tanpa kontrol historis yang jelas.
 
-ACNesia menawarkan **Kontrak Maintenance AC Perusahaan**—solusi kemitraan jangka panjang (6 bulan hingga 1 tahun ke atas) dengan jadwal servis terprogram, pelaporan rapi, dan komitmen waktu respon darurat (*Service Level Agreement* / SLA).
+Sentra AC menawarkan **Kontrak Maintenance AC Perusahaan**—solusi kemitraan jangka panjang (6 bulan hingga 1 tahun ke atas) dengan jadwal servis terprogram, pelaporan rapi, dan komitmen waktu respon darurat (*Service Level Agreement* / SLA).
 
 ### Alur Penerbitan Kontrak Maintenance:
 
-1. **Pendataan Aset Awal (*Asset Inventory*):** Tim ACNesia mengunjungi lokasi kantor Anda untuk mendata tipe AC (Split, Cassette, Standing), kapasitas PK, merk, usia unit, dan riwayat kerusakan sebelumnya.
+1. **Pendataan Aset Awal (*Asset Inventory*):** Tim Sentra AC mengunjungi lokasi kantor Anda untuk mendata tipe AC (Split, Cassette, Standing), kapasitas PK, merk, usia unit, dan riwayat kerusakan sebelumnya.
 2. **Penentuan Frekuensi Perawatan:** Kami menyusun rekomendasi frekuensi cuci berkala (misalnya 2 bulan sekali untuk ruang kerja padat atau 3 bulan sekali untuk area umum).
 3. **Penyusunan Proposal Biaya Tetap (*Fixed Maintenance Cost*):** Penawaran tarif flat tahunan atau bulanan yang transparan, termasuk ketentuan diskon khusus suku cadang.
 4. **Penandatanganan Dokumen Kontrak & SPK:** Memuat hak, kewajiban, tata cara pemanggilan darurat, dan syarat pembayaran term of payment (TOP).

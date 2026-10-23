@@ -1,8 +1,8 @@
 ---
-title: 'Kapan AC Kantor Perlu Dicuci? Kenali Tanda-Tanda AC Memerlukan Servis Rutin'
-description: 'Panduan jadwal pencucian AC kantor, gejala dini penurunan performa pendinginan, dan dampak buruk menunda cuci AC terhadap tagihan listrik perusahaan.'
+title: 'Jadwal Cuci AC Kantor & 5 Tanda AC Harus Segera Diservis'
+description: 'Kenali jadwal ideal cuci AC kantor serta 5 tanda AC harus segera diservis seperti bocor air, bau apak, kurang dingin, dan tagihan listrik yang membengkak.'
 publishDate: '2026-09-19'
-author: 'Tim HVAC Engineer ACNesia'
+author: 'Tim HVAC Engineer Sentra AC'
 category: 'Maintenance'
 tags:
   - 'jadwal cuci ac kantor'
@@ -17,7 +17,7 @@ Di banyak perusahaan, pendingin udara kantor sering kali dibiarkan beroperasi te
 
 Padahal, kotoran yang menumpuk pada sirip evaporator dan kipas blower bukan hanya membuat udara terasa tidak segar, melainkan juga memicu lonjakan konsumsi daya listrik bulanan dan memperpendek usia kompresor.
 
-Berikut adalah panduan praktis dari teknisi ACNesia mengenai interval ideal pencucian AC kantor serta tanda-tanda darurat yang wajib segera ditangani.
+Berikut adalah panduan praktis dari teknisi Sentra AC mengenai interval ideal pencucian AC kantor serta tanda-tanda darurat yang wajib segera ditangani.
 
 ---
 
@@ -42,6 +42,6 @@ Frekuensi cuci AC sangat bergantung pada kepadatan ruangan dan intensitas pemaka
 
 ---
 
-### Solusi Pemeliharaan Terjadwal ACNesia
+### Solusi Pemeliharaan Terjadwal Sentra AC
 
-Jangan tunggu operasional kantor Anda lumpuh akibat AC yang mendadak mati total di tengah jam kerja sibuk. ACNesia menyediakan layanan **Preventive Maintenance Terjadwal** yang dapat disesuaikan pada akhir pekan (Sabtu/Minggu) agar tidak mengganggu aktivitas kerja tim Anda.
+Jangan tunggu operasional kantor Anda lumpuh akibat AC yang mendadak mati total di tengah jam kerja sibuk. Sentra AC menyediakan layanan **Preventive Maintenance Terjadwal** yang dapat disesuaikan pada akhir pekan (Sabtu/Minggu) agar tidak mengganggu aktivitas kerja tim Anda.

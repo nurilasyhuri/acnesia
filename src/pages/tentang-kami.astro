@@ -11,114 +11,102 @@ const breadcrumbs = [
 ];
 
 const breadcrumbSchema = getBreadcrumbSchema(breadcrumbs);
-const waUrl = generateGeneralInquiryUrl('tentang-kami-hero');
+const waUrl = generateGeneralInquiryUrl('tentang-kami-cta');
 
 const pillars = [
   {
     title: 'Keaslian Unit 100% Bergaransi Pabrik',
     desc: 'Kami menyuplai unit pendingin langsung melalui jaringan distributor prinsipal resmi (Daikin, Panasonic, Gree, Mitsubishi Electric) lengkap dengan kartu garansi agen terdaftar.',
-    icon: 'shield',
   },
   {
     title: 'Standar Rekayasa & Vakum Sistem',
-    desc: 'Teknisi ACNesia menggunakan peralatan instalasi berstandar industri: manifold gauge digital, pompa vakum 2-stage, flaring tool presisi, dan pipa tembaga ketebalan standar komersial.',
-    icon: 'wrench',
+    desc: 'Teknisi Sentra AC menggunakan peralatan instalasi berstandar industri: manifold gauge digital, pompa vakum 2-stage, flaring tool presisi, dan pipa tembaga ketebalan standar ASTM 0.8mm.',
   },
   {
     title: 'Administrasi B2B & Kepatuhan Pajak',
-    desc: 'Setiap transaksi korporat didukung oleh Surat Penawaran Harga (SPH), Rencana Anggaran Biaya (RAB), Berita Acara Pekerjaan (BAP), dan e-Faktur Pajak resmi.',
-    icon: 'document',
+    desc: 'Setiap transaksi korporat didukung oleh Surat Penawaran Harga (SPH), Rencana Anggaran Biaya (RAB), Berita Acara Serah Terima (BAST), dan e-Faktur Pajak resmi.',
   },
   {
     title: 'Responsibilitas Jangka Panjang',
-    desc: 'Kami tidak sekadar menjual unit lalu pergi. Melalui skema kontrak preventive maintenance, kami merawat siklus hidup aset pendingin Anda agar selalu hemat energi.',
-    icon: 'clock',
+    desc: 'Melalui skema kontrak preventive maintenance, kami merawat siklus hidup aset pendingin gedung Anda agar selalu bekerja efisien dan hemat energi.',
   },
 ];
 ---
 
 <BaseLayout
-  title="Tentang ACNesia — Mitra Bisnis Indonesia | Pengadaan & Service AC Komersial"
-  description="Profil ACNesia: Penyedia solusi tata udara komersial, kantor & gedung di Malang Raya. Jual unit resmi, instalasi berstandar, service berkala & kontrak maintenance B2B."
+  title="Profil Sentra AC: Jual Beli, Sewa, Pasang & Service AC - Sentra AC"
+  description="Profil Sentra AC: spesialis jual beli AC baru dan bekas, sewa AC standing, instalasi pipa vakum, cuci berkala, & kontrak service AC kantor di Malang Raya."
   canonical={ensureAbsoluteUrl('/tentang-kami/')}
   jsonLd={breadcrumbSchema}
   keywords={[
-    'tentang acnesia',
-    'profil perusahaan acnesia',
-    'mitra bisnis indonesia acnesia',
+    'tentang sentra ac',
+    'profil perusahaan sentra ac',
+    'mitra bisnis indonesia sentra ac',
     'kontraktor hvac malang',
     'supplier ac kantor malang',
   ]}
 >
-  <!-- Breadcrumbs -->
-  <div class="bg-white border-b border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+  <div class="bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
       <Breadcrumb items={breadcrumbs} />
     </div>
   </div>
 
   <!-- Hero Header -->
-  <section class="bg-gradient-to-b from-white via-slate-50 to-slate-50 border-b border-slate-200 py-12 md:py-20">
+  <section class="bg-white py-10 md:py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-3xl space-y-4">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-red-50 text-red-800 border border-red-200">
-          <span class="w-2 h-2 rounded-full bg-red-700"></span>
-          <span>Profil & Filosofi Bisnis</span>
-        </div>
-        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-950 tracking-tight leading-tight">
-          {BUSINESS_INFO.legalName}
+      <div class="max-w-3xl space-y-3.5">
+        <h1 class="text-2xl sm:text-4xl lg:text-[42px] font-bold text-slate-950 tracking-tight leading-tight">
+          Sentra AC — Pusat Jual Beli, Sewa, Pasang &amp; Service AC B2B Jawa Timur
         </h1>
-        <p class="text-lg sm:text-xl font-medium text-red-800">
-          "{BUSINESS_INFO.valueProposition}"
+        <p class="text-base sm:text-lg font-semibold text-slate-800">
+          {BUSINESS_INFO.valueProposition}
         </p>
-        <p class="text-base sm:text-lg text-slate-600 leading-relaxed">
-          ACNesia didirikan untuk menjawab kebutuhan sektor bisnis, perkantoran, instansi pemerintah, dan pengelola gedung komersial akan mitra sistem pendingin ruangan yang dapat diandalkan, berstandar rekayasa jelas, dan tertib secara administrasi legalitas.
+        <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
+          Sentra AC didirikan untuk menjawab kebutuhan sektor bisnis, perkantoran, instansi pemerintah, dan pengelola gedung komersial akan mitra sistem pendingin ruangan yang dapat diandalkan, berstandar rekayasa jelas, dan tertib secara administrasi legalitas.
         </p>
       </div>
     </div>
   </section>
 
   <!-- Narrative Section -->
-  <section class="py-12 md:py-20 bg-white border-b border-slate-200">
+  <section class="py-12 md:py-16 bg-slate-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        <div class="lg:col-span-6 space-y-5 text-sm sm:text-base text-slate-600 leading-relaxed">
-          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-950 tracking-tight">
-            Mengapa Tata Udara Komersial Membutuhkan Pendekatan Berbeda?
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+        <div class="lg:col-span-7 space-y-4 text-xs sm:text-sm text-slate-600 leading-relaxed">
+          <h2 class="text-xl sm:text-3xl font-bold text-slate-950 tracking-tight">
+            Pendekatan Rekayasa Tata Udara Komersial
           </h2>
           <p>
-            Di sektor hunian, kerusakan AC mungkin hanya mengganggu kenyamanan sesaat. Namun di sektor komersial—seperti ruang kantor berokupansi ratusan staf, ruang server perbankan, lobi hotel, atau ruang rapat direksi—kerusakan sistem AC berarti penurunan produktivitas kerja, gangguan operasional, dan kerugian finansial nyata.
+            Di sektor komersial—seperti ruang kantor berokupansi ratusan staf, ruang server perbankan, lobi hotel, atau ruang rapat direksi—kerusakan sistem AC berarti penurunan produktivitas kerja, gangguan operasional, dan kerugian finansial nyata.
           </p>
           <p>
-            Banyak perusahaan mengeluhkan teknisi panggilan lepas yang tidak konsisten, pemasangan pipa asal-asalan tanpa proses vakum yang benar, serta ketiadaan bukti Berita Acara Pekerjaan dan Faktur Pajak.
+            Banyak perusahaan menghadapi kendala teknisi panggilan lepas yang tidak konsisten, pemasangan pipa tanpa proses vakum digital yang benar, serta ketiadaan bukti Berita Acara Serah Terima dan Faktur Pajak.
           </p>
           <p>
-            <strong>ACNesia hadir untuk mengubah standar tersebut.</strong> Kami menyatukan seluruh mata rantai tata udara dalam satu pintu: mulai dari pengadaan unit baru, perencanaan kapasitas PK ruangan yang tepat, instalasi rapi dengan material bersertifikat, hingga program perawatan preventif berkala berbasis kontrak.
+            <strong class="text-slate-900">Sentra AC menyatukan seluruh mata rantai tata udara dalam satu pintu:</strong> mulai dari pengadaan unit baru maupun rekondisi, perencanaan kapasitas PK ruangan yang tepat, instalasi rapi dengan pipa ASTM 0.8mm, hingga program perawatan preventif berkala berbasis kontrak.
           </p>
         </div>
 
-        <div class="lg:col-span-6">
-          <div class="rounded-3xl bg-slate-900 text-white p-8 sm:p-10 space-y-6 shadow-xl relative overflow-hidden">
-            <div class="relative z-10 space-y-4">
-              <span class="text-xs font-bold text-red-400 uppercase tracking-widest">Identitas Perusahaan</span>
-              <h3 class="text-xl sm:text-2xl font-bold">Spesialis Tata Udara Komersial</h3>
-              <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                Berpusat di Kota Malang, ACNesia melayani korporasi, institusi pendidikan, fasilitas kesehatan, dan jaringan cabang bisnis di seluruh Malang Raya dan wilayah Jawa Timur.
-              </p>
+        <div class="lg:col-span-5">
+          <div class="rounded-xl bg-white border border-slate-200 p-6 sm:p-8 space-y-4">
+            <h3 class="text-lg sm:text-xl font-bold text-slate-950">Spesialis Tata Udara Komersial</h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Berpusat di Kota Malang dengan hub proyek di koridor Surabaya–Sidoarjo, Sentra AC melayani korporasi, institusi pendidikan, fasilitas kesehatan, dan jaringan cabang bisnis di Jawa Timur.
+            </p>
 
-              <div class="pt-4 border-t border-slate-800 space-y-3 text-xs">
-                <div class="flex items-start gap-3">
-                  <span class="font-bold text-slate-400 w-28 shrink-0">Alamat Kantor:</span>
-                  <span class="text-slate-200">{BUSINESS_INFO.address.formatted}</span>
-                </div>
-                <div class="flex items-start gap-3">
-                  <span class="font-bold text-slate-400 w-28 shrink-0">Layanan Inti:</span>
-                  <span class="text-slate-200">{BUSINESS_INFO.brandDescriptor}</span>
-                </div>
-                <div class="flex items-start gap-3">
-                  <span class="font-bold text-slate-400 w-28 shrink-0">Hotline B2B:</span>
-                  <span class="text-slate-200">+{BUSINESS_INFO.whatsappNumber}</span>
-                </div>
+            <div class="pt-4 border-t border-slate-200 space-y-3 text-xs">
+              <div class="flex items-start gap-3">
+                <span class="font-bold text-slate-700 w-28 shrink-0">Workshop:</span>
+                <span class="text-slate-600">{BUSINESS_INFO.address.formatted}</span>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="font-bold text-slate-700 w-28 shrink-0">Layanan Inti:</span>
+                <span class="text-slate-600">{BUSINESS_INFO.brandDescriptor}</span>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="font-bold text-slate-700 w-28 shrink-0">Telepon B2B:</span>
+                <span class="text-slate-600">{BUSINESS_INFO.phone}</span>
               </div>
             </div>
           </div>
@@ -128,25 +116,21 @@ const pillars = [
   </section>
 
   <!-- 4 Pillars Section -->
-  <section class="py-12 md:py-20 bg-slate-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-      <div class="text-center max-w-2xl mx-auto space-y-3">
-        <span class="text-xs font-bold text-red-800 uppercase tracking-wider">Komitmen Pelayanan</span>
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-950 tracking-tight">
-          Empat Pilar Standar Kerja ACNesia
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      <div class="max-w-2xl space-y-1.5">
+        <h2 class="text-2xl sm:text-3xl font-bold text-slate-950 tracking-tight">
+          Empat Pilar Standar Kerja Sentra AC
         </h2>
-        <p class="text-sm text-slate-600">
-          Landasan operasional yang memastikan setiap pekerjaan bernilai investasi maksimal bagi fasilitas Anda.
+        <p class="text-xs sm:text-sm text-slate-600">
+          Landasan operasional yang memastikan setiap pekerjaan bernilai investasi jangka panjang bagi fasilitas Anda.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {pillars.map((pillar, i) => (
-          <div class="p-8 rounded-3xl bg-white border border-slate-200 shadow-2xs space-y-3">
-            <div class="w-10 h-10 rounded-2xl bg-red-50 text-red-800 flex items-center justify-center font-bold text-sm">
-              0{i + 1}
-            </div>
-            <h3 class="text-lg font-bold text-slate-900">{pillar.title}</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {pillars.map((pillar) => (
+          <div class="p-6 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
+            <h3 class="text-base sm:text-lg font-bold text-slate-950">{pillar.title}</h3>
             <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">{pillar.desc}</p>
           </div>
         ))}
@@ -155,31 +139,22 @@ const pillars = [
   </section>
 
   <!-- Final CTA Section -->
-  <section class="py-16 bg-slate-900 text-white text-center">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-      <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight">
-        Mulai Kemitraan Tata Udara dengan ACNesia
+  <section class="py-14 lg:py-16 bg-slate-50 text-slate-900 text-center">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+      <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-950">
+        Mulai Kemitraan Tata Udara dengan Sentra AC
       </h2>
-      <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
-        Jadwalkan konsultasi awal gratis untuk evaluasi sistem AC di kantor Anda atau diskusikan kebutuhan pengadaan proyek bersama kami.
+      <p class="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
+        Jadwalkan konsultasi awal untuk evaluasi sistem AC di kantor Anda atau diskusikan kebutuhan pengadaan proyek bersama kami.
       </p>
-      <div class="flex flex-wrap items-center justify-center gap-4 pt-2">
+      <div class="pt-2">
         <a
           href={waUrl}
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-lg transition-colors"
+          class="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-white hover:bg-slate-100 text-slate-800 font-semibold text-sm border border-slate-300 transition-colors"
         >
-          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
-            <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2z"/>
-          </svg>
-          <span>Chat Tim ACNesia via WhatsApp</span>
-        </a>
-        <a
-          href="/kontak/"
-          class="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-slate-800 hover:bg-slate-700 text-white font-semibold text-xs border border-slate-700 transition-colors"
-        >
-          <span>Kirim Permintaan Informasi</span>
+          Konsultasi via WhatsApp
         </a>
       </div>
     </div>

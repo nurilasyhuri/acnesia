@@ -6,230 +6,167 @@ import { generateRentalInquiryUrl } from '../../utils/whatsapp';
 
 const breadcrumbs = [
   { name: 'Beranda', url: '/' },
-  { name: 'Sewa AC Komersial', url: '/sewa-ac/' },
+  { name: 'Sewa AC Standing & Genset B2B', url: '/sewa-ac/' },
 ];
 
 const breadcrumbSchema = getBreadcrumbSchema(breadcrumbs);
 
 const rentalPackages = [
   {
-    name: 'Sewa Harian (Event / Acara)',
-    badge: 'Paling Populer',
+    name: 'Sewa Harian (Event Korporat & Exhibition)',
+    badge: 'Event & Konvensi',
     duration: '1 s/d 3 Hari',
-    description: 'Solusi pendingin instan untuk pesta pernikahan, seminar korporat, wisuda, gathering, atau pameran.',
+    description: 'Solusi pendingin dan daya cadangan instan untuk acara korporat, RUPS, seminar, wisuda, pameran, atau peresmian pabrik.',
     features: [
-      'Unit AC Floor Standing 5 PK & 10 PK kondisi prima',
-      'Termasuk jasa antar, pasang & bongkar di lokasi',
-      'Termasuk kabel power ekstra tebal & panel MCB pengaman',
-      'Opsi pendampingan teknisi standby selama acara berlangsung',
+      'Unit AC Floor Standing 5 PK & 10 PK + opsi paket Genset Silent',
+      'Termasuk jasa antar, instalasi pipa/kabel & bongkar di lokasi',
+      'Termasuk kabel power 3 Phase ekstra tebal & panel distribusi MCB',
+      'Opsi pendampingan teknisi & operator genset standby selama acara',
     ],
-    ctaText: 'Cek Ketersediaan Sewa Harian',
   },
   {
-    name: 'Sewa Mingguan (Proyek / Expo)',
-    badge: 'Proyek Fleksibel',
+    name: 'Sewa Mingguan (Proyek & Posko Lapangan)',
+    badge: 'Proyek & Pameran',
     duration: '1 s/d 4 Minggu',
-    description: 'Pilihan ekonomis untuk posko proyek lapangan, tenda darurat, bazar mingguan, atau renovasi ruangan kantor.',
+    description: 'Pilihan ekonomis untuk site office proyek konstruksi, tenda roder pameran, ruang server sementara, atau masa renovasi gedung.',
     features: [
-      'Tarif sewa mingguan jauh lebih hemat dibanding tarif harian',
-      'Pemeriksaan fungsi berkala oleh teknisi ACNesia',
-      'Penggantian unit cadangan cepat jika terjadi kendala teknis',
-      'Dukungan faktur pajak & dokumen invoice B2B',
+      'Tarif sewa mingguan khusus B2B lebih hemat dibanding tarif harian',
+      'Pemeriksaan fungsi AC & suplai daya genset berkala oleh teknisi',
+      'Jaminan penggantian unit cadangan cepat jika terjadi kendala teknis',
+      'Dukungan dokumen SPK, BAST & e-Faktur Pajak PPN resmi',
     ],
-    ctaText: 'Ajukan Sewa Mingguan',
   },
   {
-    name: 'Sewa Bulanan (Kantor Transisi)',
-    badge: 'Solusi Korporat',
+    name: 'Sewa Bulanan & Tahunan (Kontrak Korporat)',
+    badge: 'Kontrak OpEx B2B',
     duration: '1 Bulan s/d 1 Tahun',
-    description: 'Sewa jangka panjang untuk kantor sementara, site office pertambangan/konstruksi, atau pabrik.',
+    description: 'Sewa jangka panjang untuk kantor cabang transisi, direksi keet konstruksi, pabrik, atau fasilitas operasional tanpa beban CapEx.',
     features: [
-      'Tanpa biaya belanja modal (Capex) pembelian unit baru',
-      'Free biaya maintenance & servis berkala selama masa sewa',
-      'Perbaikan suku cadang & penggantian freon 100% ditanggung ACNesia',
-      'Skema pembayaran invoice bulanan transparan (OPEX)',
+      'Tanpa biaya belanja modal (CapEx) pembelian unit AC & genset baru',
+      'Bebas biaya maintenance & cuci steam berkala selama masa kontrak',
+      'Perbaikan suku cadang, freon & servis rutin 100% ditanggung Sentra AC',
+      'Skema pembayaran invoice bulanan transparan (OpEx perusahaan)',
     ],
-    ctaText: 'Konsultasi Sewa Bulanan',
   },
 ];
 
 const rentalUnits = [
   {
-    name: 'AC Floor Standing 5 PK',
-    category: 'Event & Hall Sedang',
-    coverage: 'Luas area 40 - 70 m²',
-    specs: 'Daya 3.800 - 4.200 W (3 Phase / 1 Phase), Hembusan Angin s/d 15 Meter',
-    idealFor: 'Tenda VIP, ruang meeting darurat, backdrop foto, ruang transit artis / tamu VIP.',
+    name: 'AC Floor Standing 5 PK & 10 PK',
+    category: 'Pendingin Heavy Duty Event & Gedung',
+    coverage: 'Luas area 40 – 150 m² / unit',
+    specs: 'Daya 3.800 – 9.500 W (1 Phase / 3 Phase 380V), High Static Dual Blower',
+    idealFor: 'Tenda Roder, hall konvensi, ruang rapat direksi, ruang server darurat.',
   },
   {
-    name: 'AC Floor Standing 10 PK',
-    category: 'Heavy Duty Event',
-    coverage: 'Luas area 80 - 150 m²',
-    specs: 'Daya 8.000 - 9.500 W (3 Phase 380V), Dual Blower High Airflow',
-    idealFor: 'Tenda Roder pernikahan besar, aula pameran, gudang acara, konser semi-outdoor.',
+    name: 'Paket Genset Silent 20 kVA – 100 kVA',
+    category: 'Suplai Daya AC & Backup Proyek B2B',
+    coverage: 'Mampu menyuplai 3 – 15 unit AC Standing 5 PK',
+    specs: 'Tipe Silent Box kedap suara, output stabil 3 Phase 380V, termasuk kabel & panel',
+    idealFor: 'Lokasi event outdoor, proyek konstruksi belum masuk PLN, backup daya gedung.',
   },
   {
-    name: 'Misty Fan / Kipas Air Embun 26 Inch',
-    category: 'Pendingin Tambahan Semi-Outdoor',
-    coverage: 'Luas area 25 - 40 m²',
-    specs: 'Kapasitas tangki air 40-60 Liter, jangkauan semprot kabut halus',
-    idealFor: 'Area registrasi outdoor, jalur selasar tamu, area tenda semi-terbuka.',
+    name: 'Misty Fan / Cooling Fan Industrial',
+    category: 'Pendingin Pendukung Semi-Outdoor',
+    coverage: 'Luas area 25 – 40 m² / unit',
+    specs: 'Tangki air 60 Liter, hembusan kabut mikro bertekanan untuk area semi-terbuka',
+    idealFor: 'Area registrasi tamu VIP, selasar gudang, tenda semi-outdoor korporat.',
   },
 ];
 
-const defaultRentalWaUrl = generateRentalInquiryUrl('Floor Standing 5 PK', 'Harian', 'sewa-ac-page');
+const defaultRentalWaUrl = generateRentalInquiryUrl('AC Standing & Genset Silent', 'Harian / Bulanan B2B', 'sewa-ac-page');
 ---
 
 <BaseLayout
-  title="Sewa AC Standing & Rental AC Event Malang Raya — Harian, Mingguan, Bulanan | ACNesia"
-  description="Layanan sewa AC Floor Standing 5 PK & 10 PK di Malang, Batu & Jawa Timur. Untuk acara pernikahan, seminar kantor, pameran, dan kantor sementara. Siap pasang rapi & tepat waktu."
+  title="Sewa AC Standing & Genset Silent B2B Malang Surabaya - Sentra AC"
+  description="Jasa sewa AC Floor Standing 5 PK, 10 PK dan paket Genset Silent harian, mingguan, serta bulanan untuk event korporat & proyek di Jawa Timur."
   canonical={ensureAbsoluteUrl('/sewa-ac/')}
   jsonLd={breadcrumbSchema}
   keywords={[
-    'sewa ac malang',
-    'rental ac standing malang',
-    'sewa ac standing 5 pk malang',
-    'sewa ac pernikahan malang',
-    'rental ac event batu malang',
-    'sewa ac bulanan kantor',
-    'acnesia sewa ac',
+    'sewa ac dan genset',
+    'sewa ac standing malang surabaya',
+    'rental ac standing 5 pk 10 pk',
+    'sewa genset silent event proyek',
+    'sewa ac bulanan kantor b2b',
+    'rental ac dan genset jawa timur',
+    'sentra ac sewa ac genset',
   ]}
 >
-  <!-- Breadcrumbs -->
-  <div class="bg-white border-b border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+  <div class="bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
       <Breadcrumb items={breadcrumbs} />
     </div>
   </div>
 
   <!-- Hero Section -->
-  <section class="bg-gradient-to-b from-white via-slate-50 to-slate-50 border-b border-slate-200 py-12 md:py-16">
+  <section class="bg-white py-10 md:py-14">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-3xl space-y-4">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-red-50 text-red-800 border border-red-200">
-          <span class="w-2 h-2 rounded-full bg-red-700"></span>
-          <span>Layanan Rental Pendingin Ruangan Siap Pakai</span>
-        </div>
-        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-950 tracking-tight leading-tight">
-          Sewa AC Standing Cepat, Bersih & Terawat untuk Event dan Bisnis
+      <div class="max-w-3xl space-y-3.5">
+        <h1 class="text-2xl sm:text-4xl lg:text-[42px] font-bold text-slate-950 tracking-tight leading-tight">
+          Sewa AC Standing 5 PK – 10 PK &amp; Genset Silent untuk Proyek, Event &amp; Gedung
         </h1>
-        <p class="text-base sm:text-lg text-slate-600 leading-relaxed">
-          Menjaga kesejukan dan kenyamanan para tamu penting Anda di Malang Raya. Unit AC Standing 5 PK & 10 PK selalu dalam kondisi prima, dicuci steril sebelum dikirim, dan dipasang rapi oleh tim teknisi berpengalaman.
+        <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
+          Solusi satu pintu penyewaan AC Floor Standing kapasitas besar sekaligus suplai daya Genset Silent untuk acara korporat, pameran, proyek konstruksi, dan kantor sementara di Malang Raya, Surabaya, serta Sidoarjo lengkap dengan dukungan e-Faktur Pajak PPN.
         </p>
-
-        <!-- Quick Trust Strip -->
-        <div class="pt-4 grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs text-slate-700">
-          <div class="flex items-center gap-2 p-3 bg-white border border-slate-200 rounded-xl shadow-2xs">
-            <svg class="w-4 h-4 text-emerald-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-            </svg>
-            <span class="font-medium">Unit Dingin Maksimal</span>
-          </div>
-          <div class="flex items-center gap-2 p-3 bg-white border border-slate-200 rounded-xl shadow-2xs">
-            <svg class="w-4 h-4 text-emerald-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-            </svg>
-            <span class="font-medium">Antar & Pasang Tepat Waktu</span>
-          </div>
-          <div class="flex items-center gap-2 p-3 bg-white border border-slate-200 rounded-xl shadow-2xs">
-            <svg class="w-4 h-4 text-emerald-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-            </svg>
-            <span class="font-medium">Kabel Power Standar PLN</span>
-          </div>
-          <div class="flex items-center gap-2 p-3 bg-white border border-slate-200 rounded-xl shadow-2xs">
-            <svg class="w-4 h-4 text-emerald-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-            </svg>
-            <span class="font-medium">Opsi Teknisi Standby</span>
-          </div>
-        </div>
       </div>
     </div>
   </section>
 
   <!-- Duration Packages -->
-  <section class="py-12 md:py-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-      <div class="text-center max-w-2xl mx-auto space-y-3">
-        <span class="text-xs font-bold text-red-800 uppercase tracking-wider">Durasi Fleksibel</span>
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-950 tracking-tight">
-          Pilihan Paket Durasi Sewa AC
+  <section class="py-12 md:py-16 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      <div class="max-w-2xl space-y-1.5">
+        <h2 class="text-2xl sm:text-3xl font-bold text-slate-950 tracking-tight">
+          Pilihan Paket Durasi Sewa AC &amp; Genset
         </h2>
-        <p class="text-sm text-slate-600">
-          Sesuaikan skema penyewaan dengan timeline agenda acara maupun operasional fasilitas kantor Anda.
+        <p class="text-xs sm:text-sm text-slate-600">
+          Sesuaikan skema penyewaan dengan agenda acara maupun operasional fasilitas kantor Anda.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {rentalPackages.map((pkg) => {
-          const pkgWaUrl = generateRentalInquiryUrl('Floor Standing', pkg.name, 'sewa-durasi-card');
-          return (
-            <div class="rounded-3xl bg-white border border-slate-200 hover:border-slate-300 hover:shadow-xl transition-all duration-300 p-8 flex flex-col justify-between space-y-6">
-              <div class="space-y-4">
-                <div class="flex items-center justify-between">
-                  <span class="px-3 py-1 rounded-full text-[11px] font-bold bg-red-50 text-red-800 border border-red-200">
-                    {pkg.badge}
-                  </span>
-                  <span class="text-xs font-semibold text-slate-500">{pkg.duration}</span>
-                </div>
-
-                <h3 class="text-xl font-bold text-slate-900 leading-snug">{pkg.name}</h3>
-                <p class="text-xs text-slate-600 leading-relaxed">{pkg.description}</p>
-
-                <div class="pt-3 border-t border-slate-100 space-y-2.5">
-                  <span class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Keuntungan Paket:</span>
-                  <ul class="space-y-2">
-                    {pkg.features.map((feat) => (
-                      <li class="flex items-start gap-2.5 text-xs text-slate-700">
-                        <svg class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                        </svg>
-                        <span class="leading-relaxed">{feat}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-
-              <div class="pt-4 border-t border-slate-100">
-                <a
-                  href={pkgWaUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-slate-900 hover:bg-red-700 text-white font-semibold text-xs transition-colors"
-                >
-                  <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                    <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2z"/>
-                  </svg>
-                  <span>{pkg.ctaText}</span>
-                </a>
-              </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {rentalPackages.map((pkg) => (
+          <div class="rounded-xl bg-white border border-slate-200 p-6 space-y-4">
+            <div class="flex items-center justify-between gap-2 text-xs">
+              <span class="font-semibold text-[#c2410c]">{pkg.badge}</span>
+              <span class="text-slate-500 font-medium">{pkg.duration}</span>
             </div>
-          );
-        })}
+
+            <h3 class="text-base sm:text-lg font-bold text-slate-950 leading-snug">{pkg.name}</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">{pkg.description}</p>
+
+            <div class="pt-3 border-t border-slate-100 space-y-2">
+              <span class="text-xs font-semibold text-slate-900 block">Cakupan Paket:</span>
+              <ul class="space-y-1.5 list-disc pl-4 text-xs text-slate-700">
+                {pkg.features.map((feat) => (
+                  <li class="leading-relaxed">{feat}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   </section>
 
   <!-- Rental Units Specifications Matrix -->
-  <section class="py-16 bg-white border-y border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-      <div class="text-center max-w-2xl mx-auto space-y-3">
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-950 tracking-tight">
-          Pilihan Spesifikasi Unit Rental
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      <div class="max-w-2xl space-y-1.5">
+        <h2 class="text-2xl sm:text-3xl font-bold text-slate-950 tracking-tight">
+          Spesifikasi Unit Rental
         </h2>
-        <p class="text-sm text-slate-600">
-          Gunakan panduan kapasitas berikut untuk menghitung jumlah unit pendingin yang diperlukan di lokasi Anda.
+        <p class="text-xs sm:text-sm text-slate-600">
+          Gunakan panduan kapasitas berikut untuk memperkirakan jumlah unit pendingin dan daya genset di lokasi Anda.
         </p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         {rentalUnits.map((unit) => (
-          <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-4">
+          <div class="p-6 rounded-xl bg-slate-50 border border-slate-200 space-y-4">
             <div>
-              <span class="text-[10px] font-bold uppercase tracking-wider text-red-800">{unit.category}</span>
-              <h3 class="text-lg font-bold text-slate-900 mt-1">{unit.name}</h3>
+              <span class="text-xs font-semibold text-[#c2410c]">{unit.category}</span>
+              <h3 class="text-base sm:text-lg font-bold text-slate-950 mt-1">{unit.name}</h3>
             </div>
 
             <div class="space-y-2 text-xs">
@@ -252,62 +189,65 @@ const defaultRentalWaUrl = generateRentalInquiryUrl('Floor Standing 5 PK', 'Hari
     </div>
   </section>
 
-  <!-- SOP & Terms of Rental -->
-  <section class="py-16 bg-slate-50">
+  <!-- SOP & Terms of Rental + Single End-of-Page Contact CTA -->
+  <section class="py-12 md:py-16 bg-slate-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-      <div class="max-w-3xl space-y-3">
-        <h2 class="text-2xl font-bold text-slate-950">Syarat & Prosedur Sewa AC ACNesia</h2>
+      <div class="max-w-3xl space-y-1.5">
+        <h2 class="text-xl sm:text-2xl font-bold text-slate-950">Prosedur Sewa AC &amp; Genset</h2>
         <p class="text-xs sm:text-sm text-slate-600">
-          Proses pemesanan rental transparan dan terorganisir untuk kelancaran jalannya acara Anda.
+          Proses pemesanan rental transparan dan terorganisir untuk kelancaran acara maupun operasional kantor Anda.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs text-slate-700">
-        <div class="p-6 rounded-2xl bg-white border border-slate-200 space-y-2">
-          <h4 class="font-bold text-slate-900 text-sm">1. Konfirmasi Jadwal & Kebutuhan Daya</h4>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 text-xs text-slate-700">
+        <div class="p-5 rounded-xl bg-white border border-slate-200 space-y-1.5">
+          <span class="block text-xs font-bold text-[#c2410c]">01</span>
+          <h3 class="font-bold text-slate-950 text-sm">Konfirmasi Jadwal &amp; Daya</h3>
           <p class="leading-relaxed text-slate-600">
-            Pemesanan disarankan minimal H-3 sebelum pelaksanaan acara. Pihak penyewa wajib memastikan ketersediaan daya listrik PLN atau genset yang mencukupi untuk unit yang disewa.
+            Pemesanan disarankan minimal H-3 sebelum pelaksanaan acara. Tim kami membantu menghitung beban daya listrik PLN atau kapasitas Genset Silent yang diperlukan.
           </p>
         </div>
-        <div class="p-6 rounded-2xl bg-white border border-slate-200 space-y-2">
-          <h4 class="font-bold text-slate-900 text-sm">2. Waktu Pemasangan (Setup Instan)</h4>
+        <div class="p-5 rounded-xl bg-white border border-slate-200 space-y-1.5">
+          <span class="block text-xs font-bold text-[#c2410c]">02</span>
+          <h3 class="font-bold text-slate-950 text-sm">Instalasi H-1</h3>
           <p class="leading-relaxed text-slate-600">
-            Tim teknisi kami melakukan pengiriman dan instalasi pada H-1 atau beberapa jam sebelum acara dimulai sesuai izin akses venue / gedung.
+            Tim teknisi melakukan pengiriman dan instalasi pada H-1 atau beberapa jam sebelum acara dimulai sesuai izin akses loading gedung.
           </p>
         </div>
-        <div class="p-6 rounded-2xl bg-white border border-slate-200 space-y-2">
-          <h4 class="font-bold text-slate-900 text-sm">3. Layanan Operator / Teknisi Standby</h4>
+        <div class="p-5 rounded-xl bg-white border border-slate-200 space-y-1.5">
+          <span class="block text-xs font-bold text-[#c2410c]">03</span>
+          <h3 class="font-bold text-slate-950 text-sm">Teknisi Standby</h3>
           <p class="leading-relaxed text-slate-600">
-            Untuk acara resmi penting (VIP), kami menyediakan opsi teknisi standby yang bertugas memantau kestabilan temperatur dan saluran drainase air selama acara berlangsung.
+            Untuk acara korporat penting, tersedia opsi teknisi standby yang memantau kestabilan temperatur dan jalur pembuangan air selama acara berlangsung.
           </p>
         </div>
-        <div class="p-6 rounded-2xl bg-white border border-slate-200 space-y-2">
-          <h4 class="font-bold text-slate-900 text-sm">4. Pembayaran & Invoice Legal</h4>
+        <div class="p-5 rounded-xl bg-white border border-slate-200 space-y-1.5">
+          <span class="block text-xs font-bold text-[#c2410c]">04</span>
+          <h3 class="font-bold text-slate-950 text-sm">Pembayaran &amp; Faktur Pajak</h3>
           <p class="leading-relaxed text-slate-600">
-            Tersedia skema Down Payment (DP) saat booking tanggal dan pelunasan saat unit terpasang rapi. Menerima pembayaran transfer bank resmi atas nama perusahaan dan faktur pajak.
+            Tersedia skema Down Payment (DP) saat booking tanggal dan pelunasan saat unit terpasang rapi, lengkap dengan invoice resmi perusahaan dan e-Faktur Pajak.
           </p>
         </div>
       </div>
 
-      <!-- Instant Quote Banner -->
-      <div class="mt-8 rounded-3xl bg-slate-900 p-8 sm:p-10 text-white flex flex-col md:flex-row items-center justify-between gap-6">
-        <div class="space-y-2 max-w-xl">
-          <h3 class="text-xl sm:text-2xl font-bold">Butuh Rekomendasi Jumlah Unit untuk Acara Anda?</h3>
-          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-            Kirimkan informasi tanggal, lokasi venue di Malang Raya, dan perkiraan jumlah tamu ke WhatsApp kami untuk estimasi kebutuhan PK yang akurat.
+      <!-- Single End-of-Page Quote Banner -->
+      <div class="mt-8 rounded-xl bg-white border border-slate-200 p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div class="space-y-1.5 max-w-xl">
+          <h3 class="text-lg sm:text-xl font-bold text-slate-950">Konsultasi Kapasitas &amp; Penjadwalan Sewa</h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Kirimkan tanggal pelaksanaan, lokasi gedung, dan perkiraan luas ruangan melalui WhatsApp tim sewa Sentra AC.
           </p>
         </div>
-        <a
-          href={defaultRentalWaUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="shrink-0 inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-lg transition-colors"
-        >
-          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
-            <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2z"/>
-          </svg>
-          <span>Chat Hotline Sewa AC ACNesia</span>
-        </a>
+        <div class="shrink-0">
+          <a
+            href={defaultRentalWaUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center px-5 py-2.5 rounded-lg bg-white hover:bg-slate-100 text-slate-800 font-semibold text-xs sm:text-sm border border-slate-300 transition-colors"
+          >
+            Konsultasi via WhatsApp
+          </a>
+        </div>
       </div>
     </div>
   </section>

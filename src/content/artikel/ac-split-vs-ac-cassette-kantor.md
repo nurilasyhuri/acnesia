@@ -1,8 +1,8 @@
 ---
-title: 'AC Split vs AC Cassette untuk Ruang Kantor: Mana yang Lebih Efisien?'
-description: 'Perbandingan menyeluruh antara AC Split dinding dan AC Cassette plafon: biaya pengadaan, distribusi angin, kerapian interior, dan kemudahan perawatan kantor.'
+title: 'Perbandingan AC Split vs AC Cassette untuk Ruang Kantor'
+description: 'Panduan memilih AC Split dinding atau AC Cassette 4-Way plafon untuk ruang kantor: perbandingan harga unit, distribusi angin, estetika, dan biaya servis.'
 publishDate: '2026-09-17'
-author: 'Tim HVAC Engineer ACNesia'
+author: 'Tim HVAC Engineer Sentra AC'
 category: 'Panduan Memilih AC'
 tags:
   - 'ac split vs cassette'
@@ -48,6 +48,6 @@ Berikut adalah perbandingan mendalam berdasarkan parameter teknis dan operasiona
 
 ---
 
-### Kesimpulan Rekomendasi ACNesia
+### Kesimpulan Rekomendasi Sentra AC
 
 Untuk **ruang kerja direksi, ruang server mini, atau bilik meeting 1-4 orang**, menggunakan **AC Split Inverter** adalah opsi paling tepat dan hemat biaya. Namun, untuk **area kerja terbuka (open office), ruang rapat dewan direksi, dan aula komersial**, memasang **AC Cassette** adalah investasi jangka panjang terbaik untuk menjaga sirkulasi udara stabil dan meningkatkan citra profesional kantor Anda.

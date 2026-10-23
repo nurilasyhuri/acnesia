@@ -12,10 +12,10 @@ export async function getStaticPaths() {
   const categories = [
     {
       id: 'ac-split',
-      name: 'AC Split Wall Mounted',
-      subtitle: 'Efisiensi Tinggi untuk Ruang Kerja, Studio & Kantor Cabang',
+      name: 'AC Split Wall Mounted 0.5 PK - 2.5 PK',
+      subtitle: 'AC Split Inverter & Standard Hemat Listrik untuk Ruang Kantor & Ruko',
       description:
-        'Koleksi unit AC Split Wall kapasitas 0.5 PK hingga 2.5 PK. Pilihan ideal untuk kantor privat, ruang meeting kecil, klinik, ruko, dan hunian dengan efisiensi energi tinggi dan perawatan mudah.',
+        'Katalog dan harga AC Split Wall Mounted Inverter & Standard 0.5 PK hingga 2.5 PK bergaransi resmi untuk ruang kantor, ruko, serta bisnis di Malang Raya.',
       idealFor: 'Ruang kerja staf, ruang manajer, bilik konsultasi, kamar hotel, dan ruko.',
       keyAdvantages: [
         'Instalasi relatif cepat tanpa bongkar plafon',
@@ -26,10 +26,10 @@ export async function getStaticPaths() {
     },
     {
       id: 'ac-cassette',
-      name: 'AC Cassette 4-Way Ceiling',
-      subtitle: 'Sirkulasi Dingin 360 Derajat Estetik Flushed Plafon',
+      name: 'AC Cassette 4-Way Plafon 2 PK - 5 PK',
+      subtitle: 'AC Plafon Hembusan 4 Arah Merata untuk Ruang Kantor & Meeting',
       description:
-        'Unit AC Cassette 4-Way kapasitas 2 PK hingga 5 PK. Dirancang tertanam rapi di plafon untuk mendistribusikan udara sejuk secara merata ke seluruh sudut ruangan tanpa hembusan langsung yang mengganggu.',
+        'Katalog dan harga AC Cassette 4-Way plafon 2 PK hingga 5 PK hembusan 360 derajat merata untuk ruang kantor terbuka, ruang rapat, & lobi di Malang Raya.',
       idealFor: 'Ruang meeting besar, open space office, showroom, restoran, dan lobi gedung.',
       keyAdvantages: [
         'Hembusan angin 4 arah merata tanpa dead-zone',
@@ -40,10 +40,10 @@ export async function getStaticPaths() {
     },
     {
       id: 'ac-floor-standing',
-      name: 'AC Floor Standing Komersial',
-      subtitle: 'Pendinginan Cepat Berkapasitas Besar untuk Aula & Hall',
+      name: 'AC Floor Standing Komersial 3 PK - 10 PK',
+      subtitle: 'AC Berdiri Kapasitas Besar untuk Aula, Ballroom & Hall Pertemuan',
       description:
-        'Unit AC Floor Standing kapasitas 3 PK hingga 10 PK. Pilihan tepat untuk area luas dengan pergerakan orang aktif yang membutuhkan pendinginan bertenaga tanpa instalasi plafon yang rumit.',
+        'Katalog dan harga AC Floor Standing 3 PK hingga 10 PK berdaya tiup kuat untuk aula serbaguna, ballroom, restoran luas, & ruang pertemuan di Malang Raya.',
       idealFor: 'Aula serbaguna, ballroom kantor, event space, ruang training, dan area ibadah.',
       keyAdvantages: [
         'Kekuatan blower ekstra besar dengan jangkauan angin jauh',
@@ -54,16 +54,30 @@ export async function getStaticPaths() {
     },
     {
       id: 'ac-commercial',
-      name: 'AC Ceiling Ducted & Commercial Central',
-      subtitle: 'Sistem Pendingin Tersembunyi Estetika Arsitektur Mewah',
+      name: 'AC Ceiling Ducted & Central 3 PK - 20 PK',
+      subtitle: 'Sistem AC Saluran Udara Tersembunyi Plafon untuk Gedung & Hotel',
       description:
-        'Sistem AC Ceiling Ducted dan Central Commercial kapasitas 3 PK hingga 20 PK. Seluruh unit indoor tersembunyi di atas plafon dengan distribusi udara melalui diffuser linier arsitektural yang elegan.',
+        'Katalog dan harga AC Ceiling Ducted serta Central Commercial 3 PK hingga 20 PK tersembunyi di plafon untuk gedung bertingkat, hotel, & RS di Malang Raya.',
       idealFor: 'Kantor direksi, ruang konferensi VIP, hotel butik, rumah sakit, dan gedung bertingkat.',
       keyAdvantages: [
         'Tampilan interior sangat bersih, hanya diffuser udara yang terlihat',
         'Tingkat kebisingan (noise level) paling rendah di kelasnya',
         'Pengaturan zoning udara fleksibel melalui saluran ducting',
         'Mendukung integrasi sistem Building Automation (BAS)',
+      ],
+    },
+    {
+      id: 'paket-jasa',
+      name: 'Paket Jasa Pasang, Cuci Steam, Service & Sewa AC',
+      subtitle: 'Paket Teknisi Resmi Standar Vakum Digital & Rental AC',
+      description:
+        'Daftar harga paket jasa pasang AC pipa tembaga vakum, cuci steam bertekanan, perbaikan freon, dan sewa AC standing harian/bulanan di wilayah Malang Raya.',
+      idealFor: 'Pemasangan unit baru/relokasi, perawatan rutin AC kantor, perbaikan darurat, dan acara event.',
+      keyAdvantages: [
+        'Harga paket transparan sesuai kapasitas PK tanpa biaya tersembunyi',
+        'Wajib prosedur mesin vakum digital pada setiap titik instalasi',
+        'Garansi pekerjaan tertulis untuk cuci steam, freon, dan instalasi',
+        'Mendukung penerbitan Berita Acara Serah Terima (BAST) & Faktur Pajak PPN',
       ],
     },
   ];
@@ -102,7 +116,7 @@ const waConsultUrl = generateGeneralInquiryUrl(`kategori-${category.id}`);
 ---
 
 <BaseLayout
-  title={`${category.name} — Jual & Pengadaan AC Komersial | ACNesia Malang`}
+  title={`Jual & Harga ${category.name} Malang - Sentra AC`}
   description={category.description}
   canonical={ensureAbsoluteUrl(`/produk/${category.id}/`)}
   jsonLd={breadcrumbSchema}
@@ -114,93 +128,71 @@ const waConsultUrl = generateGeneralInquiryUrl(`kategori-${category.id}`);
     'ac komersial b2b',
   ]}
 >
-  <!-- Breadcrumbs -->
-  <div class="bg-white border-b border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+  <div class="bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
       <Breadcrumb items={breadcrumbs} />
     </div>
   </div>
 
   <!-- Category Hero -->
-  <section class="bg-gradient-to-b from-white via-slate-50 to-slate-50 border-b border-slate-200 py-12 md:py-16">
+  <section class="bg-white py-10 md:py-14">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-        <div class="lg:col-span-8 space-y-4">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-red-50 text-red-800 border border-red-200">
-            <span class="w-2 h-2 rounded-full bg-red-700"></span>
-            <span>Kategori Unit AC Komersial</span>
-          </div>
-          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-950 tracking-tight leading-tight">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div class="lg:col-span-8 space-y-3.5">
+          <h1 class="text-2xl sm:text-4xl lg:text-[42px] font-bold text-slate-950 tracking-tight leading-tight">
             {category.name}
           </h1>
-          <p class="text-base sm:text-lg text-slate-600 font-medium">
+          <p class="text-sm sm:text-base text-slate-800 font-semibold">
             {category.subtitle}
           </p>
-          <p class="text-sm sm:text-base text-slate-600 leading-relaxed max-w-3xl">
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-3xl">
             {category.description}
           </p>
-
-          <!-- Ideal For Tag -->
-          <div class="pt-2 flex items-start gap-2 text-xs sm:text-sm text-slate-700 bg-white/80 border border-slate-200 p-3.5 rounded-xl max-w-2xl">
-            <svg class="w-5 h-5 text-red-700 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-            </svg>
-            <div>
-              <span class="font-bold text-slate-900">Aplikasi Ruangan Ideal:</span> {category.idealFor}
-            </div>
-          </div>
+          <p class="text-xs sm:text-sm text-slate-700 pt-1">
+            <strong class="font-semibold text-slate-950">Aplikasi Ruangan Ideal:</strong> {category.idealFor}
+          </p>
         </div>
 
-        <div class="lg:col-span-4 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
-          <h3 class="font-bold text-slate-900 text-sm tracking-tight border-b border-slate-100 pb-3">
-            Keunggulan Utama Tipe Ini
-          </h3>
-          <ul class="space-y-2.5">
+        <div class="lg:col-span-4 bg-slate-50 p-6 rounded-xl border border-slate-200 space-y-3">
+          <h2 class="font-bold text-slate-950 text-sm">
+            Karakteristik Teknis
+          </h2>
+          <ul class="space-y-2 list-disc pl-4 text-xs text-slate-700">
             {category.keyAdvantages.map((adv) => (
-              <li class="flex items-start gap-2.5 text-xs text-slate-600">
-                <svg class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                </svg>
-                <span>{adv}</span>
-              </li>
+              <li class="leading-relaxed">{adv}</li>
             ))}
           </ul>
-          <a
-            href={waConsultUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="block w-full py-2.5 px-4 rounded-xl bg-red-700 hover:bg-red-800 text-white font-semibold text-xs text-center transition-colors shadow-xs"
-          >
-            Konsultasi Kebutuhan PK Tipe Ini
-          </a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Products in this Category -->
-  <section class="py-12 md:py-16">
+  <section class="py-12 md:py-16 bg-slate-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-      <div class="flex items-center justify-between border-b border-slate-200 pb-4">
+      <div class="flex items-center justify-between">
         <div>
-          <h2 class="text-xl font-bold text-slate-900">Daftar Pilihan Unit {category.name}</h2>
-          <p class="text-xs text-slate-500 mt-1">Tersedia opsi pengadaan unit saja atau paket instalasi material lengkap</p>
+          <h2 class="text-lg sm:text-xl font-bold text-slate-950">Pilihan Unit {category.name}</h2>
+          <p class="text-xs text-slate-600 mt-1">Tersedia opsi pengadaan unit saja atau paket instalasi material lengkap</p>
         </div>
-        <span class="text-xs font-semibold px-3 py-1 bg-slate-100 text-slate-700 rounded-full">
+        <span class="text-xs font-medium text-slate-600">
           {products.length} Unit
         </span>
       </div>
 
       {products.length > 0 ? (
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {products.map((product) => (
             <ProductCard
               product={{
                 title: product.data.title,
                 description: product.data.description,
                 category: product.data.category,
+                condition: product.data.condition,
                 capacity: product.data.capacity,
+                price: product.data.price,
                 priceDisplay: product.data.priceDisplay,
+                compareAtPriceDisplay: product.data.compareAtPriceDisplay,
                 stockStatus: product.data.stockStatus,
                 thumbnail: product.data.thumbnail,
                 slug: product.slug,
@@ -210,32 +202,23 @@ const waConsultUrl = generateGeneralInquiryUrl(`kategori-${category.id}`);
           ))}
         </div>
       ) : (
-        <div class="py-12 text-center bg-white rounded-2xl border border-slate-200 p-8 space-y-3">
-          <p class="font-bold text-slate-800 text-sm">Unit kategori ini sedang dalam proses pembaruan katalog.</p>
-          <p class="text-xs text-slate-500 max-w-md mx-auto">
-            Silakan hubungi customer support ACNesia untuk spesifikasi merk Daikin, Panasonic, Gree, atau Mitsubishi Electric.
+        <div class="py-12 text-center bg-white rounded-xl border border-slate-200 p-8 space-y-3">
+          <p class="font-bold text-slate-950 text-sm">Unit kategori ini sedang dalam proses pembaruan katalog.</p>
+          <p class="text-xs text-slate-600 max-w-md mx-auto">
+            Silakan ajukan kebutuhan spesifikasi merk Daikin, Panasonic, Gree, atau Mitsubishi Electric melalui tim B2B Sentra AC.
           </p>
-          <a
-            href={waConsultUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-red-700 text-white text-xs font-semibold hover:bg-red-800"
-          >
-            Hubungi Customer Support
-          </a>
         </div>
       )}
 
-      <!-- Back to all categories -->
-      <div class="pt-6 text-center">
+      <!-- Single End-of-Page Consultation Action -->
+      <div class="pt-4 flex justify-end">
         <a
-          href="/produk/"
-          class="inline-flex items-center gap-2 text-xs font-semibold text-red-700 hover:text-red-800 hover:underline"
+          href={waConsultUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center px-5 py-2.5 rounded-lg bg-white hover:bg-slate-100 text-slate-800 border border-slate-300 text-xs font-semibold transition-colors"
         >
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-          </svg>
-          <span>Kembali ke Semua Katalog Produk AC</span>
+          Konsultasi via WhatsApp
         </a>
       </div>
     </div>

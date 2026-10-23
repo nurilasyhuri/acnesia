@@ -18,21 +18,27 @@ const {
   image = '/images/og/default-og.jpg',
   type = 'website',
   keywords,
-  author = 'ACNesia — Mitra Bisnis Indonesia',
+  author = 'Sentra AC',
   jsonLd,
   noindex = false,
 } = Astro.props;
 
-const siteName = 'ACNesia';
-const domain = 'https://acnesia.com';
+const siteName = 'Sentra AC';
+const domain = 'https://sentraac.com';
 
-// Strictly strip any pipe symbols from title and description
-const sanitizedRawTitle = title.replace(/\s*\|\s*/g, ' - ').trim();
+// Strictly strip any pipe or em-dash symbols from title and description
+const sanitizedRawTitle = title
+  .replace(/\s*[|—–]\s*/g, ' - ')
+  .replace(/\s+/g, ' ')
+  .trim();
 const formattedTitle = sanitizedRawTitle.includes(siteName)
   ? sanitizedRawTitle
   : `${sanitizedRawTitle} - ${siteName}`;
 
-const sanitizedDescription = description.replace(/\s*\|\s*/g, ', ').trim();
+const sanitizedDescription = description
+  .replace(/\s*[|—–]\s*/g, ', ')
+  .replace(/\s+/g, ' ')
+  .trim();
 
 // Authoritative Absolute Image URL
 const fullImageUrl = image.startsWith('http')
@@ -49,16 +55,16 @@ const normalizedPathname = cleanPathname.endsWith('/') || cleanPathname.includes
   : `${cleanPathname}/`;
 const canonicalUrl = `${domain}${normalizedPathname}`;
 
-// Default B2B Keywords
+// Default Search Keywords
 const defaultKeywords = [
-  'pengadaan ac kantor',
-  'jual ac perusahaan',
-  'kontrak maintenance ac',
-  'preventive maintenance ac',
-  'sewa ac standing',
-  'instalasi ac gedung',
-  'service ac malang',
-  'acnesia mitra bisnis indonesia',
+  'jual beli ac baru dan bekas',
+  'sewa ac standing malang',
+  'jasa service ac panggilan',
+  'jasa pasang ac malang',
+  'jasa cuci ac terdekat',
+  'tukar tambah ac bekas kantor',
+  'pengadaan ac kantor gedung',
+  'kontrak maintenance ac perusahaan',
 ];
 const keywordsString = Array.isArray(keywords)
   ? keywords.join(', ')
@@ -86,12 +92,15 @@ const formattedJsonLd = jsonLd
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
 <meta name="format-detection" content="telephone=no" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 <meta name="generator" content={Astro.generator} />
-<meta name="theme-color" content="#0284c7" />
+<meta name="theme-color" content="#020617" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-<meta name="apple-mobile-web-app-title" content="ACNesia" />
-<meta name="application-name" content="ACNesia Mitra Bisnis Indonesia" />
+<meta name="apple-mobile-web-app-title" content="Sentra AC" />
+<meta name="application-name" content="Sentra AC - Jual Beli, Sewa, Service & Pasang AC" />
 
 <!-- Robots & Indexing Directives -->
 <meta
@@ -109,6 +118,9 @@ const formattedJsonLd = jsonLd
 <meta name="description" content={sanitizedDescription} />
 <meta name="keywords" content={keywordsString} />
 <meta name="author" content={author} />
+<meta name="publisher" content={siteName} />
+{type === 'article' && <meta property="article:author" content={author} />}
+{type === 'article' && <meta property="article:publisher" content={siteName} />}
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content={type} />
@@ -118,7 +130,7 @@ const formattedJsonLd = jsonLd
 <meta property="og:image" content={fullImageUrl} />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:site_name" content="ACNesia" />
+<meta property="og:site_name" content="Sentra AC" />
 <meta property="og:locale" content="id_ID" />
 
 <!-- Twitter / X Cards -->

@@ -1,34 +1,41 @@
 ---
-title: 'AC Cassette 4-Way Ruang Kantor & Komersial'
-description: 'Sistem pendingin udara plafon dengan hembusan angin 4 arah (360 airflow) estetis untuk ruang kantor terbuka, aula, dan ruang meeting luas.'
+title: 'AC Cassette 4-Way Plafon 2 PK - 5 PK Kantor'
+description: 'Jual dan pasang AC Cassette 4-Way plafon 2 PK hingga 5 PK hembusan 360 derajat merata untuk ruang kantor terbuka, ruang rapat, & showroom di Malang Raya.'
 category: 'ac-cassette'
+condition: 'Unit Baru'
 capacity: '2 PK - 5 PK'
-brand: 'Daikin / Panasonic / Gree / Mitsubishi'
-price: 0
-priceDisplay: 'Konsultasi Penawaran & RAB'
+brand: 'Daikin • Panasonic • Gree • Mitsubishi'
+price: 11500000
+priceDisplay: 'Rp 11.500.000'
+compareAtPriceDisplay: 'Rp 12.400.000'
 stockStatus: 'ready'
 featured: true
 thumbnail: '/images/products/ac-cassette-4-way.webp'
-orderPriority: 2
+orderPriority: 4
 variants:
-  - name: 'AC Cassette 2 PK Inverter / Standard'
-    price: 0
-    priceDisplay: 'Konsultasi Spesifikasi'
+  - name: '2 PK Cassette 4-Way'
+    price: 11500000
+    priceDisplay: 'Rp 11.500.000'
     sku: 'CASSETTE-2PK'
     unit: 'unit'
-  - name: 'AC Cassette 3 PK 4-Way Airflow'
-    price: 0
-    priceDisplay: 'Konsultasi Spesifikasi'
+  - name: '2.5 PK Cassette 4-Way'
+    price: 13400000
+    priceDisplay: 'Rp 13.400.000'
+    sku: 'CASSETTE-25PK'
+    unit: 'unit'
+  - name: '3 PK Cassette 4-Way'
+    price: 15800000
+    priceDisplay: 'Rp 15.800.000'
     sku: 'CASSETTE-3PK'
     unit: 'unit'
-  - name: 'AC Cassette 4 PK Commercial Heavy'
-    price: 0
-    priceDisplay: 'Konsultasi Spesifikasi'
+  - name: '4 PK Cassette 3-Phase'
+    price: 19500000
+    priceDisplay: 'Rp 19.500.000'
     sku: 'CASSETTE-4PK'
     unit: 'unit'
-  - name: 'AC Cassette 5 PK Round Flow High Performance'
-    price: 0
-    priceDisplay: 'Konsultasi Spesifikasi'
+  - name: '5 PK Round Flow'
+    price: 23900000
+    priceDisplay: 'Rp 23.900.000'
     sku: 'CASSETTE-5PK'
     unit: 'unit'
 specs:
@@ -42,7 +49,7 @@ specs:
 
 AC Cassette 4-Way merupakan standar emas pendingin udara untuk ruang perkantoran modern, showroom, restoran, dan aula komersial. Unit indoor dipasang rata dengan permukaan plafon (*flush ceiling*), memberikan tampilan ruangan yang sangat rapi, bersih, dan bebas dari rintangan visual di dinding.
 
-### Keunggulan AC Cassette ACNesia
+### Keunggulan AC Cassette Sentra AC
 
 - **Penyebaran Hawa Dingin Merata:** Dengan louvre hembusan 4 arah dan teknologi *round flow*, udara sejuk tersebar merata ke seluruh sudut ruangan tanpa meninggalkan titik panas (*hotspots*).
 - **Dilengkapi Pompa Kondensat Internal (Drain Pump):** Air buangan hasil kondensasi diangkat otomatis oleh pompa internal bertekanan, mencegah risiko kebocoran plafon dan memudahkan perutean pipa drainase.
@@ -51,4 +58,4 @@ AC Cassette 4-Way merupakan standar emas pendingin udara untuk ruang perkantoran
 
 ### Layanan Pengadaan & Instalasi B2B
 
-ACNesia menyediakan layanan lengkap mulai dari survey struktur balok dan rongga plafon (*ceiling void*), perhitungan beban kalor (BTU/h) berdasarkan jumlah okupansi karyawan dan perangkat elektronik, hingga pemasangan rapi dengan gantungan besi ulir (*long drat*) anti-getar.
+Sentra AC menyediakan layanan lengkap mulai dari survey struktur balok dan rongga plafon (*ceiling void*), perhitungan beban kalor (BTU/h) berdasarkan jumlah okupansi karyawan dan perangkat elektronik, hingga pemasangan rapi dengan gantungan besi ulir (*long drat*) anti-getar.

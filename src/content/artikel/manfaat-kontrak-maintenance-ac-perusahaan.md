@@ -1,8 +1,8 @@
 ---
-title: 'Mengapa Perusahaan Membutuhkan Kontrak Maintenance AC Terjadwal?'
-description: 'Studi komparasi antara biaya perbaikan insidental vs kontrak maintenance tahunan ber-SLA: efisiensi anggaran, prioritas darurat, dan keawetan aset perusahaan.'
+title: 'Keuntungan Kontrak Maintenance AC Berkala bagi Perusahaan'
+description: 'Perbandingan biaya service AC panggilan vs kontrak maintenance AC tahunan ber-SLA untuk efisiensi anggaran, pencegahan kompresor rusak, & audit perusahaan.'
 publishDate: '2026-09-21'
-author: 'Tim HVAC Engineer ACNesia'
+author: 'Tim HVAC Engineer Sentra AC'
 category: 'Corporate Cooling'
 tags:
   - 'kontrak maintenance ac'
@@ -15,13 +15,13 @@ featured: true
 
 Bagi para manajer operasional dan tim General Affair (GA), mengelola perawatan fasilitas pendingin udara sering kali menjadi salah satu pos beban kerja yang paling menyita waktu dan tenaga. Mulai dari menanggapi komplain staf tentang AC yang menetes, mencari kontak teknisi panggilan dadakan, menegosiasikan harga perbaikan yang tidak konsisten, hingga mengurus berkas reimbursement kwitansi yang tercecer.
 
-Menerapkan **Kontrak Maintenance AC Berkala** bersama mitra spesialis seperti ACNesia merupakan langkah strategis untuk memindahkan kerumitan tersebut menjadi sistem operasional yang rapi, transparan, dan terukur.
+Menerapkan **Kontrak Maintenance AC Berkala** bersama mitra spesialis seperti Sentra AC merupakan langkah strategis untuk memindahkan kerumitan tersebut menjadi sistem operasional yang rapi, transparan, dan terukur.
 
 ---
 
 ### Perbandingan: Servis Panggilan Insidental vs Kontrak Maintenance B2B
 
-| Indikator Evaluasi | Servis Panggilan Lepas (On-Demand) | Kontrak Maintenance Terjadwal ACNesia |
+| Indikator Evaluasi | Servis Panggilan Lepas (On-Demand) | Kontrak Maintenance Terjadwal Sentra AC |
 | :--- | :--- | :--- |
 | **Jadwal Eksekusi** | Reaktif (menunggu AC rusak / bocor dahulu) | Proaktif terjadwal rapi (misal: siklus 2/3 bulan) |
 | **Biaya Operasional** | Fluktuatif & sering terjadi pembengkakan tak terduga | Terprediksi (anggaran flat / fixed tahunan) |

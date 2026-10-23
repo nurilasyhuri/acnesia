@@ -5,7 +5,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://acnesia.com',
+  site: 'https://sentraac.com',
   trailingSlash: 'always',
   integrations: [
     tailwind({

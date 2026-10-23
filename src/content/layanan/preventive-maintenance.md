@@ -1,7 +1,7 @@
 ---
-title: 'Jasa Cuci AC'
-tagline: 'Cuci Steam Bertekanan, Deep Cleaning & Perawatan Berkala Terjadwal'
-description: 'Layanan jasa cuci AC steam profesional dan perawatan rutin berkala untuk menjaga udara tetap dingin higienis, mencegah bocor lendir, dan menghemat listrik kantor.'
+title: 'Jasa Cuci AC Steam & Perawatan Berkala Kantor'
+tagline: 'Cuci AC Steam Bertekanan, Deep Cleaning & Preventive Maintenance Terjadwal'
+description: 'Jasa cuci AC steam panggilan dan perawatan berkala untuk kantor, ruko, & gedung di Malang Raya agar udara dingin higienis, bebas bocor, & hemat listrik.'
 serviceType: 'Cuci Steam & Maintenance'
 heroImage: '/images/services/preventive-maintenance-ac.webp'
 orderPriority: 5
@@ -28,7 +28,7 @@ benefits:
 
 Menunggu AC rusak baru memanggil teknisi (*reactive maintenance*) adalah strategi yang sangat boros biaya bagi perusahaan. Debu dan partikel kotoran yang menumpuk di kisi-kisi evaporator memaksa kompresor bekerja lebih keras 30-40% lebih lama hanya untuk mencapai suhu ruangan yang sama, yang berujung pada lonjakan tagihan listrik bulanan dan keausan mekanis dini.
 
-Layanan **Preventive Maintenance** dari ACNesia menghadirkan pendekatan terencana untuk menjaga seluruh armada pendingin udara kantor Anda tetap prima.
+Layanan **Preventive Maintenance** dari Sentra AC menghadirkan pendekatan terencana untuk menjaga seluruh armada pendingin udara kantor Anda tetap prima.
 
 ### Manfaat Operasional Nyata untuk Bisnis:
 

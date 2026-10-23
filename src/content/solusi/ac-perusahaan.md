@@ -1,7 +1,7 @@
 ---
-title: 'Solusi AC Perusahaan & Bisnis Multi-Cabang'
+title: 'Kontrak Maintenance & Pengadaan AC Perusahaan Korporat'
 target: 'Perusahaan & Korporasi'
-description: 'Standardisasi pengadaan unit, keseragaman kualitas perawatan, dan efisiensi anggaran maintenance untuk puluhan unit AC perusahaan.'
+description: 'Layanan kontrak perawatan berkala dan pengadaan AC terpusat untuk perusahaan multi-cabang, pabrik, serta perbankan di Malang Raya dengan garansi SLA B2B.'
 heroImage: '/images/services/ac-perusahaan-solusi.webp'
 featured: true
 painPoints:
@@ -21,4 +21,4 @@ recommendedTypes:
 
 Bagi perusahaan dengan skala korporat atau jaringan bisnis multi-cabang (seperti perbankan, retail, ekspedisi, dan manufaktur), tantangan terbesar dalam tata kelola fasilitas pendingin udara adalah inkonsistensi vendor dan lonjakan biaya servis liar yang sulit dipertanggungjawabkan.
 
-ACNesia menyediakan skema kemitraan korporat yang transparan dengan satu kontrak terpadu, tarif servis terstandar, pelaporan digital, dan invoice resmi lengkap dengan Faktur Pajak.
+Sentra AC menyediakan skema kemitraan korporat yang transparan dengan satu kontrak terpadu, tarif servis terstandar, pelaporan digital, dan invoice resmi lengkap dengan Faktur Pajak.

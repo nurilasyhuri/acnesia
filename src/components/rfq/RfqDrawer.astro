@@ -1,231 +1,146 @@
 ---
-// RFQ Cart Drawer (Shopify-style Ajax Slide-over Cart for B2B AC Procurement)
 import { BUSINESS_INFO } from '../../data/businessInfo';
 ---
 
-<div id="rfq-drawer-backdrop" class="fixed inset-0 z-50 bg-slate-950/60 backdrop-blur-xs transition-opacity duration-300 opacity-0 pointer-events-none font-sans">
+<div id="rfq-drawer-backdrop" class="fixed inset-0 z-50 bg-slate-950/50 backdrop-blur-xs transition-opacity duration-200 opacity-0 pointer-events-none font-sans">
   <div
     id="rfq-drawer-panel"
-    class="fixed inset-y-0 right-0 w-full max-w-md bg-white shadow-2xl flex flex-col justify-between transform translate-x-full transition-transform duration-300 ease-out border-l border-slate-200"
+    class="fixed inset-y-0 right-0 w-full max-w-md bg-white shadow-2xl flex flex-col justify-between transform translate-x-full transition-transform duration-200 ease-out border-l border-slate-200"
     role="dialog"
     aria-modal="true"
     aria-labelledby="rfq-drawer-title"
   >
     <!-- Drawer Header -->
-    <div class="p-4 sm:p-5 border-b border-slate-200 flex items-center justify-between bg-slate-50/80">
-      <div class="flex items-center gap-2.5">
-        <div class="w-8 h-8 rounded-lg bg-red-700 text-white flex items-center justify-center font-bold text-sm shadow-xs">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-          </svg>
-        </div>
-        <div>
-          <h2 id="rfq-drawer-title" class="font-bold text-sm sm:text-base text-slate-900 leading-tight">
-            Keranjang Penawaran (RFQ)
-          </h2>
-          <p class="text-[11px] text-slate-500">
-            <span id="rfq-items-count-text">0 item</span> ditambahkan ke daftar
-          </p>
-        </div>
+    <div class="p-4 sm:p-5 border-b border-slate-200 flex items-center justify-between bg-[#020617] text-white">
+      <div>
+        <h2 id="rfq-drawer-title" class="font-bold text-sm sm:text-base text-white leading-tight">
+          Permintaan SPH &amp; Estimasi
+        </h2>
+        <p class="text-[11px] text-slate-400">
+          <span id="rfq-items-count-text">0 item</span> dalam daftar permintaan SPH
+        </p>
       </div>
 
       <button
         id="rfq-drawer-close"
         type="button"
-        aria-label="Tutup keranjang penawaran"
-        class="p-2 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-200/60 transition-colors cursor-pointer"
+        aria-label="Tutup panel SPH"
+        class="inline-flex items-center justify-center w-10 h-10 rounded-full text-slate-400 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
       >
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
     </div>
 
     <!-- Drawer Body -->
-    <div class="flex-1 overflow-y-auto p-4 sm:p-5 space-y-6">
+    <div class="flex-1 overflow-y-auto p-4 sm:p-5 space-y-5">
       <!-- Empty State -->
-      <div id="rfq-empty-state" class="py-12 text-center space-y-4">
-        <div class="w-16 h-16 mx-auto rounded-2xl bg-red-50 text-red-700 flex items-center justify-center border border-red-100">
-          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-          </svg>
-        </div>
-        <div class="space-y-1">
-          <h3 class="font-bold text-sm text-slate-900">Keranjang Penawaran Masih Kosong</h3>
-          <p class="text-xs text-slate-500 max-w-xs mx-auto leading-relaxed">
-            Pilih unit AC komersial atau paket layanan perawatan untuk mengajukan penawaran harga resmi (Quotation/RAB).
-          </p>
-        </div>
-        <div class="pt-2">
-          <a
-            href="/produk/"
-            id="rfq-browse-btn"
-            class="inline-flex items-center gap-1.5 py-2 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs transition-colors"
-          >
-            <span>Jelajahi Katalog Produk</span>
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-            </svg>
-          </a>
-        </div>
+      <div id="rfq-empty-state" class="rounded-xl bg-slate-50 border border-slate-200 p-4 text-xs text-slate-600 leading-relaxed">
+        Belum ada unit dipilih dari katalog. Anda dapat langsung mengisi rincian kebutuhan proyek di bawah ini untuk meminta Surat Penawaran Harga (SPH) resmi.
       </div>
 
       <!-- Items List -->
-      <div id="rfq-items-container" class="space-y-3 hidden">
-        <!-- Rendered via JS -->
-      </div>
+      <div id="rfq-items-container" class="space-y-2.5 hidden" aria-live="polite"></div>
 
-      <!-- Quick Add-ons (Shopify Cross-Sell Style for B2B) -->
-      <div class="pt-2 border-t border-slate-100 space-y-3">
-        <div class="flex items-center justify-between">
-          <span class="text-xs font-bold text-slate-900 uppercase tracking-wider">
-            Layanan Tambahan (Opsional)
-          </span>
-          <span class="text-[10px] text-slate-400">1-Klik Tambah</span>
-        </div>
-
-        <div class="grid grid-cols-1 gap-2">
-          <button
-            type="button"
-            class="rfq-quick-addon text-left p-2.5 rounded-xl border border-slate-200 hover:border-red-300 hover:bg-red-50/40 transition-all flex items-center justify-between group cursor-pointer"
-            data-title="Jasa Instalasi & Standar Vakum Sistem"
-            data-category="Layanan Teknik"
-            data-capacity="Sesuai Unit"
-          >
-            <div class="flex items-center gap-2.5 min-w-0">
-              <span class="w-7 h-7 rounded-lg bg-slate-100 group-hover:bg-red-100 text-slate-700 group-hover:text-red-800 flex items-center justify-center shrink-0 text-xs font-bold transition-colors">
-                🛠️
-              </span>
-              <div class="min-w-0">
-                <span class="text-xs font-semibold text-slate-800 block truncate group-hover:text-red-900">
-                  Jasa Instalasi Standar Vakum
-                </span>
-                <span class="text-[10px] text-slate-500 block truncate">
-                  Pemasangan rapi + uji kelistrikan & ampere
-                </span>
-              </div>
-            </div>
-            <span class="text-xs font-bold text-red-700 shrink-0 ml-2 group-hover:translate-x-0.5 transition-transform">
-              + Tambah
-            </span>
-          </button>
-
-          <button
-            type="button"
-            class="rfq-quick-addon text-left p-2.5 rounded-xl border border-slate-200 hover:border-red-300 hover:bg-red-50/40 transition-all flex items-center justify-between group cursor-pointer"
-            data-title="Kontrak Preventive Maintenance B2B"
-            data-category="Pemeliharaan"
-            data-capacity="Berkala"
-          >
-            <div class="flex items-center gap-2.5 min-w-0">
-              <span class="w-7 h-7 rounded-lg bg-slate-100 group-hover:bg-red-100 text-slate-700 group-hover:text-red-800 flex items-center justify-center shrink-0 text-xs font-bold transition-colors">
-                📋
-              </span>
-              <div class="min-w-0">
-                <span class="text-xs font-semibold text-slate-800 block truncate group-hover:text-red-900">
-                  Kontrak Maintenance Rutin
-                </span>
-                <span class="text-[10px] text-slate-500 block truncate">
-                  Cuci steam berkala, cek freon & audit performa
-                </span>
-              </div>
-            </div>
-            <span class="text-xs font-bold text-red-700 shrink-0 ml-2 group-hover:translate-x-0.5 transition-transform">
-              + Tambah
-            </span>
-          </button>
-        </div>
-      </div>
-
-      <!-- B2B Procurement Form Fields -->
-      <div id="rfq-form-section" class="pt-3 border-t border-slate-100 space-y-3 hidden">
-        <span class="text-xs font-bold text-slate-900 uppercase tracking-wider block">
-          Informasi Pemesan / Perusahaan
+      <!-- Checkout & B2B Form Fields -->
+      <div id="rfq-form-section" class="space-y-3">
+        <span class="text-xs font-bold text-slate-900 block">
+          Detail Pemohon &amp; Lokasi Proyek
         </span>
+
+        <p id="rfq-error-msg" role="alert" class="hidden text-xs font-semibold text-[#c2410c] bg-orange-50 border border-orange-200 rounded-lg px-3 py-2"></p>
 
         <div class="space-y-2.5 text-xs">
           <div>
             <label for="rfq-input-name" class="block font-semibold text-slate-700 mb-1">
-              Nama Lengkap / PIC <span class="text-red-600">*</span>
+              Nama Penerima / PIC <span class="text-[#c2410c]">*</span>
             </label>
             <input
               id="rfq-input-name"
               type="text"
               placeholder="Contoh: Bpk. Hendra"
-              class="w-full px-3 py-2 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:border-red-600 transition-colors"
+              class="w-full px-3 py-2 rounded-lg border border-slate-300 bg-white text-base sm:text-xs text-slate-900 focus:border-[#c2410c] transition-colors"
             />
           </div>
 
           <div>
             <label for="rfq-input-company" class="block font-semibold text-slate-700 mb-1">
-              Perusahaan / Instansi <span class="text-slate-400 font-normal">(Opsional)</span>
+              Perusahaan / Instansi <span class="text-slate-400 font-normal">(e-Faktur PPN)</span>
             </label>
             <input
               id="rfq-input-company"
               type="text"
-              placeholder="Contoh: PT. Sumber Makmur Perkasa"
-              class="w-full px-3 py-2 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:border-red-600 transition-colors"
+              placeholder="Contoh: PT Sumber Makmur"
+              class="w-full px-3 py-2 rounded-lg border border-slate-300 bg-white text-base sm:text-xs text-slate-900 focus:border-[#c2410c] transition-colors"
             />
           </div>
 
           <div>
             <label for="rfq-input-location" class="block font-semibold text-slate-700 mb-1">
-              Kota / Lokasi Pemasangan <span class="text-red-600">*</span>
+              Alamat / Lokasi Proyek <span class="text-[#c2410c]">*</span>
             </label>
             <input
               id="rfq-input-location"
               type="text"
-              placeholder="Contoh: Kota Malang / Surabaya"
-              class="w-full px-3 py-2 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:border-red-600 transition-colors"
+              placeholder="Contoh: Lowokwaru, Kota Malang / Rungkut, Surabaya"
+              class="w-full px-3 py-2 rounded-lg border border-slate-300 bg-white text-base sm:text-xs text-slate-900 focus:border-[#c2410c] transition-colors"
             />
           </div>
 
           <div>
             <label for="rfq-input-notes" class="block font-semibold text-slate-700 mb-1">
-              Catatan / Permintaan Khusus
+              Rincian Kebutuhan Unit / Sewa / Instalasi
             </label>
             <textarea
               id="rfq-input-notes"
-              rows="2"
-              placeholder="Contoh: Butuh survey lokasi gedung 3 lantai atau faktur pajak resmi"
-              class="w-full px-3 py-2 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:border-red-600 transition-colors resize-none"
+              rows="3"
+              placeholder="Contoh: Sewa 4 unit AC Standing 5 PK + Genset 40 kVA / Pengadaan 10 unit AC Split 1.5 PK"
+              class="w-full px-3 py-2 rounded-lg border border-slate-300 bg-white text-base sm:text-xs text-slate-900 focus:border-[#c2410c] transition-colors resize-none"
             ></textarea>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Drawer Footer Actions -->
-    <div class="p-4 sm:p-5 border-t border-slate-200 bg-slate-50/80 space-y-2.5">
+    <!-- Drawer Footer: Subtotal & Checkout -->
+    <div class="p-4 sm:p-5 border-t border-slate-200 bg-slate-50 space-y-3">
+      <div class="flex items-baseline justify-between">
+        <span class="text-xs font-semibold text-slate-600">Estimasi Subtotal:</span>
+        <span id="rfq-subtotal-display" class="text-base sm:text-lg font-extrabold text-slate-900">
+          Sesuai Penawaran
+        </span>
+      </div>
+
       <button
         id="rfq-submit-wa"
         type="button"
-        disabled
-        class="w-full inline-flex items-center justify-center gap-2 py-3.5 px-5 rounded-xl bg-red-700 hover:bg-red-800 disabled:bg-slate-300 disabled:cursor-not-allowed text-white font-bold text-xs sm:text-sm tracking-normal shadow-md transition-all select-none cursor-pointer"
+        class="w-full inline-flex items-center justify-center py-3.5 px-5 rounded-full bg-[#c2410c] hover:bg-[#ea580c] text-white font-bold text-xs sm:text-sm transition-colors select-none cursor-pointer"
       >
-        <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24">
-          <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2z"/>
-        </svg>
-        <span>Kirim Permintaan Penawaran (WhatsApp)</span>
+        Kirim Permintaan SPH
       </button>
 
-      <div class="flex items-center justify-between text-[11px] text-slate-500 pt-1">
+      <div class="flex items-center justify-between text-[11px] text-slate-500">
         <button
           id="rfq-clear-btn"
           type="button"
-          class="text-slate-400 hover:text-red-700 transition-colors cursor-pointer"
+          class="hidden text-slate-500 hover:text-[#c2410c] transition-colors cursor-pointer"
         >
           Kosongkan Daftar
         </button>
-        <span class="text-slate-400">Respon Resmi & Penawaran Terjadwal</span>
+        <span>SPK, BOQ &amp; e-Faktur PPN</span>
       </div>
     </div>
   </div>
 </div>
 
 <script define:vars={{ whatsappNumber: BUSINESS_INFO.whatsappNumber }}>
-  // RFQ State Management via LocalStorage
-  const STORAGE_KEY = 'acnesia_rfq_items';
+  const STORAGE_KEY = 'sentraac_rfq_items';
+
+  function formatRupiah(amount) {
+    if (!amount || amount <= 0) return 'Rp 0';
+    return 'Rp ' + Number(amount).toLocaleString('id-ID');
+  }
 
   function getItems() {
     try {
@@ -241,8 +156,18 @@ import { BUSINESS_INFO } from '../../data/businessInfo';
     renderDrawerItems(items);
   }
 
+  function calculateSubtotal(items) {
+    return items.reduce((acc, item) => {
+      const unitPrice = Number(item.price || 0);
+      const qty = Number(item.quantity || 1);
+      return acc + unitPrice * qty;
+    }, 0);
+  }
+
   function updateBadges(items) {
     const totalCount = items.reduce((acc, item) => acc + (item.quantity || 1), 0);
+    const totalRp = calculateSubtotal(items);
+
     const badges = document.querySelectorAll('.rfq-badge-counter');
     badges.forEach((el) => {
       el.textContent = totalCount.toString();
@@ -253,28 +178,39 @@ import { BUSINESS_INFO } from '../../data/businessInfo';
       }
     });
 
+    const headerSubtotal = document.getElementById('rfq-header-subtotal');
+    if (headerSubtotal) {
+      if (totalCount === 0) {
+        headerSubtotal.textContent = '0 Item';
+      } else if (totalRp > 0) {
+        headerSubtotal.textContent = formatRupiah(totalRp);
+      } else {
+        headerSubtotal.textContent = `${totalCount} Item`;
+      }
+    }
+
+    const subtotalEl = document.getElementById('rfq-subtotal-display');
+    if (subtotalEl) {
+      subtotalEl.textContent = totalRp > 0 ? formatRupiah(totalRp) : 'Sesuai Penawaran';
+    }
+
     const countText = document.getElementById('rfq-items-count-text');
     if (countText) {
-      countText.textContent = `${items.length} jenis item (${totalCount} total)`;
+      countText.textContent = `${items.length} produk (${totalCount} unit)`;
     }
 
-    const submitBtn = document.getElementById('rfq-submit-wa');
-    if (submitBtn) {
-      submitBtn.disabled = items.length === 0;
-    }
-
-    const formSection = document.getElementById('rfq-form-section');
     const emptyState = document.getElementById('rfq-empty-state');
     const itemsContainer = document.getElementById('rfq-items-container');
+    const clearBtn = document.getElementById('rfq-clear-btn');
 
     if (items.length === 0) {
       emptyState?.classList.remove('hidden');
       itemsContainer?.classList.add('hidden');
-      formSection?.classList.add('hidden');
+      clearBtn?.classList.add('hidden');
     } else {
       emptyState?.classList.add('hidden');
       itemsContainer?.classList.remove('hidden');
-      formSection?.classList.remove('hidden');
+      clearBtn?.classList.remove('hidden');
     }
   }
 
@@ -288,58 +224,66 @@ import { BUSINESS_INFO } from '../../data/businessInfo';
     }
 
     container.innerHTML = items
-      .map(
-        (item, idx) => `
-      <div class="p-3 rounded-xl border border-slate-200 bg-white flex items-start justify-between gap-3 shadow-2xs group">
+      .map((item, idx) => {
+        const qty = Number(item.quantity || 1);
+        const unitPrice = Number(item.price || 0);
+        const lineTotal = unitPrice * qty;
+        const priceLabel =
+          lineTotal > 0
+            ? formatRupiah(lineTotal)
+            : item.priceDisplay || 'Sesuai Spesifikasi';
+
+        return `
+      <div class="p-3 rounded-lg border border-slate-200 bg-white flex items-start justify-between gap-3">
         <div class="space-y-1 min-w-0 flex-1">
-          <div class="flex items-center gap-1.5 text-[10px] text-red-800 font-bold uppercase tracking-wider">
+          <div class="flex items-center gap-1.5 text-[11px] text-[#c2410c] font-semibold">
             <span>${item.category || 'Unit AC'}</span>
-            ${item.capacity ? `<span class="text-slate-300">•</span><span class="text-slate-600">${item.capacity}</span>` : ''}
+            ${item.capacity ? `<span class="text-slate-300">·</span><span class="text-slate-600">${item.capacity}</span>` : ''}
           </div>
           <h4 class="font-bold text-xs text-slate-900 leading-snug line-clamp-2">
             ${item.title}
           </h4>
-          ${item.notes ? `<p class="text-[11px] text-slate-500 italic">Catatan: ${item.notes}</p>` : ''}
-          <div class="pt-1 flex items-center gap-2">
-            <span class="text-[11px] font-semibold text-slate-500">Jumlah:</span>
-            <div class="inline-flex items-center border border-slate-200 rounded-lg bg-slate-50">
+          <div class="pt-1.5 flex items-center justify-between gap-2">
+            <div class="inline-flex items-center border border-slate-200 rounded-md bg-slate-50">
               <button
                 type="button"
                 data-change-qty="${idx}"
                 data-delta="-1"
-                class="w-6 h-6 flex items-center justify-center text-xs font-bold text-slate-600 hover:bg-slate-200 rounded-l-lg cursor-pointer"
+                aria-label="Kurangi jumlah ${item.title}"
+                class="w-7 h-7 flex items-center justify-center text-xs font-bold text-slate-700 hover:bg-slate-200 rounded-l-md cursor-pointer"
               >
                 &minus;
               </button>
-              <span class="w-8 text-center text-xs font-bold text-slate-900">${item.quantity || 1}</span>
+              <span class="w-8 text-center text-xs font-bold text-slate-900">${qty}</span>
               <button
                 type="button"
                 data-change-qty="${idx}"
                 data-delta="1"
-                class="w-6 h-6 flex items-center justify-center text-xs font-bold text-slate-600 hover:bg-slate-200 rounded-r-lg cursor-pointer"
+                aria-label="Tambah jumlah ${item.title}"
+                class="w-7 h-7 flex items-center justify-center text-xs font-bold text-slate-700 hover:bg-slate-200 rounded-r-md cursor-pointer"
               >
                 &#43;
               </button>
             </div>
+            <span class="text-xs font-extrabold text-slate-900">${priceLabel}</span>
           </div>
         </div>
 
         <button
           type="button"
           data-remove-idx="${idx}"
-          aria-label="Hapus item"
-          class="p-1.5 text-slate-400 hover:text-red-700 transition-colors rounded-lg hover:bg-red-50 cursor-pointer"
+          aria-label="Hapus ${item.title}"
+          class="p-1.5 text-slate-400 hover:text-[#c2410c] transition-colors rounded-md hover:bg-orange-50 cursor-pointer"
         >
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg aria-hidden="true" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
           </svg>
         </button>
       </div>
-    `
-      )
+    `;
+      })
       .join('');
 
-    // Attach listeners for qty change & remove
     container.querySelectorAll('[data-change-qty]').forEach((btn) => {
       btn.addEventListener('click', (e) => {
         const target = e.currentTarget;
@@ -364,15 +308,27 @@ import { BUSINESS_INFO } from '../../data/businessInfo';
     });
   }
 
-  // Drawer Open/Close Controllers
   const backdrop = document.getElementById('rfq-drawer-backdrop');
   const panel = document.getElementById('rfq-drawer-panel');
   const closeBtn = document.getElementById('rfq-drawer-close');
-  const browseBtn = document.getElementById('rfq-browse-btn');
   const clearBtn = document.getElementById('rfq-clear-btn');
   const submitWaBtn = document.getElementById('rfq-submit-wa');
+  const errorMsg = document.getElementById('rfq-error-msg');
+
+  function showError(msg) {
+    if (!errorMsg) return;
+    errorMsg.textContent = msg;
+    errorMsg.classList.remove('hidden');
+  }
+
+  function clearError() {
+    if (!errorMsg) return;
+    errorMsg.textContent = '';
+    errorMsg.classList.add('hidden');
+  }
 
   function openDrawer() {
+    clearError();
     backdrop?.classList.remove('opacity-0', 'pointer-events-none');
     backdrop?.classList.add('opacity-100');
     panel?.classList.remove('translate-x-full');
@@ -389,21 +345,18 @@ import { BUSINESS_INFO } from '../../data/businessInfo';
   }
 
   closeBtn?.addEventListener('click', closeDrawer);
-  browseBtn?.addEventListener('click', closeDrawer);
   backdrop?.addEventListener('click', (e) => {
     if (e.target === backdrop) closeDrawer();
   });
 
   clearBtn?.addEventListener('click', () => {
-    if (confirm('Kosongkan semua daftar penawaran?')) {
-      saveItems([]);
-    }
+    saveItems([]);
+    clearError();
   });
 
-  // Global event triggers
-  window.addEventListener('acnesia:open-rfq', openDrawer);
+  window.addEventListener('sentra ac:open-rfq', openDrawer);
 
-  window.addEventListener('acnesia:add-rfq', (e) => {
+  window.addEventListener('sentra ac:add-rfq', (e) => {
     const detail = e.detail;
     if (!detail || !detail.title) return;
     const current = getItems();
@@ -412,11 +365,15 @@ import { BUSINESS_INFO } from '../../data/businessInfo';
     );
     if (existingIdx >= 0) {
       current[existingIdx].quantity = (current[existingIdx].quantity || 1) + (detail.quantity || 1);
+      if (detail.price) current[existingIdx].price = Number(detail.price);
+      if (detail.priceDisplay) current[existingIdx].priceDisplay = detail.priceDisplay;
     } else {
       current.push({
         title: detail.title,
         category: detail.category || 'Unit AC',
         capacity: detail.capacity || '',
+        price: Number(detail.price || 0),
+        priceDisplay: detail.priceDisplay || '',
         quantity: detail.quantity || 1,
         notes: detail.notes || '',
       });
@@ -425,7 +382,6 @@ import { BUSINESS_INFO } from '../../data/businessInfo';
     openDrawer();
   });
 
-  // Attach triggers for all [data-open-rfq]
   document.querySelectorAll('[data-open-rfq]').forEach((el) => {
     el.addEventListener('click', (e) => {
       e.preventDefault();
@@ -433,71 +389,68 @@ import { BUSINESS_INFO } from '../../data/businessInfo';
     });
   });
 
-  // Quick addon buttons inside drawer
-  document.querySelectorAll('.rfq-quick-addon').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const title = btn.getAttribute('data-title');
-      const category = btn.getAttribute('data-category');
-      const capacity = btn.getAttribute('data-capacity');
-      window.dispatchEvent(
-        new CustomEvent('acnesia:add-rfq', {
-          detail: { title, category, capacity, quantity: 1 },
-        })
-      );
-    });
-  });
-
-  // Submit via WhatsApp
   submitWaBtn?.addEventListener('click', () => {
     const items = getItems();
-    if (items.length === 0) return;
 
-    const name = document.getElementById('rfq-input-name')?.value.trim();
-    const company = document.getElementById('rfq-input-company')?.value.trim();
-    const location = document.getElementById('rfq-input-location')?.value.trim();
-    const notes = document.getElementById('rfq-input-notes')?.value.trim();
+    const nameInput = document.getElementById('rfq-input-name');
+    const companyInput = document.getElementById('rfq-input-company');
+    const locationInput = document.getElementById('rfq-input-location');
+    const notesInput = document.getElementById('rfq-input-notes');
+
+    const name = nameInput?.value.trim();
+    const company = companyInput?.value.trim();
+    const location = locationInput?.value.trim();
+    const notes = notesInput?.value.trim();
 
     if (!name) {
-      alert('Mohon isi Nama Lengkap / PIC pemesan.');
-      document.getElementById('rfq-input-name')?.focus();
+      showError('Mohon isi Nama Penerima / PIC terlebih dahulu.');
+      nameInput?.focus();
       return;
     }
     if (!location) {
-      alert('Mohon isi Kota / Lokasi Pemasangan.');
-      document.getElementById('rfq-input-location')?.focus();
+      showError('Mohon isi Alamat / Lokasi Proyek terlebih dahulu.');
+      locationInput?.focus();
       return;
     }
 
-    let text = `Halo ACNesia, saya ingin mengajukan Permintaan Penawaran Resmi (RFQ):\n\n`;
-    text += `👤 Data Pemesan:\n`;
-    text += `• Nama PIC: ${name}\n`;
-    if (company) text += `• Perusahaan / Instansi: ${company}\n`;
-    text += `• Lokasi / Kota: ${location}\n\n`;
+    clearError();
 
-    text += `📋 Daftar Kebutuhan (${items.length} Item):\n`;
-    items.forEach((item, i) => {
-      const cap = item.capacity ? ` [${item.capacity}]` : '';
-      text += `${i + 1}. ${item.title}${cap} — Qty: ${item.quantity || 1} unit\n`;
-    });
+    const totalRp = calculateSubtotal(items);
+    let text = `Halo Tim B2B Sentra AC, saya ingin mengajukan Surat Penawaran Harga (SPH):\n\n`;
+    text += `Data Pemohon:\n`;
+    text += `- Nama PIC: ${name}\n`;
+    if (company) text += `- Perusahaan / Instansi: ${company}\n`;
+    text += `- Lokasi Proyek: ${location}\n`;
 
-    if (notes) {
-      text += `\n📝 Catatan Tambahan: ${notes}\n`;
+    if (items.length > 0) {
+      text += `\nDaftar Unit (${items.length} Item):\n`;
+      items.forEach((item, i) => {
+        const qty = Number(item.quantity || 1);
+        const lineRp = Number(item.price || 0) * qty;
+        const priceStr = lineRp > 0 ? ` — ${formatRupiah(lineRp)}` : '';
+        text += `${i + 1}. ${item.title} (x${qty})${priceStr}\n`;
+      });
+      if (totalRp > 0) {
+        text += `\nEstimasi Subtotal: ${formatRupiah(totalRp)}\n`;
+      }
     }
 
-    text += `\nMohon informasi ketersediaan unit, rincian biaya penawaran resmi (Quotation), dan konfirmasi jadwal survey jika diperlukan. Terima kasih!`;
+    if (notes) {
+      text += `\nRincian Kebutuhan: ${notes}\n`;
+    }
+
+    text += `\nMohon konfirmasi penawaran SPH dan jadwal pengiriman/pemasangan. Terima kasih.`;
 
     const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
     window.open(url, '_blank');
   });
 
-  // Global ESC shortcut
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       closeDrawer();
     }
   });
 
-  // Initial load
   const initialItems = getItems();
   updateBadges(initialItems);
   renderDrawerItems(initialItems);

@@ -4,8 +4,11 @@ export interface Props {
     title: string;
     description: string;
     category: string;
+    condition?: string;
     capacity?: string;
+    price?: number;
     priceDisplay?: string;
+    compareAtPriceDisplay?: string;
     stockStatus: string;
     thumbnail: string;
     slug: string;
@@ -19,105 +22,55 @@ const categoryLabels: Record<string, string> = {
   'ac-split': 'AC Split Wall',
   'ac-cassette': 'AC Cassette 4-Way',
   'ac-floor-standing': 'AC Floor Standing',
-  'ac-commercial': 'AC Ducted Central',
+  'ac-commercial': 'AC Ceiling & Duct',
+  'paket-jasa': 'Paket Jasa & Sewa',
 };
 
 const displayCategory = categoryLabels[product.category] || product.category;
 ---
 
-<article class="group relative h-full flex flex-col justify-between rounded-2xl bg-white border border-slate-200/90 hover:border-slate-300 p-4 shadow-2xs hover:shadow-md transition-all duration-200 font-sans">
+<a
+  href={`/produk/${product.slug}/`}
+  class="group h-full flex flex-col justify-between rounded-xl bg-white border border-slate-200 hover:border-slate-300 overflow-hidden transition-colors font-sans"
+>
   <div>
-    <!-- Product Thumbnail Image -->
-    <a href={`/produk/${product.slug}/`} class="block aspect-4/3 bg-slate-100 rounded-xl overflow-hidden relative border border-slate-200/70">
+    <div class="aspect-4/3 bg-slate-100 overflow-hidden">
       <img
         src={product.thumbnail}
-        alt={product.title}
+        alt={`Unit ${product.title} - Sentra AC`}
         width="600"
         height="450"
-        class="w-full h-full object-cover group-hover:scale-104 transition-transform duration-500 ease-out"
-        loading="lazy"
+        class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300 ease-out"
         decoding="async"
       />
-      <!-- Capacity Tag -->
-      {product.capacity && (
-        <span class="absolute top-2.5 right-2.5 px-2.5 py-1 rounded bg-white/95 text-slate-900 font-mono text-[10px] font-bold tracking-wider uppercase shadow-2xs">
-          {product.capacity}
-        </span>
-      )}
-      <!-- Stock Status Dot -->
-      <span class="absolute bottom-2.5 left-2.5 inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-white/95 text-slate-800 text-[10px] font-medium backdrop-blur-xs shadow-2xs border border-slate-200/80">
-        <span class:list={[
-          "w-1.5 h-1.5 rounded-full",
-          product.stockStatus === "ready" ? "bg-emerald-500" : product.stockStatus === "po" ? "bg-amber-500" : "bg-sky-600"
-        ]}></span>
-        <span>{product.stockStatus === "ready" ? "Ready Unit" : product.stockStatus === "po" ? "Pre-Order" : "Konsultasi"}</span>
-      </span>
-    </a>
+    </div>
 
-    <!-- Product Typography Details -->
-    <div class="pt-4 space-y-1.5">
-      <div class="flex items-center justify-between gap-2 text-[10px] font-mono">
-        <span class="font-bold text-sky-800 uppercase tracking-wider shrink-0">
+    <div class="p-4 space-y-1.5">
+      <div class="flex items-center justify-between gap-2 text-xs text-slate-500">
+        <span class="font-semibold text-[#c2410c]">
           {displayCategory}
         </span>
-        {product.brand && <span class="text-slate-400 truncate text-right">{product.brand}</span>}
+        {product.capacity && <span>{product.capacity}</span>}
       </div>
 
-      <h3 class="font-bold text-slate-900 text-sm leading-snug line-clamp-2 min-h-[2.5rem] group-hover:text-sky-800 transition-colors">
-        <a href={`/produk/${product.slug}/`} class="focus:outline-none">
-          {product.title}
-        </a>
+      <h3 class="font-bold text-slate-900 text-sm leading-snug line-clamp-2 group-hover:text-[#c2410c] transition-colors">
+        {product.title}
       </h3>
 
-      <p class="text-xs text-slate-500 line-clamp-2 leading-relaxed min-h-[2.25rem]">
+      <p class="text-xs text-slate-600 line-clamp-2 leading-relaxed">
         {product.description}
       </p>
     </div>
   </div>
 
-  <!-- Bottom Pricing & Action -->
-  <div class="pt-3.5 mt-4 border-t border-slate-100 space-y-2.5">
-    <div class="flex items-baseline justify-between gap-2">
-      <span class="text-[10px] font-mono uppercase font-semibold text-slate-400 shrink-0">Skema</span>
-      <span class="font-bold text-slate-900 text-xs truncate">
-        {product.priceDisplay || "Konsultasi & RAB"}
+  <div class="px-4 pb-4 pt-2 flex items-baseline justify-between gap-2">
+    <span class="font-bold text-slate-900 text-sm">
+      {product.priceDisplay || 'Sesuai Penawaran SPH'}
+    </span>
+    {product.compareAtPriceDisplay && (
+      <span class="text-[11px] text-slate-400 line-through">
+        {product.compareAtPriceDisplay}
       </span>
-    </div>
-
-    <div class="grid grid-cols-2 gap-2">
-      <a
-        href={`/produk/${product.slug}/`}
-        class="inline-flex items-center justify-center py-2 px-3 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-semibold transition-colors"
-      >
-        Detail
-      </a>
-      <button
-        type="button"
-        data-rfq-add
-        data-title={product.title}
-        data-category={displayCategory}
-        data-capacity={product.capacity || ''}
-        class="inline-flex items-center justify-center gap-1 py-2 px-3 rounded-lg bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold transition-colors cursor-pointer select-none"
-      >
-        <span>+ RFQ</span>
-      </button>
-    </div>
+    )}
   </div>
-</article>
-
-<script>
-  document.querySelectorAll('[data-rfq-add]').forEach((btn) => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const target = e.currentTarget as HTMLElement;
-      const title = target.getAttribute('data-title');
-      const category = target.getAttribute('data-category');
-      const capacity = target.getAttribute('data-capacity');
-      window.dispatchEvent(
-        new CustomEvent('acnesia:add-rfq', {
-          detail: { title, category, capacity, quantity: 1 },
-        })
-      );
-    });
-  });
-</script>
+</a>

@@ -1,7 +1,7 @@
 ---
-title: 'Solusi AC Gedung Komersial, Ruko & Fasilitas Publik'
+title: 'Pengadaan, Instalasi & Maintenance AC Gedung Komersial'
 target: 'Gedung & Komersial'
-description: 'Pendinginan terpadu untuk gedung bertingkat, pusat perbelanjaan, restoran, dan hotel dengan integrasi sistem ducting, cassette, dan standing.'
+description: 'Layanan pengadaan, instalasi ducting, AC cassette, floor standing, dan perawatan berkala untuk gedung bertingkat, hotel, mal, serta ruko di Malang Raya.'
 heroImage: '/images/services/ac-gedung-solusi.webp'
 featured: true
 painPoints:
@@ -20,4 +20,4 @@ recommendedTypes:
 
 Gedung komersial dan ruko perkantoran bertingkat memiliki tantangan arsitektural tersendiri, seperti jarak vertikal pipa antara lantai bawah dan atap (*rooftop*), beban panas radiasi kaca gedung, serta keterbatasan daya listrik.
 
-ACNesia memiliki tim engineer dan teknisi berpengalaman yang memahami perhitungan penurunan tekanan pipa (*pressure drop*), pemasangan *oil trap* pada pipa vertikal, serta perutean saluran pembuangan air kondensasi yang aman dari risiko rembesan beton.
+Sentra AC memiliki tim engineer dan teknisi berpengalaman yang memahami perhitungan penurunan tekanan pipa (*pressure drop*), pemasangan *oil trap* pada pipa vertikal, serta perutean saluran pembuangan air kondensasi yang aman dari risiko rembesan beton.
