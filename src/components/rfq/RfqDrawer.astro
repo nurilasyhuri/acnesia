@@ -354,9 +354,9 @@ import { BUSINESS_INFO } from '../../data/businessInfo';
     clearError();
   });
 
-  window.addEventListener('sentra ac:open-rfq', openDrawer);
+  window.addEventListener('sentraac:open-rfq', openDrawer);
 
-  window.addEventListener('sentra ac:add-rfq', (e) => {
+  window.addEventListener('sentraac:add-rfq', (e) => {
     const detail = e.detail;
     if (!detail || !detail.title) return;
     const current = getItems();

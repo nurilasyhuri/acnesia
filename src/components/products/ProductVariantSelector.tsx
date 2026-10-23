@@ -47,7 +47,7 @@ export default function ProductVariantSelector({
     const itemCapacity = currentVariant?.name || '';
     if (typeof window !== 'undefined') {
       window.dispatchEvent(
-        new CustomEvent('sentra ac:add-rfq', {
+        new CustomEvent('sentraac:add-rfq', {
           detail: {
             title: itemTitle,
             category: categoryName,

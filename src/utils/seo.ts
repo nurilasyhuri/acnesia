@@ -29,7 +29,7 @@ export function getLocalBusinessSchema() {
       height: 630,
     },
     image: [
-      `${CANONICAL_BASE}/images/hero/hero-sentra ac.webp`,
+      `${CANONICAL_BASE}/images/hero/hero-sentraac.webp`,
       `${CANONICAL_BASE}/images/og/default-og.jpg`,
     ],
     description: BUSINESS_INFO.description,
